@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+    </dependencies>
+    <scenes>
+        <!--TIFU-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="TIFU" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watchapp" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="7TQ-iq-R1T">
+                            <items>
+                                <tableRow identifier="redditCell" id="AmW-RG-yUR" customClass="NameRowController" customModule="watchapp_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="x00-wo-6PX">
+                                        <items>
+                                            <label alignment="left" text="Label" textAlignment="left" numberOfLines="0" id="d1w-pC-oNz"/>
+                                            <imageView alignment="left" id="0gQ-PJ-ULH"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="nameLabe" destination="d1w-pC-oNz" id="AYi-Gl-U7O"/>
+                                        <outlet property="postImage" destination="0gQ-PJ-ULH" id="e4G-ia-WSY"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <menu key="menu" id="CA2-iO-lml">
+                        <items>
+                            <menuItem title="Change /r/" icon="info" id="47o-po-7lr">
+                                <connections>
+                                    <action selector="changeSubreddit" destination="AgC-eL-Hgc" id="z3h-Zl-kvx"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="redditTable" destination="7TQ-iq-R1T" id="nej-aM-PzD"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Posts-->
+        <scene sceneID="PI6-05-8lD">
+            <objects>
+                <controller identifier="lorem" title="Posts" id="REJ-04-EQn" customClass="postController" customModule="watchapp_Extension">
+                    <items>
+                        <label alignment="left" text="Post" numberOfLines="0" id="AER-pV-NA4">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
+                        </label>
+                        <label width="136" alignment="left" text="Post Title" numberOfLines="0" id="XYC-nm-30e"/>
+                        <imageView alignment="left" id="wIb-5o-dFo"/>
+                        <label alignment="left" text="Comments" id="2lF-dX-hSB">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
+                        </label>
+                        <table alignment="left" id="hlc-ag-5jF">
+                            <items>
+                                <tableRow identifier="commentCell" id="SBz-eR-690" customClass="commentController" customModule="watchapp_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="0.0" id="5g6-xw-cHX">
+                                        <items>
+                                            <label alignment="left" text="User" id="9ek-DQ-Nhx">
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                            </label>
+                                            <label alignment="left" text="Content" textAlignment="left" numberOfLines="0" id="2Kh-WE-e0c"/>
+                                            <group width="1" alignment="left" id="4EE-qj-JKW">
+                                                <items>
+                                                    <label alignment="left" text="Score" id="vuB-eE-0Do">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                    <label alignment="left" text="Time" id="iXJ-hw-lZ9">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="nameLabe" destination="2Kh-WE-e0c" id="sah-0N-XjQ"/>
+                                        <outlet property="scoreLabel" destination="vuB-eE-0Do" id="qN7-8v-sB8"/>
+                                        <outlet property="timeLabel" destination="iXJ-hw-lZ9" id="P7Y-fy-vDh"/>
+                                        <outlet property="userLabel" destination="9ek-DQ-Nhx" id="YKn-2g-13g"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="commentsTable" destination="hlc-ag-5jF" id="em4-Dh-3qE"/>
+                        <outlet property="postContent" destination="XYC-nm-30e" id="1Va-Kt-tvP"/>
+                        <outlet property="postImage" destination="wIb-5o-dFo" id="c4X-cu-erW"/>
+                        <outlet property="postTitle" destination="AER-pV-NA4" id="cKd-cC-imR"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="346"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="watchapp" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Posts-->
+        <scene sceneID="M7N-WF-n0M">
+            <objects>
+                <controller identifier="subComment" title="Posts" id="xh4-hG-gSc" customClass="subCommentController" customModule="watchapp_Extension">
+                    <items>
+                        <label alignment="left" text="Comment" numberOfLines="0" id="JnZ-jx-oBb">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
+                        </label>
+                        <label width="136" alignment="left" text="s" numberOfLines="0" id="wn6-kp-3FM"/>
+                        <label alignment="left" text="Replies" id="l6H-ET-sOs">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
+                        </label>
+                        <table alignment="left" id="WbH-4W-x4k">
+                            <items>
+                                <tableRow identifier="commentCell" id="r8c-Sa-1FO" customClass="commentController" customModule="watchapp_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="6" id="cQi-Rv-hch">
+                                        <items>
+                                            <label alignment="left" text="Label " textAlignment="left" numberOfLines="0" id="GOf-FB-sHr"/>
+                                        </items>
+                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="nameLabe" destination="GOf-FB-sHr" id="zi4-16-5Af"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="commentLabel" destination="wn6-kp-3FM" id="yb2-ZY-DDL"/>
+                        <outlet property="repliesTable" destination="WbH-4W-x4k" id="TiC-l8-CS4"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="710" y="346"/>
+        </scene>
+    </scenes>
+</document>
