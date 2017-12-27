@@ -31,7 +31,7 @@ class postController: WKInterfaceController {
 		let post = context as! JSON
 		waiiiiiit = post
 		if let content = post["selftext"].string{
-			postContent.setText(content)
+			postContent.setText(content.deshittify())
 		}
 		
 		if let title = post["title"].string{
@@ -62,16 +62,22 @@ class postController: WKInterfaceController {
 							self.comments[element.1["data"]["id"].string!] = element.1["data"]
 							self.idList.append(element.1["data"]["id"].string!)
 						}
+					} else{
+						print("yeah no")
 					}
+					print(self.comments.count)
+					self.commentsTable.setAlpha(0.0)
 					self.commentsTable.setNumberOfRows(self.comments.count, withRowType: "commentCell")
 					for (index, element) in self.idList.enumerated(){
 						if let row = self.commentsTable.rowController(at: index) as? commentController{
 							if let stuff = self.comments[element]?.dictionary{
-								
 								row.nameLabe.setText(stuff["body"]?.string?.deshittify())
-								guard let score = stuff["score"] else{return}
-								row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
+								if let score = stuff["score"]{
+									
+									row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
+								}
 								row.userLabel.setText(stuff["author"]?.string)
+								
 								if let newTime = stuff["created_utc"]?.float{
 									
 									let timeInterval = NSDate().timeIntervalSince1970
@@ -89,14 +95,20 @@ class postController: WKInterfaceController {
 									}
 								}
 							} else{
-								print("haha fuck you")
+								print("haha **** you")
 							}
+						} else{
+							print("helllll no")
 						}
 					}
+					self.commentsTable.setAlpha(1.0)
+
 					
 				} catch {
 					print("Swifty json messed up... though it's totally your fault")
 				}
+			} else{
+				print("wouldn't let")
 			}
 		}
 		task.resume()
@@ -107,7 +119,7 @@ class postController: WKInterfaceController {
 	}
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		print(ids[Array(comments.keys)[rowIndex]])
-		self.pushController(withName: "subComment", context: ids[Array(comments.keys)[rowIndex]])
+		self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
 	}
 	override func didDeactivate() {
 		// This method is called when watch view controller is no longer visible
@@ -134,3 +146,4 @@ extension String{
 		
 	}
 }
+

@@ -36,15 +36,24 @@ class InterfaceController: WKInterfaceController {
 		// This method is called when watch view controller is no longer visible
 		super.didDeactivate()
 	}
-	func setupTable(_ subreddit: String = "AskReddit"){
+	func setupTable(_ subreddit: String = "askreddit"){
 		self.setTitle(subreddit)
 		
 		let url = URL(string: "https://www.reddit.com/r/\(subreddit)/.json")
 		names.removeAll()
 		images.removeAll()
+		ids.removeAll()
+		post.removeAll()
+		posts.removeAll()
 		print("her though")
 		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+			print(arc4random())
 			print(error)
+			if (error != nil){
+				self.presentAlert(withTitle: "Error", message: error?.localizedDescription, preferredStyle: .alert, actions: [WKAlertAction.init(title: "Confirm", style: WKAlertActionStyle.default, handler: {
+					print("Ho")
+				})])
+			}
 			
 			if let dat = data{
 				do {
@@ -60,6 +69,7 @@ class InterfaceController: WKInterfaceController {
 							
 						}
 					}
+					self.redditTable.setAlpha(0.0)
 					self.redditTable.setNumberOfRows(self.names.count, withRowType: "redditCell")
 					print(self.post.count)
 					for (index, _) in self.post.enumerated(){
@@ -69,6 +79,7 @@ class InterfaceController: WKInterfaceController {
 							{
 								row.nameLabe.setText(stuff["title"].string!)
 								row.postAuthor.setText(stuff["author"].string!)
+								row.postCommentCount.setText(String(stuff["num_comments"].int!) + " Comments")
 								let score = stuff["score"].int!
 								row.postScore.setText("↑ \(String(describing: score)) |")
 								if let newTime = stuff["created_utc"].float{
@@ -94,6 +105,8 @@ class InterfaceController: WKInterfaceController {
 						
 						
 					}
+					self.redditTable.setAlpha(1.0)
+					
 					
 				} catch {
 					print("done stuffed up")
@@ -117,11 +130,13 @@ class InterfaceController: WKInterfaceController {
 		}
 	}
 	@IBAction func changeSubreddit() {
-		let phrases = ["tifu", "lifeofnorman", "talesfromtechsupport"]
+		let phrases = ["tifu", "askreddit", "talesfromtechsupport"]
 		
 		presentTextInputController(withSuggestions: phrases, allowedInputMode:   WKTextInputMode.plain) { (arr: [Any]?) in
+			self.redditTable.setNumberOfRows(0, withRowType: "redditCell")
 			self.setupTable(arr?.first as! String)
 		}
+		
 	}
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		if (redditTable.rowController(at: rowIndex) as? NameRowController) != nil{
