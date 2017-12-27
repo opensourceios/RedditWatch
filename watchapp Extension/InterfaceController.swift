@@ -8,103 +8,103 @@
 
 import WatchKit
 import Foundation
-
+import SwiftyJSON
 
 class InterfaceController: WKInterfaceController {
-
+	
 	@IBOutlet var redditTable: WKInterfaceTable!
 	
 	var posts = [String: [String: Any]]()
 	var names = [String]()
 	var images = [Int: UIImage]()
+	var post = [String: JSON]()
+	var ids = [String]()
+	var imageDownloadMode = false
+	
 	override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
+		super.awake(withContext: context)
 		setupTable()
 		
 	}
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-	func setupTable(_ subreddit: String = "funny"){
+	
+	override func willActivate() {
+		// This method is called when watch view controller is about to be visible to user
+		super.willActivate()
+	}
+	
+	override func didDeactivate() {
+		// This method is called when watch view controller is no longer visible
+		super.didDeactivate()
+	}
+	func setupTable(_ subreddit: String = "AskReddit"){
 		self.setTitle(subreddit)
+		
 		let url = URL(string: "https://www.reddit.com/r/\(subreddit)/.json")
 		names.removeAll()
+		images.removeAll()
 		print("her though")
 		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-			print("here too")
-			if let data = data {
-				print("no way")
+			print(error)
+			
+			if let dat = data{
 				do {
-					print("Oh get outta town")
-					// Convert the data to JSON
-					let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-					
-					if let json = jsonSerialized {
-						if let data = json["data"] as? [String: Any]{
-							if let children = data["children"] as? NSArray{
-								for (index, element) in children.enumerated(){
-									if let ele = element as? [String: Any]{
-										if let b = ele["data"] as? [String: Any]{
-											
-											if (b["stickied"] as! Int) == 0{
-												self.names.append(b["title"]! as! String)
-												self.posts[b["title"]! as! String] = b
-											}
-											if let hint = b["post_hint"] as? String{
-												
-												if hint == "image"{
-													guard let url = b["url"] as? String else {return}
-													
-													print("Should download \(url) for row \(index)")
-													self.downloadImage(url: url, completionHandler: { image in
-														if let img = image{
-																self.images[index - 1] = img
-																
-															}
-														
-													})
-												}
-											} else{
-												print(b["post_hint"])
-											}
-										}
-									} else{
-										print("F swift honestly")
-									}
-								}
-								self.redditTable.setNumberOfRows(self.names.count, withRowType: "redditCell")
-								for (index, _) in self.names.enumerated(){
-									if let row = self.redditTable.rowController(at: index) as? NameRowController{
-										row.nameLabe.setText(self.names[index])
-										if self.images[index] != nil{
-											row.postImage.setImage(self.images[index])
-										}
-									}
-								}
-							}else{
-								print("Failed at data['children]'")
-							}
-						}else{
-							print("Failed at json[data]")
+					let json = try JSON(data: dat)
+					let children = json["data"]["children"].array
+					for element in children!{
+						
+						if !(element["data"]["stickied"].bool!){
+							self.names.append(element["data"]["title"].string!)
+							
+							self.post[element["data"]["id"].string!] = element["data"]
+							self.ids.append(element["data"]["id"].string!)
+							
 						}
 					}
-				}  catch let error as NSError {
-					print(error.localizedDescription)
+					self.redditTable.setNumberOfRows(self.names.count, withRowType: "redditCell")
+					print(self.post.count)
+					for (index, _) in self.post.enumerated(){
+						print(index)
+						if let row = self.redditTable.rowController(at: index) as? NameRowController{
+							if let stuff = self.post[self.ids[index]]
+							{
+								row.nameLabe.setText(stuff["title"].string!)
+								row.postAuthor.setText(stuff["author"].string!)
+								let score = stuff["score"].int!
+								row.postScore.setText("↑ \(String(describing: score)) |")
+								if let newTime = stuff["created_utc"].float{
+									
+									let timeInterval = NSDate().timeIntervalSince1970
+									let dif = (Float(timeInterval) - newTime)
+									
+									let time = (dif / 60 / 60)
+									
+									if time * 60 < 60{
+										print(time)
+										let timedif = String(describing: time * 60).components(separatedBy: ".").first! + "m"
+										row.postTime.setText(timedif)
+									} else {
+										let timedif = String(describing: time).components(separatedBy: ".").first! + "h"
+										row.postTime.setText(timedif)
+									}
+								}
+								
+							}
+						}
+						
+						
+						
+					}
+					
+				} catch {
+					print("done stuffed up")
 				}
-			} else if let error = error {
-				print(error.localizedDescription)
+			} else{
+				print("No go")
 			}
+			
+			
 		}
-		
 		task.resume()
-
 		
 	}
 	func downloadImage(url: String, completionHandler: (_: UIImage?) -> Void){
@@ -126,7 +126,7 @@ class InterfaceController: WKInterfaceController {
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		if (redditTable.rowController(at: rowIndex) as? NameRowController) != nil{
 			
-		//	UserDefaults.standard.set(posts[names[rowIndex]], forKey: "selectedPost")
+			//	UserDefaults.standard.set(posts[names[rowIndex]], forKey: "selectedPost")
 			if images[rowIndex] != nil{
 				print("Should attach image")
 				let image = UIImagePNGRepresentation(images[rowIndex]!)
@@ -135,7 +135,7 @@ class InterfaceController: WKInterfaceController {
 				self.pushController(withName: "lorem", context: posts[names[rowIndex]])
 			} else{
 				UserDefaults.standard.set(false, forKey: "shouldLoadImage")
-				self.pushController(withName: "lorem", context: posts[names[rowIndex]])
+				self.pushController(withName: "lorem", context: post[ids[rowIndex]])
 			}
 		}
 	}

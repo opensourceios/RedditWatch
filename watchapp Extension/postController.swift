@@ -8,17 +8,18 @@
 
 import WatchKit
 import Foundation
-
+import SwiftyJSON
 
 class postController: WKInterfaceController {
-
+	
 	@IBOutlet var postTitle: WKInterfaceLabel!
 	@IBOutlet var commentsTable: WKInterfaceTable!
 	@IBOutlet var postImage: WKInterfaceImage!
-	var comments = [String: [String]]()
-	var waiiiiiit = [String: Any]()
+	var comments = [String: JSON]()
+	var waiiiiiit = JSON()
 	@IBOutlet var postContent: WKInterfaceLabel!
 	var ids = [String: Any]()
+	var idList = [String]()
 	override func awake(withContext context: Any?) {
 		
 		if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
@@ -26,21 +27,24 @@ class postController: WKInterfaceController {
 			let realImage = UIImage(data: image)
 			postImage.setImage(realImage)
 		}
-        super.awake(withContext: context)
-		let post = context as! [String: Any]
+		super.awake(withContext: context)
+		let post = context as! JSON
 		waiiiiiit = post
-		if let content = post["selftext"] as? String{
+		if let content = post["selftext"].string{
 			postContent.setText(content)
 		}
 		
-		if let title = post["title"] as? String{
+		if let title = post["title"].string{
 			postTitle.setText(title)
 		}
-        // Configure interface objects here.
-		guard let subreddit = post["subreddit"] as? String, let id = post["id"] as? String else {return}
-		
-		getComments(subreddit: subreddit, id: id)
-    }
+		// Configure interface objects here.
+		if let subreddit = post["subreddit"].string, let id = post["id"].string {
+			getComments(subreddit: subreddit, id: id)
+		} else{
+			print("wouldn't let")
+		}
+	}
+	
 	
 	func getComments(subreddit: String, id: String){
 		let url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(id)/.json")
@@ -50,88 +54,83 @@ class postController: WKInterfaceController {
 		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
 			print("here too")
 			if let data = data {
-				print("no way")
 				do {
-					print("Oh get outta town")
-					// Convert the data to JSON
-					let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [[String : Any]]
-					if let json = jsonSerialized {
-						if let jsobn = json as? NSArray{
-							if let commentss = jsobn[1] as? [String: Any]{
-								if let data = commentss["data"] as? [String: Any]{
-									var timeString = String()
-									
-									if let children = data["children"] as? [[String: Any]]{
-										for (_, element) in children.enumerated(){
-											guard let shit = element["data"] as? [String: Any] else {print("No go"); return}
-											if let body = shit["body"] as? String{
-												
-												self.ids[body] = [shit["id"] as! String, shit["replies"] as? [String: Any]]
-												guard let score = shit["score"] as? Int else {
-													return
-												}
-												
-												let scoreInt = "↑ " + String(score) + " | "
-												let timeInterval = NSDate().timeIntervalSince1970
-												if let newTime = shit["created_utc"] as? Float{
-													
-													let dif = (Float(timeInterval) - newTime)
-													let time = (dif / 60 / 60)
-													
-													if time * 60 < 60{
-														print(time)
-														let timedif = String(describing: time * 60).components(separatedBy: ".").first! + "m"
-														self.comments[body] = [(shit["author"] as? String)!, timedif, scoreInt]
-													} else {
-														let timedif = String(describing: time).components(separatedBy: ".").first! + "h"
-														self.comments[body] = [(shit["author"] as? String)!, timedif, scoreInt]
-													}
-												}
-											}
-											
-										}
-									}
-									self.commentsTable.setNumberOfRows(self.comments.count, withRowType: "commentCell")
-									for (index, element) in self.comments.enumerated(){
-										if let row = self.commentsTable.rowController(at: index) as? commentController{
-											row.nameLabe.setText(element.key)
-											row.userLabel.setText(element.value.first!)
-											row.timeLabel.setText(element.value[1])
-											row.scoreLabel.setText(element.value[2])
-											
-										}
-									}
-									
-								}
-								
-							} else{
-								print("no")
-								
-							}
+					let json = try JSON(data: data)
+					if let da = json.array?.last!["data"]["children"]{
+						for (_, element) in da.enumerated(){
 							
+							self.comments[element.1["data"]["id"].string!] = element.1["data"]
+							self.idList.append(element.1["data"]["id"].string!)
 						}
 					}
-				}  catch let error as NSError {
-					print(error.localizedDescription)
+					self.commentsTable.setNumberOfRows(self.comments.count, withRowType: "commentCell")
+					for (index, element) in self.idList.enumerated(){
+						if let row = self.commentsTable.rowController(at: index) as? commentController{
+							if let stuff = self.comments[element]?.dictionary{
+								
+								row.nameLabe.setText(stuff["body"]?.string?.deshittify())
+								guard let score = stuff["score"] else{return}
+								row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
+								row.userLabel.setText(stuff["author"]?.string)
+								if let newTime = stuff["created_utc"]?.float{
+									
+									let timeInterval = NSDate().timeIntervalSince1970
+									let dif = (Float(timeInterval) - newTime)
+									
+									let time = (dif / 60 / 60)
+									
+									if time * 60 < 60{
+										print(time)
+										let timedif = String(describing: time * 60).components(separatedBy: ".").first! + "m"
+										row.timeLabel.setText(timedif)
+									} else {
+										let timedif = String(describing: time).components(separatedBy: ".").first! + "h"
+										row.timeLabel.setText(timedif)
+									}
+								}
+							} else{
+								print("haha fuck you")
+							}
+						}
+					}
+					
+				} catch {
+					print("Swifty json messed up... though it's totally your fault")
 				}
-			} else if let error = error {
-				print(error.localizedDescription)
 			}
 		}
-		
 		task.resume()
 	}
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
+	override func willActivate() {
+		// This method is called when watch view controller is about to be visible to user
+		super.willActivate()
+	}
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		print(ids[Array(comments.keys)[rowIndex]])
 		self.pushController(withName: "subComment", context: ids[Array(comments.keys)[rowIndex]])
 	}
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
+	override func didDeactivate() {
+		// This method is called when watch view controller is no longer visible
+		super.didDeactivate()
+	}
+	
+}
 
+extension String{
+	func deshittify() -> String{
+		let html = [
+			"&quot;"    : "\"",
+			 "&amp;"     : "&",
+			 "&apos;"    : "'",
+			 "&lt;"      : "<",
+			 "&gt;"      : ">"
+		]
+		var replacement = self
+		for (_, element) in html.enumerated(){
+			replacement = replacement.replacingOccurrences(of: element.key, with: element.value)
+		}
+		
+		return replacement
+		
+	}
 }

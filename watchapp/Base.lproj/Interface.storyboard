@@ -17,15 +17,34 @@
                         <table alignment="left" id="7TQ-iq-R1T">
                             <items>
                                 <tableRow identifier="redditCell" id="AmW-RG-yUR" customClass="NameRowController" customModule="watchapp_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="x00-wo-6PX">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="1" id="x00-wo-6PX">
                                         <items>
-                                            <label alignment="left" text="Label" textAlignment="left" numberOfLines="0" id="d1w-pC-oNz"/>
+                                            <label alignment="left" text="postAuthor" id="xgV-8f-Y9j">
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                            </label>
+                                            <label alignment="left" text="postName" textAlignment="left" numberOfLines="0" id="d1w-pC-oNz"/>
                                             <imageView alignment="left" id="0gQ-PJ-ULH"/>
+                                            <group width="1" alignment="left" id="SW0-W7-XB4">
+                                                <items>
+                                                    <label alignment="left" text="postScore" id="xrS-Sc-4S3">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                    <label alignment="left" text="postTime" id="5yz-Cg-zGX">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                </items>
+                                            </group>
                                         </items>
                                     </group>
                                     <connections>
                                         <outlet property="nameLabe" destination="d1w-pC-oNz" id="AYi-Gl-U7O"/>
+                                        <outlet property="postAuthor" destination="xgV-8f-Y9j" id="7R4-7q-cE6"/>
                                         <outlet property="postImage" destination="0gQ-PJ-ULH" id="e4G-ia-WSY"/>
+                                        <outlet property="postScore" destination="xrS-Sc-4S3" id="EKG-jx-LzL"/>
+                                        <outlet property="postTime" destination="5yz-Cg-zGX" id="EoJ-WS-Thp"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -63,7 +82,7 @@
                         <table alignment="left" id="hlc-ag-5jF">
                             <items>
                                 <tableRow identifier="commentCell" id="SBz-eR-690" customClass="commentController" customModule="watchapp_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="0.0" id="5g6-xw-cHX">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="1" id="5g6-xw-cHX">
                                         <items>
                                             <label alignment="left" text="User" id="9ek-DQ-Nhx">
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

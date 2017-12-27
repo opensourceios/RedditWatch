@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170A727AD5D713D6907813C1 /* Pods_watchapp_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1BA6604925529651FBFB44 /* Pods_watchapp_Extension.framework */; };
+		1C9B9B0805D053C70AB67070 /* Pods_watchapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AD838E8EEDAD568E8A9D4C /* Pods_watchapp.framework */; };
+		7F610F5F30865063C155AC3B /* Pods_redditwatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFABE425A7A35A00D128DCCD /* Pods_redditwatch.framework */; };
+		B7418402640724466648E5E2 /* Pods_redditwatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F8835333942FE76FC7E21 /* Pods_redditwatchTests.framework */; };
 		BE2406831FEA743000D92A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2406821FEA743000D92A34 /* AppDelegate.swift */; };
 		BE2406851FEA743000D92A34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2406841FEA743000D92A34 /* ViewController.swift */; };
 		BE2406881FEA743000D92A34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2406861FEA743000D92A34 /* Main.storyboard */; };
@@ -27,6 +31,7 @@
 		BE2406DF1FEA8BB200D92A34 /* postController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2406DE1FEA8BB200D92A34 /* postController.swift */; };
 		BE2406E21FEA9EAF00D92A34 /* commentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2406E01FEA9E3700D92A34 /* commentController.swift */; };
 		BE2406E41FEB1E5300D92A34 /* subCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2406E31FEB1E5300D92A34 /* subCommentController.swift */; };
+		C72FD277C19DCB0D03725F9F /* Pods_redditwatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574D317AF5B46AE42DE27B9A /* Pods_redditwatchUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +91,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0DF5028B3A532EB6DEA01DE8 /* Pods-watchapp Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watchapp Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-watchapp Extension/Pods-watchapp Extension.release.xcconfig"; sourceTree = "<group>"; };
+		1A8C42DD4AFA8E0E42A560C8 /* Pods-redditwatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redditwatchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-redditwatchUITests/Pods-redditwatchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1E527BE4A16074F208749941 /* Pods-redditwatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redditwatchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-redditwatchTests/Pods-redditwatchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		21AD838E8EEDAD568E8A9D4C /* Pods_watchapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_watchapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23C34A14956F1A6A0654D00C /* Pods-redditwatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redditwatchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-redditwatchTests/Pods-redditwatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		2BB85C3A8FB5110451A41B1F /* Pods-redditwatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redditwatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-redditwatch/Pods-redditwatch.debug.xcconfig"; sourceTree = "<group>"; };
+		2C1BA6604925529651FBFB44 /* Pods_watchapp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_watchapp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E4D3A7EF892986DCB5A7A84 /* Pods-redditwatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redditwatchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-redditwatchUITests/Pods-redditwatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		574D317AF5B46AE42DE27B9A /* Pods_redditwatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_redditwatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63A6D1F3B6DF4235C5FDA57D /* Pods-watchapp Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watchapp Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-watchapp Extension/Pods-watchapp Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		6F5F8835333942FE76FC7E21 /* Pods_redditwatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_redditwatchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE24067F1FEA743000D92A34 /* redditwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = redditwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2406821FEA743000D92A34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE2406841FEA743000D92A34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +131,10 @@
 		BE2406DE1FEA8BB200D92A34 /* postController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postController.swift; sourceTree = "<group>"; };
 		BE2406E01FEA9E3700D92A34 /* commentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentController.swift; sourceTree = "<group>"; };
 		BE2406E31FEB1E5300D92A34 /* subCommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subCommentController.swift; sourceTree = "<group>"; };
+		CE900D4E5A4A0F6ECE5CFBF7 /* Pods-watchapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watchapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-watchapp/Pods-watchapp.release.xcconfig"; sourceTree = "<group>"; };
+		E5C988D08F5C46F2B5A20855 /* Pods-redditwatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redditwatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-redditwatch/Pods-redditwatch.release.xcconfig"; sourceTree = "<group>"; };
+		EFABE425A7A35A00D128DCCD /* Pods_redditwatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_redditwatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0670AC59E43245C5BA4050D /* Pods-watchapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watchapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-watchapp/Pods-watchapp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F610F5F30865063C155AC3B /* Pods_redditwatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7418402640724466648E5E2 /* Pods_redditwatchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72FD277C19DCB0D03725F9F /* Pods_redditwatchUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,12 +166,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				170A727AD5D713D6907813C1 /* Pods_watchapp_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F21FB822CC84EF7145765306 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9B9B0805D053C70AB67070 /* Pods_watchapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3923084CC1636C735C5815EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BB85C3A8FB5110451A41B1F /* Pods-redditwatch.debug.xcconfig */,
+				E5C988D08F5C46F2B5A20855 /* Pods-redditwatch.release.xcconfig */,
+				1E527BE4A16074F208749941 /* Pods-redditwatchTests.debug.xcconfig */,
+				23C34A14956F1A6A0654D00C /* Pods-redditwatchTests.release.xcconfig */,
+				2E4D3A7EF892986DCB5A7A84 /* Pods-redditwatchUITests.debug.xcconfig */,
+				1A8C42DD4AFA8E0E42A560C8 /* Pods-redditwatchUITests.release.xcconfig */,
+				F0670AC59E43245C5BA4050D /* Pods-watchapp.debug.xcconfig */,
+				CE900D4E5A4A0F6ECE5CFBF7 /* Pods-watchapp.release.xcconfig */,
+				63A6D1F3B6DF4235C5FDA57D /* Pods-watchapp Extension.debug.xcconfig */,
+				0DF5028B3A532EB6DEA01DE8 /* Pods-watchapp Extension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		70F6FBAC0A97962DEB52FDFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFABE425A7A35A00D128DCCD /* Pods_redditwatch.framework */,
+				6F5F8835333942FE76FC7E21 /* Pods_redditwatchTests.framework */,
+				574D317AF5B46AE42DE27B9A /* Pods_redditwatchUITests.framework */,
+				21AD838E8EEDAD568E8A9D4C /* Pods_watchapp.framework */,
+				2C1BA6604925529651FBFB44 /* Pods_watchapp_Extension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE2406761FEA742F00D92A34 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +219,8 @@
 				BE2406B31FEA744300D92A34 /* watchapp */,
 				BE2406C21FEA744300D92A34 /* watchapp Extension */,
 				BE2406801FEA743000D92A34 /* Products */,
+				3923084CC1636C735C5815EC /* Pods */,
+				70F6FBAC0A97962DEB52FDFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,10 +302,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE2406A71FEA743000D92A34 /* Build configuration list for PBXNativeTarget "redditwatch" */;
 			buildPhases = (
+				23EB084D8E6046DCC7FCE1C6 /* [CP] Check Pods Manifest.lock */,
 				BE24067B1FEA742F00D92A34 /* Sources */,
 				BE24067C1FEA742F00D92A34 /* Frameworks */,
 				BE24067D1FEA742F00D92A34 /* Resources */,
 				BE2406D71FEA744300D92A34 /* Embed Watch Content */,
+				CDFE9E4635AE046DFF8966D7 /* [CP] Embed Pods Frameworks */,
+				8571464E4DCBD840848C86C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,9 +324,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE2406AA1FEA743000D92A34 /* Build configuration list for PBXNativeTarget "redditwatchTests" */;
 			buildPhases = (
+				100B4821C33A9CB7790EECDC /* [CP] Check Pods Manifest.lock */,
 				BE24068F1FEA743000D92A34 /* Sources */,
 				BE2406901FEA743000D92A34 /* Frameworks */,
 				BE2406911FEA743000D92A34 /* Resources */,
+				E694E3CB9B60FBF040C5C016 /* [CP] Embed Pods Frameworks */,
+				D3FF3C02E6B1C69E2FF8DCB2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,9 +345,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE2406AD1FEA743000D92A34 /* Build configuration list for PBXNativeTarget "redditwatchUITests" */;
 			buildPhases = (
+				0595A29A79DC8781F9999D46 /* [CP] Check Pods Manifest.lock */,
 				BE24069A1FEA743000D92A34 /* Sources */,
 				BE24069B1FEA743000D92A34 /* Frameworks */,
 				BE24069C1FEA743000D92A34 /* Resources */,
+				492D34A545364D9B4E25E0E5 /* [CP] Embed Pods Frameworks */,
+				C1B97AB80DAF3884144BE5BA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,8 +366,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE2406D41FEA744300D92A34 /* Build configuration list for PBXNativeTarget "watchapp" */;
 			buildPhases = (
+				5EA57BF6ED088880A3554FA6 /* [CP] Check Pods Manifest.lock */,
 				BE2406B01FEA744300D92A34 /* Resources */,
 				BE2406D31FEA744300D92A34 /* Embed App Extensions */,
+				F21FB822CC84EF7145765306 /* Frameworks */,
+				506D43935FFBD541E6D43912 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -311,9 +386,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE2406D01FEA744300D92A34 /* Build configuration list for PBXNativeTarget "watchapp Extension" */;
 			buildPhases = (
+				DE6CCEDE2714EE57B1FB9C6C /* [CP] Check Pods Manifest.lock */,
 				BE2406BA1FEA744300D92A34 /* Sources */,
 				BE2406BB1FEA744300D92A34 /* Frameworks */,
 				BE2406BC1FEA744300D92A34 /* Resources */,
+				99ED3490F7A24C9B4CE2C84B /* [CP] Embed Pods Frameworks */,
+				ECA50886DCA805EA14C9C86C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -424,6 +502,237 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0595A29A79DC8781F9999D46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-redditwatchUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		100B4821C33A9CB7790EECDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-redditwatchTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23EB084D8E6046DCC7FCE1C6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-redditwatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		492D34A545364D9B4E25E0E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-redditwatchUITests/Pods-redditwatchUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		506D43935FFBD541E6D43912 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-watchapp/Pods-watchapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5EA57BF6ED088880A3554FA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-watchapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8571464E4DCBD840848C86C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-redditwatch/Pods-redditwatch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99ED3490F7A24C9B4CE2C84B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-watchapp Extension/Pods-watchapp Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-watchapp Extension/Pods-watchapp Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1B97AB80DAF3884144BE5BA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-redditwatchUITests/Pods-redditwatchUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDFE9E4635AE046DFF8966D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-redditwatch/Pods-redditwatch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3FF3C02E6B1C69E2FF8DCB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-redditwatchTests/Pods-redditwatchTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE6CCEDE2714EE57B1FB9C6C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-watchapp Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E694E3CB9B60FBF040C5C016 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-redditwatchTests/Pods-redditwatchTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECA50886DCA805EA14C9C86C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-watchapp Extension/Pods-watchapp Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE24067B1FEA742F00D92A34 /* Sources */ = {
@@ -628,6 +937,7 @@
 		};
 		BE2406A81FEA743000D92A34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BB85C3A8FB5110451A41B1F /* Pods-redditwatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -644,6 +954,7 @@
 		};
 		BE2406A91FEA743000D92A34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5C988D08F5C46F2B5A20855 /* Pods-redditwatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -660,6 +971,7 @@
 		};
 		BE2406AB1FEA743000D92A34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E527BE4A16074F208749941 /* Pods-redditwatchTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -677,6 +989,7 @@
 		};
 		BE2406AC1FEA743000D92A34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23C34A14956F1A6A0654D00C /* Pods-redditwatchTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -694,6 +1007,7 @@
 		};
 		BE2406AE1FEA743000D92A34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E4D3A7EF892986DCB5A7A84 /* Pods-redditwatchUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -710,6 +1024,7 @@
 		};
 		BE2406AF1FEA743000D92A34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A8C42DD4AFA8E0E42A560C8 /* Pods-redditwatchUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -726,6 +1041,7 @@
 		};
 		BE2406D11FEA744300D92A34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63A6D1F3B6DF4235C5FDA57D /* Pods-watchapp Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -744,6 +1060,7 @@
 		};
 		BE2406D21FEA744300D92A34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DF5028B3A532EB6DEA01DE8 /* Pods-watchapp Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -762,6 +1079,7 @@
 		};
 		BE2406D51FEA744300D92A34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0670AC59E43245C5BA4050D /* Pods-watchapp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -785,6 +1103,7 @@
 		};
 		BE2406D61FEA744300D92A34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE900D4E5A4A0F6ECE5CFBF7 /* Pods-watchapp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

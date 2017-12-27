@@ -11,5 +11,8 @@ import WatchKit
 class NameRowController: NSObject {
 	@IBOutlet var nameLabe: WKInterfaceLabel!
 	@IBOutlet var postImage: WKInterfaceImage!
+	@IBOutlet var postScore: WKInterfaceLabel!
+	@IBOutlet var postTime: WKInterfaceLabel!
+	@IBOutlet var postAuthor: WKInterfaceLabel!
 	
 }
