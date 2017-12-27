@@ -1,0 +1,1178 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		105ECC910AAF6DCE7458E3A96C7728D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FDE7E6C756FE51216AA3F19811305B /* Foundation.framework */; };
+		1B7D2E54AC160D12260DD4FEDFF4A57F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FDE7E6C756FE51216AA3F19811305B /* Foundation.framework */; };
+		30233169368E84FF4F2784E6326FBEEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76720B026417625FB62285B73CECF0BF /* Foundation.framework */; };
+		4676A7DF4DA9A3C8BF18CAAE95F73262 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76720B026417625FB62285B73CECF0BF /* Foundation.framework */; };
+		73D7558CD7DC6B70814F2F5700AFA3EC /* Pods-watchapp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D3C68C4BC30E5A0D2F6523F80F92C079 /* Pods-watchapp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7745AED7AE42F4F3DBEC3A67486FF049 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FDE7E6C756FE51216AA3F19811305B /* Foundation.framework */; };
+		8D0AC3525C8647CCD1AB6F679A76D9A2 /* Pods-redditwatchTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D9A1C2AE8AA06E449D8AD317D07E38CD /* Pods-redditwatchTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F644972ACD7AD435322E3DD25E0A3C4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE506ECE97701EBA44FDBFF401C1A04 /* SwiftyJSON.swift */; };
+		A18BB12A7301596A10F889B74299CDA8 /* Pods-watchapp Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0BDE681874EC8EA0DA16E05D5E15F45 /* Pods-watchapp Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7202814C803799670EEB9123D713FA7 /* Pods-redditwatchUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD134C263AB14AE811D9598842F4 /* Pods-redditwatchUITests-dummy.m */; };
+		BB3403341D6B2C755C725C91E6F4A6E1 /* Pods-redditwatchUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B17D64D84E2FF2D5DCA9D258B5123A /* Pods-redditwatchUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6CED94FE84581619F16274B64957A93 /* Pods-redditwatch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA4EE9E13B9387CAA4CB03741DCE811 /* Pods-redditwatch-dummy.m */; };
+		C7EDE59B86341F0E7C0FF4B3578924C4 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B9BBA8F5B33E56C38F5546432F66B7 /* SwiftyJSON-dummy.m */; };
+		CC6D613FF7422AE9DBEC812A4BD9E4E1 /* Pods-redditwatch-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2209DE34423E4DBA9AF2635C6F1A0BA6 /* Pods-redditwatch-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE6AA7693A4A1E799B72E512126E628C /* Pods-watchapp Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0C10A3354A26D2A93E2CEA32D5F6F4 /* Pods-watchapp Extension-dummy.m */; };
+		E3C478B321BD4AEEAE012BF2A385759F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76720B026417625FB62285B73CECF0BF /* Foundation.framework */; };
+		EBE6570F6C621C90BA8EB22CC0982E7D /* Pods-redditwatchTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76593C3BC868C30ACEC12927A46F46 /* Pods-redditwatchTests-dummy.m */; };
+		EC27634A6167B2D8261F1C96D5518868 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 05CA09B061E193906653AC21FD3A94F1 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD3139AC41AD60E5860E2983A68C144E /* Pods-watchapp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66273E041D199DC6C02D3FD36A6A4501 /* Pods-watchapp-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5095875B720AE2B845E802F82CBA46B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC29AD87C8AD226FD9B9DA611BE58B1F;
+			remoteInfo = SwiftyJSON;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00F09EF9198F07347F412E1DF04DCEE7 /* Pods-redditwatch-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-redditwatch-resources.sh"; sourceTree = "<group>"; };
+		05CA09B061E193906653AC21FD3A94F1 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		060A9AC065A0C1E356AEACD3492E651D /* Pods-watchapp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-watchapp-frameworks.sh"; sourceTree = "<group>"; };
+		07EC4AB99FE1356B7604AB306AB6C1FA /* Pods_redditwatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_redditwatchUITests.framework; path = "Pods-redditwatchUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0852D1625E4CD32C6FC483B3D253EA8D /* Pods-watchapp Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-watchapp Extension-frameworks.sh"; sourceTree = "<group>"; };
+		0DD7ADD5EE4E2371DBA8A68977F85CEA /* Pods_watchapp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_watchapp_Extension.framework; path = "Pods-watchapp Extension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E669EC2AEE87664128305D385434632 /* Pods-redditwatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-redditwatchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0EEB8EE2B8C12DAC47201154932651F6 /* Pods-redditwatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-redditwatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		13D138CE6A2B696C41E26472F10945D0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CA4EE9E13B9387CAA4CB03741DCE811 /* Pods-redditwatch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-redditwatch-dummy.m"; sourceTree = "<group>"; };
+		2209DE34423E4DBA9AF2635C6F1A0BA6 /* Pods-redditwatch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-redditwatch-umbrella.h"; sourceTree = "<group>"; };
+		28F3972AAB5C8B99E6B47F0682BA72F7 /* Pods_redditwatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_redditwatch.framework; path = "Pods-redditwatch.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B4260FA49B578AF20A9EF5BF262B757 /* Pods-redditwatchUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-redditwatchUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2DAC3D6D17D591BBD5460AD4245CEC9F /* Pods-watchapp Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-watchapp Extension.modulemap"; sourceTree = "<group>"; };
+		2E7F7C62EE34D2D271E6E1234A2002B2 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		32B9BBA8F5B33E56C38F5546432F66B7 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		32DAE39D2C7F62C85CF11AAE6AC8FDDB /* Pods-redditwatchUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-redditwatchUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		39044C590463555FC5126966A80443E8 /* Pods-watchapp Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-watchapp Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3BC570541633CCB4536CF425892A8E4C /* Pods-watchapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-watchapp.release.xcconfig"; sourceTree = "<group>"; };
+		4463F2D2D082392BDA4D9D8DAA4FCBCC /* Pods-redditwatchTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-redditwatchTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		4755FD80A1BB43A49FF964A6E3585A39 /* Pods-redditwatch-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-redditwatch-frameworks.sh"; sourceTree = "<group>"; };
+		4C504315DC6EC2D8391FCF4F965A440E /* Pods-redditwatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-redditwatchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4DDCD304462DAAF37903036CDA29BD72 /* Pods-redditwatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-redditwatch.debug.xcconfig"; sourceTree = "<group>"; };
+		5318FBF3C505504B78CF034421AC7F81 /* Pods-redditwatchUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-redditwatchUITests.modulemap"; sourceTree = "<group>"; };
+		57793C6370BEF0C25CE6A9BD7C88344A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60B17D64D84E2FF2D5DCA9D258B5123A /* Pods-redditwatchUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-redditwatchUITests-umbrella.h"; sourceTree = "<group>"; };
+		6168E1A86CF73124578544FF4DE43D48 /* Pods-watchapp Extension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-watchapp Extension-resources.sh"; sourceTree = "<group>"; };
+		66273E041D199DC6C02D3FD36A6A4501 /* Pods-watchapp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-watchapp-dummy.m"; sourceTree = "<group>"; };
+		6BE463EE848025451C20455722008571 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F3694D7ED50A4E4F26D309C1C47780E /* Pods-watchapp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-watchapp-resources.sh"; sourceTree = "<group>"; };
+		7526ADEA59316E476AB2E5B61C7019A7 /* Pods-redditwatch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-redditwatch.modulemap"; sourceTree = "<group>"; };
+		76720B026417625FB62285B73CECF0BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7CED58C1E7E35F70EC7F1C10DC851319 /* Pods-watchapp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-watchapp.modulemap"; sourceTree = "<group>"; };
+		8342F54A72F74BD4DC09A559EAB4C2F7 /* Pods-redditwatchTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-redditwatchTests-frameworks.sh"; sourceTree = "<group>"; };
+		8BB4A18B786424510CFA35BFBA67F225 /* Pods-redditwatch-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-redditwatch-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8BE253AD4B08C93C5D0927BE440AEBEF /* Pods-watchapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-watchapp.debug.xcconfig"; sourceTree = "<group>"; };
+		8E67BD55708A32C95AF3EC9BFA1A59E3 /* Pods-redditwatchTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-redditwatchTests.modulemap"; sourceTree = "<group>"; };
+		9143C9A21B20CEDACF385AA43214F248 /* Pods-redditwatchTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-redditwatchTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94B6BD134C263AB14AE811D9598842F4 /* Pods-redditwatchUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-redditwatchUITests-dummy.m"; sourceTree = "<group>"; };
+		954C0CF9F4D0D914920E7A9B54F70451 /* Pods-watchapp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-watchapp-acknowledgements.plist"; sourceTree = "<group>"; };
+		9AA430B9E00B76BCA0CADAED85815D2A /* Pods-redditwatch-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-redditwatch-acknowledgements.plist"; sourceTree = "<group>"; };
+		9BFEF9866C9A0CB9E1986FB4947985B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A325CEDE98E612E53E147EDE027FD837 /* Pods-watchapp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-watchapp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A9C7425C0D7AC1BE5F4CD1D969EA749A /* Pods-redditwatchUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-redditwatchUITests-resources.sh"; sourceTree = "<group>"; };
+		B6F2F9F3D630944CE37255C87A3A154F /* Pods-redditwatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-redditwatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BBF610E40BDF6E542FA21FF7E5491205 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		BCE6EDD363FF212EAE5149FD69788AAD /* Pods-redditwatchTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-redditwatchTests-resources.sh"; sourceTree = "<group>"; };
+		BDE506ECE97701EBA44FDBFF401C1A04 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		C4A9A658C966F6BB111BEDBDEA1F874A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C634C1C71BF6B39CD1F60FD08F7ABB47 /* Pods-watchapp Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-watchapp Extension.release.xcconfig"; sourceTree = "<group>"; };
+		C68FB6ED571766DD55C4DF4730FD6353 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB0345B9CB125C9B4158EF1909BA817A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D032A29E584B77AE187E586922267CF5 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		D0FDE7E6C756FE51216AA3F19811305B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D1E49A708AE2632B2581563D23C53A23 /* Pods-watchapp Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-watchapp Extension-acknowledgements.plist"; sourceTree = "<group>"; };
+		D3C68C4BC30E5A0D2F6523F80F92C079 /* Pods-watchapp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-watchapp-umbrella.h"; sourceTree = "<group>"; };
+		D43CCC42AA8A18071AE78921923E62B9 /* Pods-redditwatchUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-redditwatchUITests-frameworks.sh"; sourceTree = "<group>"; };
+		D9A1C2AE8AA06E449D8AD317D07E38CD /* Pods-redditwatchTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-redditwatchTests-umbrella.h"; sourceTree = "<group>"; };
+		DABBB5CA54FFBFC298EA3A198450EDEC /* Pods-redditwatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-redditwatch.release.xcconfig"; sourceTree = "<group>"; };
+		E0BDE681874EC8EA0DA16E05D5E15F45 /* Pods-watchapp Extension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-watchapp Extension-umbrella.h"; sourceTree = "<group>"; };
+		E22640ECD312612584B3C96C2ED02454 /* Pods_redditwatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_redditwatchTests.framework; path = "Pods-redditwatchTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED76593C3BC868C30ACEC12927A46F46 /* Pods-redditwatchTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-redditwatchTests-dummy.m"; sourceTree = "<group>"; };
+		F7481D8BACA8ADDFDACE08F875D8C60B /* Pods_watchapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_watchapp.framework; path = "Pods-watchapp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD5AF64B7693257AD5AB59269A9A1EE4 /* Pods-watchapp Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-watchapp Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		FE0C10A3354A26D2A93E2CEA32D5F6F4 /* Pods-watchapp Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-watchapp Extension-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33378AB6990E3EC3B81CAA90105B054F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3C478B321BD4AEEAE012BF2A385759F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42C05500878B04E02371305EE73281CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				105ECC910AAF6DCE7458E3A96C7728D4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC9C794E63A2E185A32E54535E0A6EE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4676A7DF4DA9A3C8BF18CAAE95F73262 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEE3FCAA47D15422EE9AEE607DD400C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30233169368E84FF4F2784E6326FBEEB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA1C4A4CEC14C667DBB7F494FCF06549 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7745AED7AE42F4F3DBEC3A67486FF049 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F55F275BC5C209DF383933DD8161ED02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B7D2E54AC160D12260DD4FEDFF4A57F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27904DE11AA72E44FE64F8EF3907B6C0 /* Pods-redditwatch */ = {
+			isa = PBXGroup;
+			children = (
+				9BFEF9866C9A0CB9E1986FB4947985B0 /* Info.plist */,
+				7526ADEA59316E476AB2E5B61C7019A7 /* Pods-redditwatch.modulemap */,
+				8BB4A18B786424510CFA35BFBA67F225 /* Pods-redditwatch-acknowledgements.markdown */,
+				9AA430B9E00B76BCA0CADAED85815D2A /* Pods-redditwatch-acknowledgements.plist */,
+				1CA4EE9E13B9387CAA4CB03741DCE811 /* Pods-redditwatch-dummy.m */,
+				4755FD80A1BB43A49FF964A6E3585A39 /* Pods-redditwatch-frameworks.sh */,
+				00F09EF9198F07347F412E1DF04DCEE7 /* Pods-redditwatch-resources.sh */,
+				2209DE34423E4DBA9AF2635C6F1A0BA6 /* Pods-redditwatch-umbrella.h */,
+				4DDCD304462DAAF37903036CDA29BD72 /* Pods-redditwatch.debug.xcconfig */,
+				DABBB5CA54FFBFC298EA3A198450EDEC /* Pods-redditwatch.release.xcconfig */,
+			);
+			name = "Pods-redditwatch";
+			path = "Target Support Files/Pods-redditwatch";
+			sourceTree = "<group>";
+		};
+		361AFE745158E1255264ED822576ECCD /* Pods-watchapp Extension */ = {
+			isa = PBXGroup;
+			children = (
+				57793C6370BEF0C25CE6A9BD7C88344A /* Info.plist */,
+				2DAC3D6D17D591BBD5460AD4245CEC9F /* Pods-watchapp Extension.modulemap */,
+				39044C590463555FC5126966A80443E8 /* Pods-watchapp Extension-acknowledgements.markdown */,
+				D1E49A708AE2632B2581563D23C53A23 /* Pods-watchapp Extension-acknowledgements.plist */,
+				FE0C10A3354A26D2A93E2CEA32D5F6F4 /* Pods-watchapp Extension-dummy.m */,
+				0852D1625E4CD32C6FC483B3D253EA8D /* Pods-watchapp Extension-frameworks.sh */,
+				6168E1A86CF73124578544FF4DE43D48 /* Pods-watchapp Extension-resources.sh */,
+				E0BDE681874EC8EA0DA16E05D5E15F45 /* Pods-watchapp Extension-umbrella.h */,
+				FD5AF64B7693257AD5AB59269A9A1EE4 /* Pods-watchapp Extension.debug.xcconfig */,
+				C634C1C71BF6B39CD1F60FD08F7ABB47 /* Pods-watchapp Extension.release.xcconfig */,
+			);
+			name = "Pods-watchapp Extension";
+			path = "Target Support Files/Pods-watchapp Extension";
+			sourceTree = "<group>";
+		};
+		482EA88B9136A5A573514953C7FCB52D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D0FDE7E6C756FE51216AA3F19811305B /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		665138148E3BE9976A76E6C5BB5013A4 /* Pods-redditwatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				C68FB6ED571766DD55C4DF4730FD6353 /* Info.plist */,
+				8E67BD55708A32C95AF3EC9BFA1A59E3 /* Pods-redditwatchTests.modulemap */,
+				9143C9A21B20CEDACF385AA43214F248 /* Pods-redditwatchTests-acknowledgements.markdown */,
+				4463F2D2D082392BDA4D9D8DAA4FCBCC /* Pods-redditwatchTests-acknowledgements.plist */,
+				ED76593C3BC868C30ACEC12927A46F46 /* Pods-redditwatchTests-dummy.m */,
+				8342F54A72F74BD4DC09A559EAB4C2F7 /* Pods-redditwatchTests-frameworks.sh */,
+				BCE6EDD363FF212EAE5149FD69788AAD /* Pods-redditwatchTests-resources.sh */,
+				D9A1C2AE8AA06E449D8AD317D07E38CD /* Pods-redditwatchTests-umbrella.h */,
+				0E669EC2AEE87664128305D385434632 /* Pods-redditwatchTests.debug.xcconfig */,
+				0EEB8EE2B8C12DAC47201154932651F6 /* Pods-redditwatchTests.release.xcconfig */,
+			);
+			name = "Pods-redditwatchTests";
+			path = "Target Support Files/Pods-redditwatchTests";
+			sourceTree = "<group>";
+		};
+		70A8E4D3C62B6C203D238581DA091C21 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				BDE506ECE97701EBA44FDBFF401C1A04 /* SwiftyJSON.swift */,
+				8EC39E1DC11846207722B71AAFE40F98 /* Support Files */,
+			);
+			name = SwiftyJSON;
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		74106572A4A913D6689AB336F11CC75E /* Pods-watchapp */ = {
+			isa = PBXGroup;
+			children = (
+				CB0345B9CB125C9B4158EF1909BA817A /* Info.plist */,
+				7CED58C1E7E35F70EC7F1C10DC851319 /* Pods-watchapp.modulemap */,
+				A325CEDE98E612E53E147EDE027FD837 /* Pods-watchapp-acknowledgements.markdown */,
+				954C0CF9F4D0D914920E7A9B54F70451 /* Pods-watchapp-acknowledgements.plist */,
+				66273E041D199DC6C02D3FD36A6A4501 /* Pods-watchapp-dummy.m */,
+				060A9AC065A0C1E356AEACD3492E651D /* Pods-watchapp-frameworks.sh */,
+				6F3694D7ED50A4E4F26D309C1C47780E /* Pods-watchapp-resources.sh */,
+				D3C68C4BC30E5A0D2F6523F80F92C079 /* Pods-watchapp-umbrella.h */,
+				8BE253AD4B08C93C5D0927BE440AEBEF /* Pods-watchapp.debug.xcconfig */,
+				3BC570541633CCB4536CF425892A8E4C /* Pods-watchapp.release.xcconfig */,
+			);
+			name = "Pods-watchapp";
+			path = "Target Support Files/Pods-watchapp";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				8F91EE078EA3977443D1BDC2601132EF /* Frameworks */,
+				BD1E3C710F12F4B4C092FC8E2AD22110 /* Pods */,
+				9663C11CBF911A9C9D2203ED7AB7EE4D /* Products */,
+				95915660CEC9580021472AD199223E61 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8EC39E1DC11846207722B71AAFE40F98 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4A9A658C966F6BB111BEDBDEA1F874A /* Info.plist */,
+				D032A29E584B77AE187E586922267CF5 /* SwiftyJSON.modulemap */,
+				2E7F7C62EE34D2D271E6E1234A2002B2 /* SwiftyJSON.xcconfig */,
+				32B9BBA8F5B33E56C38F5546432F66B7 /* SwiftyJSON-dummy.m */,
+				BBF610E40BDF6E542FA21FF7E5491205 /* SwiftyJSON-prefix.pch */,
+				05CA09B061E193906653AC21FD3A94F1 /* SwiftyJSON-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyJSON";
+			sourceTree = "<group>";
+		};
+		8F91EE078EA3977443D1BDC2601132EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				482EA88B9136A5A573514953C7FCB52D /* iOS */,
+				FD9E2CBABDA1AB35BAD3C3F041262069 /* watchOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95915660CEC9580021472AD199223E61 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				27904DE11AA72E44FE64F8EF3907B6C0 /* Pods-redditwatch */,
+				665138148E3BE9976A76E6C5BB5013A4 /* Pods-redditwatchTests */,
+				C031A2A16AC8A62B3679F85817885425 /* Pods-redditwatchUITests */,
+				74106572A4A913D6689AB336F11CC75E /* Pods-watchapp */,
+				361AFE745158E1255264ED822576ECCD /* Pods-watchapp Extension */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		9663C11CBF911A9C9D2203ED7AB7EE4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28F3972AAB5C8B99E6B47F0682BA72F7 /* Pods_redditwatch.framework */,
+				E22640ECD312612584B3C96C2ED02454 /* Pods_redditwatchTests.framework */,
+				07EC4AB99FE1356B7604AB306AB6C1FA /* Pods_redditwatchUITests.framework */,
+				F7481D8BACA8ADDFDACE08F875D8C60B /* Pods_watchapp.framework */,
+				0DD7ADD5EE4E2371DBA8A68977F85CEA /* Pods_watchapp_Extension.framework */,
+				13D138CE6A2B696C41E26472F10945D0 /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD1E3C710F12F4B4C092FC8E2AD22110 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70A8E4D3C62B6C203D238581DA091C21 /* SwiftyJSON */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C031A2A16AC8A62B3679F85817885425 /* Pods-redditwatchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6BE463EE848025451C20455722008571 /* Info.plist */,
+				5318FBF3C505504B78CF034421AC7F81 /* Pods-redditwatchUITests.modulemap */,
+				2B4260FA49B578AF20A9EF5BF262B757 /* Pods-redditwatchUITests-acknowledgements.markdown */,
+				32DAE39D2C7F62C85CF11AAE6AC8FDDB /* Pods-redditwatchUITests-acknowledgements.plist */,
+				94B6BD134C263AB14AE811D9598842F4 /* Pods-redditwatchUITests-dummy.m */,
+				D43CCC42AA8A18071AE78921923E62B9 /* Pods-redditwatchUITests-frameworks.sh */,
+				A9C7425C0D7AC1BE5F4CD1D969EA749A /* Pods-redditwatchUITests-resources.sh */,
+				60B17D64D84E2FF2D5DCA9D258B5123A /* Pods-redditwatchUITests-umbrella.h */,
+				B6F2F9F3D630944CE37255C87A3A154F /* Pods-redditwatchUITests.debug.xcconfig */,
+				4C504315DC6EC2D8391FCF4F965A440E /* Pods-redditwatchUITests.release.xcconfig */,
+			);
+			name = "Pods-redditwatchUITests";
+			path = "Target Support Files/Pods-redditwatchUITests";
+			sourceTree = "<group>";
+		};
+		FD9E2CBABDA1AB35BAD3C3F041262069 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				76720B026417625FB62285B73CECF0BF /* Foundation.framework */,
+			);
+			name = watchOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5556F68250E20A9FC12585C289F543FA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0AC3525C8647CCD1AB6F679A76D9A2 /* Pods-redditwatchTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CCD8D67DAF9E0B93B94798CE87E9610 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A18BB12A7301596A10F889B74299CDA8 /* Pods-watchapp Extension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6022C8DC06D978323A97021A2D7E039F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB3403341D6B2C755C725C91E6F4A6E1 /* Pods-redditwatchUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BC3E79EBD267DF1173BE1628CC527E9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC27634A6167B2D8261F1C96D5518868 /* SwiftyJSON-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EA43805485A44128B87A998D05DC564 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73D7558CD7DC6B70814F2F5700AFA3EC /* Pods-watchapp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CA810204B157235A3B1DD83BE011CA3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC6D613FF7422AE9DBEC812A4BD9E4E1 /* Pods-redditwatch-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		12B0276C7D61324294F59B65F34DC2F1 /* Pods-watchapp Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CA7DF8BC8069C7A1F26E364FD305CA6 /* Build configuration list for PBXNativeTarget "Pods-watchapp Extension" */;
+			buildPhases = (
+				62443B946F56AA7D25323A7E4E806679 /* Sources */,
+				33378AB6990E3EC3B81CAA90105B054F /* Frameworks */,
+				5CCD8D67DAF9E0B93B94798CE87E9610 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F835191F9917792CEA23D4212FE9612F /* PBXTargetDependency */,
+			);
+			name = "Pods-watchapp Extension";
+			productName = "Pods-watchapp Extension";
+			productReference = 0DD7ADD5EE4E2371DBA8A68977F85CEA /* Pods_watchapp_Extension.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5CB0C3F43805A4CFA8F61DE514A4E41D /* Pods-redditwatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2274CB484187878684B6BCD8D8EA716F /* Build configuration list for PBXNativeTarget "Pods-redditwatch" */;
+			buildPhases = (
+				0999842B2581348916B49B93A18A9703 /* Sources */,
+				EA1C4A4CEC14C667DBB7F494FCF06549 /* Frameworks */,
+				8CA810204B157235A3B1DD83BE011CA3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-redditwatch";
+			productName = "Pods-redditwatch";
+			productReference = 28F3972AAB5C8B99E6B47F0682BA72F7 /* Pods_redditwatch.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		62609DC8E721120BFEED3357FC92B3B8 /* Pods-watchapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18D515974308B3763A29DAA92B09F8AE /* Build configuration list for PBXNativeTarget "Pods-watchapp" */;
+			buildPhases = (
+				D7E6DD1022369889E4E31C00B02E15E0 /* Sources */,
+				BC9C794E63A2E185A32E54535E0A6EE4 /* Frameworks */,
+				7EA43805485A44128B87A998D05DC564 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-watchapp";
+			productName = "Pods-watchapp";
+			productReference = F7481D8BACA8ADDFDACE08F875D8C60B /* Pods_watchapp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B81CF74E27D70BB5E7001DD85E3EC03E /* Pods-redditwatchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F94E44C65F8C0C56F2F5FC1D08F05F4E /* Build configuration list for PBXNativeTarget "Pods-redditwatchUITests" */;
+			buildPhases = (
+				BD0499B4472CB62BC0BF1A0FF5A235DD /* Sources */,
+				42C05500878B04E02371305EE73281CA /* Frameworks */,
+				6022C8DC06D978323A97021A2D7E039F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-redditwatchUITests";
+			productName = "Pods-redditwatchUITests";
+			productReference = 07EC4AB99FE1356B7604AB306AB6C1FA /* Pods_redditwatchUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BCFC43CC055A1EDB401151E808EE5DB1 /* Pods-redditwatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7BB9A53637212A93C3F582B7D68CE19 /* Build configuration list for PBXNativeTarget "Pods-redditwatchTests" */;
+			buildPhases = (
+				F687CB6A086EDEAA1E68F06170EF8CA9 /* Sources */,
+				F55F275BC5C209DF383933DD8161ED02 /* Frameworks */,
+				5556F68250E20A9FC12585C289F543FA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-redditwatchTests";
+			productName = "Pods-redditwatchTests";
+			productReference = E22640ECD312612584B3C96C2ED02454 /* Pods_redditwatchTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DC29AD87C8AD226FD9B9DA611BE58B1F /* SwiftyJSON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE4B6BE8B6CCC9C3EF4ABF02BDBC4747 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildPhases = (
+				DC01DFCB92AFDA9F893EF2C26DE4E5B7 /* Sources */,
+				DEE3FCAA47D15422EE9AEE607DD400C5 /* Frameworks */,
+				6BC3E79EBD267DF1173BE1628CC527E9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyJSON;
+			productName = SwiftyJSON;
+			productReference = 13D138CE6A2B696C41E26472F10945D0 /* SwiftyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 9663C11CBF911A9C9D2203ED7AB7EE4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CB0C3F43805A4CFA8F61DE514A4E41D /* Pods-redditwatch */,
+				BCFC43CC055A1EDB401151E808EE5DB1 /* Pods-redditwatchTests */,
+				B81CF74E27D70BB5E7001DD85E3EC03E /* Pods-redditwatchUITests */,
+				62609DC8E721120BFEED3357FC92B3B8 /* Pods-watchapp */,
+				12B0276C7D61324294F59B65F34DC2F1 /* Pods-watchapp Extension */,
+				DC29AD87C8AD226FD9B9DA611BE58B1F /* SwiftyJSON */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0999842B2581348916B49B93A18A9703 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6CED94FE84581619F16274B64957A93 /* Pods-redditwatch-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62443B946F56AA7D25323A7E4E806679 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE6AA7693A4A1E799B72E512126E628C /* Pods-watchapp Extension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD0499B4472CB62BC0BF1A0FF5A235DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7202814C803799670EEB9123D713FA7 /* Pods-redditwatchUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7E6DD1022369889E4E31C00B02E15E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD3139AC41AD60E5860E2983A68C144E /* Pods-watchapp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC01DFCB92AFDA9F893EF2C26DE4E5B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7EDE59B86341F0E7C0FF4B3578924C4 /* SwiftyJSON-dummy.m in Sources */,
+				8F644972ACD7AD435322E3DD25E0A3C4 /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F687CB6A086EDEAA1E68F06170EF8CA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBE6570F6C621C90BA8EB22CC0982E7D /* Pods-redditwatchTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F835191F9917792CEA23D4212FE9612F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = DC29AD87C8AD226FD9B9DA611BE58B1F /* SwiftyJSON */;
+			targetProxy = 5095875B720AE2B845E802F82CBA46B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		119B0A4A07B3EDCF7BA5962C208EAD06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD5AF64B7693257AD5AB59269A9A1EE4 /* Pods-watchapp Extension.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-watchapp Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-watchapp Extension/Pods-watchapp Extension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_watchapp_Extension;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		2E97BEEC40297F627A83AC3591ADB94C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C504315DC6EC2D8391FCF4F965A440E /* Pods-redditwatchUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-redditwatchUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-redditwatchUITests/Pods-redditwatchUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_redditwatchUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		42A9F81CB2AD32E0CB2A01AAAD5EB7CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BC570541633CCB4536CF425892A8E4C /* Pods-watchapp.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-watchapp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-watchapp/Pods-watchapp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_watchapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		47776D1A6A3EB8594D9B6E0C325ECFF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EEB8EE2B8C12DAC47201154932651F6 /* Pods-redditwatchTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-redditwatchTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-redditwatchTests/Pods-redditwatchTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_redditwatchTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5536ADEC42ABC7A97EAEE899543ABCF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		57409CED27A33A29DBF9853EE34B892C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C634C1C71BF6B39CD1F60FD08F7ABB47 /* Pods-watchapp Extension.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-watchapp Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-watchapp Extension/Pods-watchapp Extension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_watchapp_Extension;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		5E4D7B55A2792648DAC37DEAA4F6CA23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E7F7C62EE34D2D271E6E1234A2002B2 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		6B68CF02EFBA1B01D26B597D74CE2A0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BE253AD4B08C93C5D0927BE440AEBEF /* Pods-watchapp.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-watchapp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-watchapp/Pods-watchapp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_watchapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		7BABFABE47F454499B3F1004BB85F11C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		9AE1FF37DCC0155116930B413AE97533 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DDCD304462DAAF37903036CDA29BD72 /* Pods-redditwatch.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-redditwatch/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-redditwatch/Pods-redditwatch.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_redditwatch;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9F11717AE587244D4CB7A0FD5292C7C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E669EC2AEE87664128305D385434632 /* Pods-redditwatchTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-redditwatchTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-redditwatchTests/Pods-redditwatchTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_redditwatchTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AC018FD8447076C6ECED87A78CFE3070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DABBB5CA54FFBFC298EA3A198450EDEC /* Pods-redditwatch.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-redditwatch/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-redditwatch/Pods-redditwatch.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_redditwatch;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BBCC2FCC25024320C76E253F0D585CAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6F2F9F3D630944CE37255C87A3A154F /* Pods-redditwatchUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-redditwatchUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-redditwatchUITests/Pods-redditwatchUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_redditwatchUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FB3CF1B37BABE6ED76024074AB007D5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E7F7C62EE34D2D271E6E1234A2002B2 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18D515974308B3763A29DAA92B09F8AE /* Build configuration list for PBXNativeTarget "Pods-watchapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B68CF02EFBA1B01D26B597D74CE2A0B /* Debug */,
+				42A9F81CB2AD32E0CB2A01AAAD5EB7CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2274CB484187878684B6BCD8D8EA716F /* Build configuration list for PBXNativeTarget "Pods-redditwatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AE1FF37DCC0155116930B413AE97533 /* Debug */,
+				AC018FD8447076C6ECED87A78CFE3070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5536ADEC42ABC7A97EAEE899543ABCF3 /* Debug */,
+				7BABFABE47F454499B3F1004BB85F11C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3CA7DF8BC8069C7A1F26E364FD305CA6 /* Build configuration list for PBXNativeTarget "Pods-watchapp Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				119B0A4A07B3EDCF7BA5962C208EAD06 /* Debug */,
+				57409CED27A33A29DBF9853EE34B892C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE4B6BE8B6CCC9C3EF4ABF02BDBC4747 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB3CF1B37BABE6ED76024074AB007D5C /* Debug */,
+				5E4D7B55A2792648DAC37DEAA4F6CA23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7BB9A53637212A93C3F582B7D68CE19 /* Build configuration list for PBXNativeTarget "Pods-redditwatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F11717AE587244D4CB7A0FD5292C7C0 /* Debug */,
+				47776D1A6A3EB8594D9B6E0C325ECFF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F94E44C65F8C0C56F2F5FC1D08F05F4E /* Build configuration list for PBXNativeTarget "Pods-redditwatchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBCC2FCC25024320C76E253F0D585CAA /* Debug */,
+				2E97BEEC40297F627A83AC3591ADB94C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

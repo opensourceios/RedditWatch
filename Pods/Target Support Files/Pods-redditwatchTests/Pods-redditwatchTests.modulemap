@@ -1,0 +1,6 @@
+framework module Pods_redditwatchTests {
+  umbrella header "Pods-redditwatchTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

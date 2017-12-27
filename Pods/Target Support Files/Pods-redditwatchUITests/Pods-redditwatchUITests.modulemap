@@ -1,0 +1,6 @@
+framework module Pods_redditwatchUITests {
+  umbrella header "Pods-redditwatchUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
