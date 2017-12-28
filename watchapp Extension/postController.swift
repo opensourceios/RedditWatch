@@ -76,7 +76,9 @@ class postController: WKInterfaceController {
 									
 									row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
 								}
-								row.replyCount.setText("\(stuff["children"]?.array?.count) Replies")
+								guard let replyCount = stuff["replies"]!["data"]["children"].array?.count else {return}
+								
+								row.replyCount.setText("-> \(String(describing: replyCount)) Replies")
 								row.userLabel.setText(stuff["author"]?.string)
 								
 								if let newTime = stuff["created_utc"]?.float{

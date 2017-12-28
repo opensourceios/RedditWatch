@@ -19,7 +19,7 @@ class subCommentController: WKInterfaceController {
 	@IBOutlet var repliesTable: WKInterfaceTable!
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
-		
+		print(context)
 		if let js = context as? JSON{
 			commentLabel.setText(js["body"].string!)
 			//	print(js["replies"])
@@ -74,6 +74,10 @@ class subCommentController: WKInterfaceController {
 	override func didDeactivate() {
 		// This method is called when watch view controller is no longer visible
 		super.didDeactivate()
+	}
+	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+		self.setTitle("Comments")
+		self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
 	}
 	
 }
