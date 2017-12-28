@@ -47,7 +47,6 @@ class InterfaceController: WKInterfaceController {
 		posts.removeAll()
 		print("her though")
 		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-			print(arc4random())
 			print(error)
 			if (error != nil){
 				self.presentAlert(withTitle: "Error", message: error?.localizedDescription, preferredStyle: .alert, actions: [WKAlertAction.init(title: "Confirm", style: WKAlertActionStyle.default, handler: {

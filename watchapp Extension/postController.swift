@@ -67,7 +67,7 @@ class postController: WKInterfaceController {
 					}
 					print(self.comments.count)
 					self.commentsTable.setAlpha(0.0)
-					self.commentsTable.setNumberOfRows(self.comments.count, withRowType: "commentCell")
+					self.commentsTable.setNumberOfRows(self.comments.count - 1, withRowType: "commentCell")
 					for (index, element) in self.idList.enumerated(){
 						if let row = self.commentsTable.rowController(at: index) as? commentController{
 							if let stuff = self.comments[element]?.dictionary{
@@ -76,6 +76,7 @@ class postController: WKInterfaceController {
 									
 									row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
 								}
+								row.replyCount.setText("\(stuff["children"]?.array?.count) Replies")
 								row.userLabel.setText(stuff["author"]?.string)
 								
 								if let newTime = stuff["created_utc"]?.float{

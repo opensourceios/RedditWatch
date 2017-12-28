@@ -14,4 +14,5 @@ class commentController: NSObject {
 	@IBOutlet var nameLabe: WKInterfaceLabel!
 	@IBOutlet var timeLabel: WKInterfaceLabel!
 	@IBOutlet var scoreLabel: WKInterfaceLabel!
+	@IBOutlet var replyCount: WKInterfaceLabel!
 }
