@@ -39,6 +39,7 @@ class subCommentController: WKInterfaceController {
 					guard let body = comment["body"].string, let score = comment["score"].int, let user = comment["author"].string else{
 						
 						return}
+					
 					row.nameLabe.setText(body)
 					row.scoreLabel.setText("↑ " + String(describing: score) + " | ")
 					row.userLabel.setText(user)
@@ -76,6 +77,7 @@ class subCommentController: WKInterfaceController {
 		super.didDeactivate()
 	}
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+		WKInterfaceDevice.current().play(WKHapticType.click)
 		self.setTitle("Comments")
 		self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
 	}

@@ -23,7 +23,7 @@ class InterfaceController: WKInterfaceController {
 	
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
-		setupTable()
+		changeSubreddit()
 		
 	}
 	
@@ -46,12 +46,16 @@ class InterfaceController: WKInterfaceController {
 		post.removeAll()
 		posts.removeAll()
 		print("her though")
+		WKInterfaceDevice.current().play(WKHapticType.start)
 		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
 			print(error)
 			if (error != nil){
+				WKInterfaceDevice.current().play(WKHapticType.failure)
 				self.presentAlert(withTitle: "Error", message: error?.localizedDescription, preferredStyle: .alert, actions: [WKAlertAction.init(title: "Confirm", style: WKAlertActionStyle.default, handler: {
 					print("Ho")
 				})])
+			} else{
+
 			}
 			
 			if let dat = data{
@@ -105,6 +109,7 @@ class InterfaceController: WKInterfaceController {
 						
 					}
 					self.redditTable.setAlpha(1.0)
+					WKInterfaceDevice.current().play(WKHapticType.stop)
 					
 					
 				} catch {
@@ -129,15 +134,19 @@ class InterfaceController: WKInterfaceController {
 		}
 	}
 	@IBAction func changeSubreddit() {
-		let phrases = ["tifu", "askreddit", "talesfromtechsupport"]
+		let phrases = ["popular", "tifu", "askreddit", "apple", "jailbreak", "talesfromtechsupport"]
 		
 		presentTextInputController(withSuggestions: phrases, allowedInputMode:   WKTextInputMode.plain) { (arr: [Any]?) in
 			self.redditTable.setNumberOfRows(0, withRowType: "redditCell")
 			self.setupTable(arr?.first as! String)
 		}
 		
+		
+		
+		
 	}
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+		WKInterfaceDevice.current().play(WKHapticType.click)
 		if (redditTable.rowController(at: rowIndex) as? NameRowController) != nil{
 			
 			//	UserDefaults.standard.set(posts[names[rowIndex]], forKey: "selectedPost")

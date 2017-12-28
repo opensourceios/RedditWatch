@@ -31,7 +31,7 @@ class postController: WKInterfaceController {
 		let post = context as! JSON
 		waiiiiiit = post
 		if let content = post["selftext"].string{
-			postContent.setText(content.deshittify())
+			postContent.setText(content.dehtmlify())
 		}
 		
 		if let title = post["title"].string{
@@ -53,6 +53,9 @@ class postController: WKInterfaceController {
 		print("her though")
 		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
 			print("here too")
+			if (error == nil){
+				
+			}
 			if let data = data {
 				do {
 					let json = try JSON(data: data)
@@ -71,14 +74,14 @@ class postController: WKInterfaceController {
 					for (index, element) in self.idList.enumerated(){
 						if let row = self.commentsTable.rowController(at: index) as? commentController{
 							if let stuff = self.comments[element]?.dictionary{
-								row.nameLabe.setText(stuff["body"]?.string?.deshittify())
+								row.nameLabe.setText(stuff["body"]?.string?.dehtmlify())
 								if let score = stuff["score"]{
 									
 									row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
 								}
-								guard let replyCount = stuff["replies"]!["data"]["children"].array?.count else {return}
+								if let replyCount = stuff["replies"]!["data"]["children"].array?.count
 								
-								row.replyCount.setText("-> \(String(describing: replyCount)) Replies")
+								{row.replyCount.setText("\(String(describing: replyCount)) Replies")}
 								row.userLabel.setText(stuff["author"]?.string)
 								
 								if let newTime = stuff["created_utc"]?.float{
@@ -98,13 +101,14 @@ class postController: WKInterfaceController {
 									}
 								}
 							} else{
-								print("haha **** you")
+								print("you done stuffed it")
 							}
 						} else{
 							print("helllll no")
 						}
 					}
 					self.commentsTable.setAlpha(1.0)
+					WKInterfaceDevice.current().play(WKHapticType.stop)
 
 					
 				} catch {
@@ -122,6 +126,7 @@ class postController: WKInterfaceController {
 	}
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		print(ids[Array(comments.keys)[rowIndex]])
+		WKInterfaceDevice.current().play(WKHapticType.click)
 		self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
 	}
 	override func didDeactivate() {
@@ -132,7 +137,7 @@ class postController: WKInterfaceController {
 }
 
 extension String{
-	func deshittify() -> String{
+	func dehtmlify() -> String{
 		let html = [
 			"&quot;"    : "\"",
 			 "&amp;"     : "&",
