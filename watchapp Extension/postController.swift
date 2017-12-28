@@ -143,7 +143,8 @@ extension String{
 			 "&amp;"     : "&",
 			 "&apos;"    : "'",
 			 "&lt;"      : "<",
-			 "&gt;"      : ">"
+			 "&gt;"      : ">",
+			 "&qt;"		 : "" //I don't know that &qt; is atm
 		]
 		var replacement = self
 		for (_, element) in html.enumerated(){
