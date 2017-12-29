@@ -16,11 +16,11 @@ Bold features signify "Recently Added" features.
 
 * View comments of posts
 
-* **View replies to comments in a post
+* **View replies to comments in a post**
 
-* See post time, score, author, and **number of replies
+* See post time, score, author, and **number of replies**
 
-* **Haptics to signal when the content is loaded (WatchKit URLSession is often slow)
+* **Haptics to signal when the content is loaded** (WatchKit URLSession is often slow)
 
 # Planned Features
 
