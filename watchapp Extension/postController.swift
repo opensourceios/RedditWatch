@@ -30,6 +30,7 @@ class postController: WKInterfaceController {
 		super.awake(withContext: context)
 		let post = context as! JSON
 		waiiiiiit = post
+		UserDefaults.standard.set(post["author"].string, forKey: "selectedAuthor")
 		if let content = post["selftext"].string{
 			postContent.setText(content.dehtmlify())
 		}
@@ -83,6 +84,15 @@ class postController: WKInterfaceController {
 								
 								{row.replyCount.setText("\(String(describing: replyCount)) Replies")}
 								row.userLabel.setText(stuff["author"]?.string)
+								
+								if stuff["author"]?.string! == UserDefaults().string(forKey: "selectedAuthor"){
+									row.userLabel.setTextColor(UIColor.blue)
+								}
+								if (stuff["distinguished"]?.null) != nil{
+									
+								} else{
+									row.userLabel.setTextColor(UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0))
+								}
 								
 								if let newTime = stuff["created_utc"]?.float{
 									
