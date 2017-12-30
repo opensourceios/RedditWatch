@@ -16,11 +16,13 @@ class subCommentController: WKInterfaceController {
 	var comments = [String: JSON]()
 	var idList = [String]()
 	var reduce = commentController()
+	var post = JSON()
 	@IBOutlet var repliesTable: WKInterfaceTable!
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
 		print(context)
 		if let js = context as? JSON{
+			post = js
 			commentLabel.setText(js["body"].string!)
 			//	print(js["replies"])
 			for (_, element) in (js["replies"]["data"]["children"].array?.enumerated())!{
@@ -39,7 +41,15 @@ class subCommentController: WKInterfaceController {
 					guard let body = comment["body"].string, let score = comment["score"].int, let user = comment["author"].string else{
 						
 						return}
+					if comment["author"].string! == UserDefaults().string(forKey: "selectedAuthor"){
+						row.userLabel.setTextColor(UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0))
+					}
 					
+					if (comment["distinguished"].null) != nil{
+						
+					} else{
+						row.userLabel.setTextColor(UIColor.green)
+					}
 					row.nameLabe.setText(body)
 					row.scoreLabel.setText("↑ " + String(describing: score) + " | ")
 					row.userLabel.setText(user)
@@ -79,6 +89,7 @@ class subCommentController: WKInterfaceController {
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		WKInterfaceDevice.current().play(WKHapticType.click)
 		self.setTitle("Comments")
+		
 		self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
 	}
 	

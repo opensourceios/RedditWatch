@@ -9,8 +9,10 @@
 import WatchKit
 import Foundation
 import SwiftyJSON
+import WatchConnectivity
+class InterfaceController: WKInterfaceController{
 
-class InterfaceController: WKInterfaceController {
+	
 	
 	@IBOutlet var redditTable: WKInterfaceTable!
 	
@@ -27,7 +29,9 @@ class InterfaceController: WKInterfaceController {
 	
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
+		var dict = ["test": "4"]
 		changeSubreddit()
+		
 		
 	}
 	
