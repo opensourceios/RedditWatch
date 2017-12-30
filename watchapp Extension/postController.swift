@@ -49,14 +49,18 @@ class postController: WKInterfaceController {
     
     func getComments(subreddit: String, id: String){
         let url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(id)/.json")
-        print(url)
         comments.removeAll()
         print("her though")
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             print("here too")
-            if (error == nil){
-                
-            }
+			if (error != nil){
+				WKInterfaceDevice.current().play(WKHapticType.failure)
+				self.presentAlert(withTitle: "Error", message: error?.localizedDescription, preferredStyle: .alert, actions: [WKAlertAction.init(title: "Confirm", style: WKAlertActionStyle.default, handler: {
+					print("Ho")
+				})])
+			} else{
+				
+			}
             if let data = data {
                 do {
                     let json = try JSON(data: data)

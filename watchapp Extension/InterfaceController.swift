@@ -60,6 +60,7 @@ class InterfaceController: WKInterfaceController{
         ids.removeAll()
         post.removeAll()
         posts.removeAll()
+		self.redditTable.setNumberOfRows(0, withRowType: "redditCell")
         print("her though")
         WKInterfaceDevice.current().play(WKHapticType.start)
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -152,7 +153,6 @@ class InterfaceController: WKInterfaceController{
         let phrases = ["popular", "tifu", "askreddit", "apple", "jailbreak", "talesfromtechsupport"]
         
         presentTextInputController(withSuggestions: phrases, allowedInputMode:   WKTextInputMode.plain) { (arr: [Any]?) in
-            self.redditTable.setNumberOfRows(0, withRowType: "redditCell")
             self.setupTable(arr?.first as! String)
         }
 	}
