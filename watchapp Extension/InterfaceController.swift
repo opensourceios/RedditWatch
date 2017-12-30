@@ -21,6 +21,10 @@ class InterfaceController: WKInterfaceController {
 	var ids = [String]()
 	var imageDownloadMode = false
 	
+	var currentSubreddit = String()
+	var currentSort = String()
+	
+	
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
 		changeSubreddit()
@@ -36,10 +40,17 @@ class InterfaceController: WKInterfaceController {
 		// This method is called when watch view controller is no longer visible
 		super.didDeactivate()
 	}
-	func setupTable(_ subreddit: String = "askreddit"){
+	func setupTable(_ subreddit: String = "askreddit", sort: String = "hot"){
 		self.setTitle(subreddit)
+		self.currentSubreddit = subreddit
+		self.currentSort = sort
+		var url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort)/.json)")
+		if sort == "Top"{
+			 url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort)?t=all/.json")
+		} else{
+			 url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort)/.json")
+		}
 		
-		let url = URL(string: "https://www.reddit.com/r/\(subreddit)/.json")
 		names.removeAll()
 		images.removeAll()
 		ids.removeAll()
@@ -55,7 +66,7 @@ class InterfaceController: WKInterfaceController {
 					print("Ho")
 				})])
 			} else{
-
+				
 			}
 			
 			if let dat = data{
@@ -140,11 +151,19 @@ class InterfaceController: WKInterfaceController {
 			self.redditTable.setNumberOfRows(0, withRowType: "redditCell")
 			self.setupTable(arr?.first as! String)
 		}
-		
-		
-		
+	}
+	@IBAction func changeSort() {
+		let sorts = ["Hot", "Top", "New"]
+		presentTextInputController(withSuggestions: sorts, allowedInputMode: WKTextInputMode.plain){ (arr: [Any]?) in
+			if let sort = arr?.first as? String{
+				self.setupTable(self.currentSubreddit, sort: sort)
+			}
+		}
 		
 	}
+	
+	
+	
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		WKInterfaceDevice.current().play(WKHapticType.click)
 		if (redditTable.rowController(at: rowIndex) as? NameRowController) != nil{

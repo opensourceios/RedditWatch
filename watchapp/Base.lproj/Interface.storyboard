@@ -70,6 +70,11 @@
                                     <action selector="changeSubreddit" destination="AgC-eL-Hgc" id="z3h-Zl-kvx"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Change Sort" icon="info" id="TjJ-cb-KG3">
+                                <connections>
+                                    <action selector="changeSort" destination="AgC-eL-Hgc" id="Ari-Gt-rcS"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                     <connections>
