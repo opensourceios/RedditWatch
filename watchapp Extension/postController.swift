@@ -10,10 +10,10 @@ import WatchKit
 import Foundation
 import SwiftyJSON
 import Alamofire
-
 class postController: WKInterfaceController {
     
-    @IBOutlet var postTitle: WKInterfaceLabel!
+	@IBOutlet var progressLabel: WKInterfaceLabel!
+	@IBOutlet var postTitle: WKInterfaceLabel!
     @IBOutlet var commentsTable: WKInterfaceTable!
     @IBOutlet var postImage: WKInterfaceImage!
     var comments = [String: JSON]()
@@ -28,6 +28,7 @@ class postController: WKInterfaceController {
 		guard let post = context as? JSON else{
 			InterfaceController().becomeCurrentPage()
 			return
+			
 		}
 		
 		if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
@@ -37,6 +38,12 @@ class postController: WKInterfaceController {
 						if let data = imageData.data{
 							let image = UIImage(data: data)
 							self.postImage.setImage(image)
+						}
+				}
+					.downloadProgress { progress in
+						self.progressLabel.setText("Downloading \(String(progress.fractionCompleted).prefix(4))%")
+						if progress.fractionCompleted == 1.0{
+							self.progressLabel.setHidden(true)
 						}
 				}
 			}
@@ -96,6 +103,21 @@ class postController: WKInterfaceController {
                                     
                                     row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
                                 }
+								
+								if let gildedCount = stuff["gilded"]?.int{
+									if gildedCount > 0{
+										row.gildedIndicator.setHidden(false)
+										print(gildedCount)
+										row.gildedIndicator.setText("\(gildedCount * "•")")
+										
+									} else{
+										print(gildedCount)
+										row.gildedIndicator.setHidden(true)
+									}
+								} else
+								{
+									print("couldn't find gild")
+								}
                                 if let replyCount = stuff["replies"]!["data"]["children"].array?.count{
 									row.replies = replyCount
 									row.replyCount.setText("\(String(describing: replyCount)) Replies")
@@ -104,12 +126,12 @@ class postController: WKInterfaceController {
                                 row.userLabel.setText(stuff["author"]?.string)
                                 
                                 if stuff["author"]?.string! == UserDefaults().string(forKey: "selectedAuthor"){
-                                    row.userLabel.setTextColor(UIColor.blue)
+                                    row.userLabel.setTextColor(UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0))
                                 }
                                 if (stuff["distinguished"]?.null) != nil{
                                     
                                 } else{
-                                    row.userLabel.setTextColor(UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0))
+                                    row.userLabel.setTextColor(UIColor(red:0.18, green:0.80, blue:0.44, alpha:1.0))
                                 }
                                 
                                 if let newTime = stuff["created_utc"]?.float{
@@ -152,7 +174,10 @@ class postController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
-    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+	@IBAction func imageTapped(_ sender: Any) {
+		print("Heyo")
+	}
+	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         print(ids[Array(comments.keys)[rowIndex]])
 		
 		if let row = commentsTable.rowController(at: rowIndex) as? commentController{

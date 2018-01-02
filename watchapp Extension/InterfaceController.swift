@@ -31,6 +31,10 @@ class InterfaceController: WKInterfaceController{
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
 		_ = ["test": "4"]
+		let domain = Bundle.main.bundleIdentifier!
+		UserDefaults.standard.removePersistentDomain(forName: domain) //Prevent nasty 0 __pthread_kill SIGABRT kill
+		UserDefaults.standard.synchronize()
+
 		changeSubreddit()
 		
 		
@@ -49,12 +53,13 @@ class InterfaceController: WKInterfaceController{
 		self.setTitle(subreddit)
 		self.currentSubreddit = subreddit
 		self.currentSort = sort
-		var url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort)/.json)")
-		if sort == "Top"{
-			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort)?t=all/.json")
+		var url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json")
+		if sort == "top"{
+			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json?t=all/")
 		} else{
-			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort)/.json")
+			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json")
 		}
+		print(url)
 		
 		names.removeAll()
 		images.removeAll()
@@ -64,6 +69,7 @@ class InterfaceController: WKInterfaceController{
 		self.redditTable.setNumberOfRows(0, withRowType: "redditCell")
 		print("her though")
 		WKInterfaceDevice.current().play(WKHapticType.start)
+		
 		let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
 			print(error)
 			if (error != nil){
@@ -79,7 +85,11 @@ class InterfaceController: WKInterfaceController{
 				do {
 					let json = try JSON(data: dat)
 					let children = json["data"]["children"].array
-					for element in children!{
+					guard let child = children else{
+						print("Wouldn't let with")
+						print(json)
+						return}
+					for element in child{
 						
 						if !(element["data"]["stickied"].bool!){
 							self.names.append(element["data"]["title"].string!)
@@ -97,7 +107,23 @@ class InterfaceController: WKInterfaceController{
 						if let row = self.redditTable.rowController(at: index) as? NameRowController{
 							if let stuff = self.post[self.ids[index]]
 							{
+								
 								row.nameLabe.setText(stuff["title"].string!)
+								if let gildedCount = stuff["gilded"].int{
+									if gildedCount > 0{
+										row.gildedIndicator.setHidden(false)
+										print(gildedCount)
+										row.gildedIndicator.setText("\(gildedCount * "•")")
+										
+									} else{
+										print(gildedCount)
+										row.gildedIndicator.setHidden(true)
+									}
+								} else
+								{
+									print("couldn't find gild")
+								}
+								
 								row.postAuthor.setText(stuff["author"].string!)
 								row.postCommentCount.setText(String(stuff["num_comments"].int!) + " Comments")
 								let score = stuff["score"].int!
@@ -197,10 +223,10 @@ class InterfaceController: WKInterfaceController{
 		}
 	}
 	@IBAction func changeSort() {
-		let sorts = ["Hot", "Top", "New"]
+		let sorts = ["Hot", "New", "Rising", "Controversial", "Top", "Gilded"]
 		presentTextInputController(withSuggestions: sorts, allowedInputMode: WKTextInputMode.plain){ (arr: [Any]?) in
 			if let sort = arr?.first as? String{
-				self.setupTable(self.currentSubreddit, sort: sort)
+				self.setupTable(self.currentSubreddit, sort: sort.lowercased())
 			}
 		}
 		
@@ -221,5 +247,16 @@ class InterfaceController: WKInterfaceController{
 				self.pushController(withName: "lorem", context: post[ids[rowIndex]])
 			}
 		}
+	}
+}
+
+extension String{
+	
+	static func *(left: Int, right: String) -> String{
+		var input = ""
+		for _ in 1 ... left{
+			input = input + right
+		}
+		return input
 	}
 }

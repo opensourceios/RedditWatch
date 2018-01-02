@@ -35,7 +35,15 @@
                                                     </label>
                                                 </items>
                                             </group>
-                                            <label alignment="left" text="postName" textAlignment="left" numberOfLines="0" id="d1w-pC-oNz"/>
+                                            <label width="119" height="12" alignment="left" text="••••" id="0pB-bV-WkI">
+                                                <color key="textColor" red="0.94509803921568625" green="0.76862745098039209" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </label>
+                                            <group width="1" alignment="left" id="5lv-VK-lbd">
+                                                <items>
+                                                    <label alignment="left" text="postName" textAlignment="left" numberOfLines="0" id="d1w-pC-oNz"/>
+                                                </items>
+                                            </group>
                                             <imageView alignment="left" id="0gQ-PJ-ULH"/>
                                             <group width="1" alignment="left" id="SW0-W7-XB4">
                                                 <items>
@@ -52,6 +60,7 @@
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="gildedIndicator" destination="0pB-bV-WkI" id="ZWO-bp-YFT"/>
                                         <outlet property="nameLabe" destination="d1w-pC-oNz" id="AYi-Gl-U7O"/>
                                         <outlet property="postAuthor" destination="xgV-8f-Y9j" id="7R4-7q-cE6"/>
                                         <outlet property="postCommentCount" destination="UdK-AY-RoU" id="Obq-5I-NGw"/>
@@ -93,7 +102,16 @@
                             <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
                         </label>
                         <label width="136" alignment="left" text="Post Title" numberOfLines="0" id="XYC-nm-30e"/>
-                        <imageView alignment="left" id="wIb-5o-dFo"/>
+                        <imageView alignment="left" id="wIb-5o-dFo">
+                            <gestureRecognizers>
+                                <tapGestureRecognizer id="o2x-e4-dhP">
+                                    <connections>
+                                        <action selector="imageTapped:" destination="REJ-04-EQn" id="Wso-qZ-I9A"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                            </gestureRecognizers>
+                        </imageView>
+                        <label alignment="left" text="Label" id="db8-mH-ghL"/>
                         <label alignment="left" text="Comments" id="2lF-dX-hSB">
                             <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
                         </label>
@@ -118,6 +136,10 @@
                                                     </label>
                                                 </items>
                                             </group>
+                                            <label alignment="left" text="3•" id="jGM-Af-DIK">
+                                                <color key="textColor" red="0.94509803921568625" green="0.76862745098039209" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                            </label>
                                             <label alignment="left" text="Content" textAlignment="left" numberOfLines="0" id="2Kh-WE-e0c"/>
                                             <group width="1" alignment="left" id="4EE-qj-JKW">
                                                 <items>
@@ -134,6 +156,7 @@
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="gildedIndicator" destination="jGM-Af-DIK" id="zY6-vD-517"/>
                                         <outlet property="nameLabe" destination="2Kh-WE-e0c" id="sah-0N-XjQ"/>
                                         <outlet property="replyCount" destination="plC-MK-gzC" id="dFD-BV-PhA"/>
                                         <outlet property="scoreLabel" destination="vuB-eE-0Do" id="qN7-8v-sB8"/>
@@ -149,6 +172,7 @@
                         <outlet property="postContent" destination="XYC-nm-30e" id="1Va-Kt-tvP"/>
                         <outlet property="postImage" destination="wIb-5o-dFo" id="c4X-cu-erW"/>
                         <outlet property="postTitle" destination="AER-pV-NA4" id="cKd-cC-imR"/>
+                        <outlet property="progressLabel" destination="db8-mH-ghL" id="kq2-kv-Fpr"/>
                     </connections>
                 </controller>
             </objects>

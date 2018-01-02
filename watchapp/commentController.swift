@@ -10,6 +10,7 @@ import WatchKit
 
 class commentController: NSObject {
 
+	@IBOutlet var gildedIndicator: WKInterfaceLabel!
 	@IBOutlet var userLabel: WKInterfaceLabel!
 	@IBOutlet var nameLabe: WKInterfaceLabel!
 	@IBOutlet var timeLabel: WKInterfaceLabel!

@@ -15,5 +15,6 @@ class NameRowController: NSObject {
 	@IBOutlet var postAuthor: WKInterfaceLabel!
 	@IBOutlet var postCommentCount: WKInterfaceLabel!
 	
+	@IBOutlet var gildedIndicator: WKInterfaceLabel!
 	
 }
