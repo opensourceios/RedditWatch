@@ -10,6 +10,7 @@ import WatchKit
 import Foundation
 import SwiftyJSON
 import WatchConnectivity
+import Alamofire
 class InterfaceController: WKInterfaceController{
 
     
@@ -29,7 +30,7 @@ class InterfaceController: WKInterfaceController{
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        var dict = ["test": "4"]
+		_ = ["test": "4"]
         changeSubreddit()
         
         
@@ -101,6 +102,16 @@ class InterfaceController: WKInterfaceController{
                                 row.postCommentCount.setText(String(stuff["num_comments"].int!) + " Comments")
                                 let score = stuff["score"].int!
                                 row.postScore.setText("↑ \(String(describing: score)) |")
+								if let hint = stuff["post_hint"].string{
+									if hint == "image"{
+										print(stuff["url"].string!)
+										self.downloadImage(url: stuff["url"].string!, completionHandler: {image in
+											row.postImage.setImage(image!)
+										})
+									}
+								} else{
+									print("No hint")
+								}
                                 if let newTime = stuff["created_utc"].float{
                                     
                                     let timeInterval = NSDate().timeIntervalSince1970
@@ -140,14 +151,15 @@ class InterfaceController: WKInterfaceController{
         task.resume()
         
     }
-    func downloadImage(url: String, completionHandler: (_: UIImage?) -> Void){
-        let url = URL(string: url)
-        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        if let dat = data{
-            let image = UIImage(data: dat)
-            completionHandler(image)
-            
-        }
+	func downloadImage(url: String, completionHandler: @escaping (_: UIImage?) -> Void){
+        Alamofire.request(url)
+			.responseData { data in
+				if let data = data.data{
+					if let image = UIImage(data: data){
+						completionHandler(image)
+					}
+				}
+		}
     }
     @IBAction func changeSubreddit() {
         let phrases = ["popular", "tifu", "askreddit", "apple", "jailbreak", "talesfromtechsupport"]

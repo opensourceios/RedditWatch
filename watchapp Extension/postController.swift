@@ -9,6 +9,7 @@
 import WatchKit
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 class postController: WKInterfaceController {
     
