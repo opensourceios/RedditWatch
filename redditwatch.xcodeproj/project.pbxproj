@@ -214,13 +214,13 @@
 			isa = PBXGroup;
 			children = (
 				BE2406811FEA743000D92A34 /* redditwatch */,
-				BE2406961FEA743000D92A34 /* redditwatchTests */,
-				BE2406A11FEA743000D92A34 /* redditwatchUITests */,
 				BE2406B31FEA744300D92A34 /* watchapp */,
 				BE2406C21FEA744300D92A34 /* watchapp Extension */,
 				BE2406801FEA743000D92A34 /* Products */,
 				3923084CC1636C735C5815EC /* Pods */,
 				70F6FBAC0A97962DEB52FDFE /* Frameworks */,
+				BE2406961FEA743000D92A34 /* redditwatchTests */,
+				BE2406A11FEA743000D92A34 /* redditwatchUITests */,
 			);
 			sourceTree = "<group>";
 		};

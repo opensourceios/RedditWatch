@@ -23,7 +23,7 @@ class InterfaceController: WKInterfaceController{
 	var post = [String: JSON]()
 	var ids = [String]()
 	var imageDownloadMode = false
-	
+
 	var currentSubreddit = String()
 	var currentSort = String()
 	
@@ -34,7 +34,7 @@ class InterfaceController: WKInterfaceController{
 		let domain = Bundle.main.bundleIdentifier!
 		UserDefaults.standard.removePersistentDomain(forName: domain) //Prevent nasty 0 __pthread_kill SIGABRT kill
 		UserDefaults.standard.synchronize()
-
+		
 		changeSubreddit()
 		
 		

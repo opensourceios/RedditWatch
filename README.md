@@ -21,7 +21,12 @@ Bold features signify "Recently Added" features.
 * See post time, score, author, and number of replies
 
 * Haptics to signal when the content is loaded (WatchKit URLSession is often slow)
+
 * **Image Support**
+
+* **Sort Subreddit Posts**
+
+* **See Gilded Posts**
 
 # Planned Features
 
@@ -33,4 +38,6 @@ Bold features signify "Recently Added" features.
 * Click on actual links and get a "Reader Mode" output like Safari
 
 * Sign into account and be able to save, upvote/downvote things (Would require moving to a new API)
+
+* Gif Support (may be easy, haven't tried yet)
 
