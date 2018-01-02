@@ -16,15 +16,14 @@ Bold features signify "Recently Added" features.
 
 * View comments of posts
 
-* **View replies to comments in a post**
+* View replies to comments in a post
 
-* See post time, score, author, and **number of replies**
+* See post time, score, author, and number of replies
 
-* **Haptics to signal when the content is loaded** (WatchKit URLSession is often slow)
+* Haptics to signal when the content is loaded (WatchKit URLSession is often slow)
+* **Image Support**
 
 # Planned Features
-
-* Image Support //This one is tricky, in a simulator it works, but on device is a no-no
 
 * Click on subreddit links in comments
 
