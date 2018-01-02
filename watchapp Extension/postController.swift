@@ -85,9 +85,11 @@ class postController: WKInterfaceController {
                                     
                                     row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
                                 }
-                                if let replyCount = stuff["replies"]!["data"]["children"].array?.count
-                                
-                                {row.replyCount.setText("\(String(describing: replyCount)) Replies")}
+                                if let replyCount = stuff["replies"]!["data"]["children"].array?.count{
+									row.replies = replyCount
+									row.replyCount.setText("\(String(describing: replyCount)) Replies")
+									
+								}
                                 row.userLabel.setText(stuff["author"]?.string)
                                 
                                 if stuff["author"]?.string! == UserDefaults().string(forKey: "selectedAuthor"){
@@ -141,8 +143,16 @@ class postController: WKInterfaceController {
     }
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         print(ids[Array(comments.keys)[rowIndex]])
-        WKInterfaceDevice.current().play(WKHapticType.click)
-        self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
+		
+		if let row = commentsTable.rowController(at: rowIndex) as? commentController{
+			if row.replies > 0{
+				WKInterfaceDevice.current().play(WKHapticType.click)
+				self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
+			} else{
+				WKInterfaceDevice.current().play(WKHapticType.failure)
+			}
+		}
+		
     }
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible

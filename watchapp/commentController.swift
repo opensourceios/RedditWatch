@@ -15,4 +15,5 @@ class commentController: NSObject {
 	@IBOutlet var timeLabel: WKInterfaceLabel!
 	@IBOutlet var scoreLabel: WKInterfaceLabel!
 	@IBOutlet var replyCount: WKInterfaceLabel!
+	var replies = Int()
 }

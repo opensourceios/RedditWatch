@@ -87,10 +87,16 @@ class subCommentController: WKInterfaceController {
         super.didDeactivate()
     }
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
-        WKInterfaceDevice.current().play(WKHapticType.click)
         self.setTitle("Comments")
         
-        self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
+		if let row = repliesTable.rowController(at: rowIndex) as? commentController{
+			if row.replies > 0{
+				WKInterfaceDevice.current().play(WKHapticType.click)
+				self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
+			} else{
+				WKInterfaceDevice.current().play(WKHapticType.failure)
+			}
+		}
     }
     
 }

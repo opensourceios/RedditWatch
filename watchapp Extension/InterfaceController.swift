@@ -104,14 +104,9 @@ class InterfaceController: WKInterfaceController{
                                 row.postScore.setText("↑ \(String(describing: score)) |")
 								if let hint = stuff["post_hint"].string{
 									//if hint == "image"{
-										print(stuff["thumbnail"].string!) //Low quality image, but hey, tiny screen
-										var url = stuff["thumbnail"].string!
-										if url == "nsfw"{
-											url = stuff["url"].string!
-										}
-										if url == "image"{
-											url = stuff["url"].string!
-										}
+										print(stuff["url"].string!)
+										var url = stuff["url"].string! //High quality image, slow, but makes sure it all fits
+									
 										if 
 											url.range(of: "http") == nil{
 											url = "https://" + url
@@ -203,12 +198,11 @@ class InterfaceController: WKInterfaceController{
         
     }
     
-    
-    
+	
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         WKInterfaceDevice.current().play(WKHapticType.click)
         if (redditTable.rowController(at: rowIndex) as? NameRowController) != nil{
-            
+			
             //    UserDefaults.standard.set(posts[names[rowIndex]], forKey: "selectedPost")
             if images[rowIndex] != nil{
                 print("Should attach image")

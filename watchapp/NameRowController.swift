@@ -7,7 +7,6 @@
 //
 
 import WatchKit
-
 class NameRowController: NSObject {
 	@IBOutlet var nameLabe: WKInterfaceLabel!
 	@IBOutlet var postImage: WKInterfaceImage!
@@ -15,5 +14,6 @@ class NameRowController: NSObject {
 	@IBOutlet var postTime: WKInterfaceLabel!
 	@IBOutlet var postAuthor: WKInterfaceLabel!
 	@IBOutlet var postCommentCount: WKInterfaceLabel!
+	
 	
 }
