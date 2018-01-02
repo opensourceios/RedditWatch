@@ -129,6 +129,11 @@ class InterfaceController: WKInterfaceController{
 								let score = stuff["score"].int!
 								row.postScore.setText("↑ \(String(describing: score)) |")
 								if stuff["post_hint"].string != nil{
+									if let height = stuff["thumbnail_height"].int{
+										row.postImage.setHeight(CGFloat(height))
+										
+										
+									}
 									//if hint == "image"{
 									var url = stuff["thumbnail"].string! //back to thumbnail, show full image on post view
 									
@@ -219,7 +224,12 @@ class InterfaceController: WKInterfaceController{
 		let phrases = ["popular", "tifu", "askreddit", "apple", "jailbreak", "talesfromtechsupport"]
 		
 		presentTextInputController(withSuggestions: phrases, allowedInputMode:   WKTextInputMode.plain) { (arr: [Any]?) in
-			self.setupTable(arr?.first as! String)
+			if let input = arr?.first as? String{
+				self.setupTable(input)
+			} else{
+				WKInterfaceDevice.current().play(WKHapticType.failure)
+				self.changeSubreddit()
+			}
 		}
 	}
 	@IBAction func changeSort() {
