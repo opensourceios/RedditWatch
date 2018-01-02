@@ -103,12 +103,31 @@ class InterfaceController: WKInterfaceController{
                                 let score = stuff["score"].int!
                                 row.postScore.setText("↑ \(String(describing: score)) |")
 								if let hint = stuff["post_hint"].string{
-									if hint == "image"{
-										print(stuff["url"].string!)
-										self.downloadImage(url: stuff["url"].string!, completionHandler: {image in
-											row.postImage.setImage(image!)
-										})
-									}
+									//if hint == "image"{
+										print(stuff["thumbnail"].string!) //Low quality image, but hey, tiny screen
+										var url = stuff["thumbnail"].string!
+										if url == "nsfw"{
+											url = stuff["url"].string!
+										}
+										if url == "image"{
+											url = stuff["url"].string!
+										}
+										if 
+											url.range(of: "http") == nil{
+											url = "https://" + url
+										}
+										
+										print("\(stuff["title"].string!)\n\(url)\n\n")
+										Alamofire.request(url)
+											.responseData { data in
+												if let data = data.data{
+													if let image = UIImage(data: data){
+														row.postImage.setImage(image)
+													}
+												}
+										}
+										
+									//}
 								} else{
 									print("No hint")
 								}
@@ -151,7 +170,7 @@ class InterfaceController: WKInterfaceController{
         task.resume()
         
     }
-	func downloadImage(url: String, completionHandler: @escaping (_: UIImage?) -> Void){
+	func downloadImage(url: String, index: Int, completionHandler: @escaping (_: UIImage?) -> Void){
         Alamofire.request(url)
 			.responseData { data in
 				if let data = data.data{
@@ -159,7 +178,13 @@ class InterfaceController: WKInterfaceController{
 						completionHandler(image)
 					}
 				}
-		}
+		    }
+//			.downloadProgress { progress in
+////				if let row = self.redditTable.rowController(at: index) as? NameRowController{
+////
+////					//row.percentComplete.setText(String(describing: progress.fileCompletedCount) + "%")
+////				}
+//		}
     }
     @IBAction func changeSubreddit() {
         let phrases = ["popular", "tifu", "askreddit", "apple", "jailbreak", "talesfromtechsupport"]
