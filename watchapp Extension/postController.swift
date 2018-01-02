@@ -23,19 +23,30 @@ class postController: WKInterfaceController {
     var idList = [String]()
     override func awake(withContext context: Any?) {
         
-        if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
-            let image = UserDefaults.standard.object(forKey: "selectedImage") as! Data
-            let realImage = UIImage(data: image)
-            postImage.setImage(realImage)
-        }
+		
         super.awake(withContext: context)
-        let post = context as! JSON
-        waiiiiiit = post
+		guard let post = context as? JSON else{
+			InterfaceController().becomeCurrentPage()
+			return
+		}
+		
+		if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
+			if let url = post["url"].string{
+				Alamofire.request(url)
+					.responseData { imageData in
+						if let data = imageData.data{
+							let image = UIImage(data: data)
+							self.postImage.setImage(image)
+						}
+				}
+			}
+		}
+		waiiiiiit = post
         UserDefaults.standard.set(post["author"].string, forKey: "selectedAuthor")
         if let content = post["selftext"].string{
             postContent.setText(content.dehtmlify())
         }
-        
+		
         if let title = post["title"].string{
             postTitle.setText(title)
         }

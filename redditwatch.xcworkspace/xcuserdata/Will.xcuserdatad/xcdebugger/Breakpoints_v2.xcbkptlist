@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "watchapp Extension/InterfaceController.swift"
-            timestampString = "536584865.371587"
+            timestampString = "536586982.687347"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "setupTable(_:sort:)"
             landmarkType = "7">
          </BreakpointContent>
