@@ -7,6 +7,9 @@ I got annoyed by not being able to distract myself whenever I wanted, and though
 
 ![Subreddit View](https://i.imgur.com/uo2DR4b.png)
 ![Post View](https://i.imgur.com/3xqmxn9.png)
+![Subreddit View 2](https://i.imgur.com/hVXDt5f.png)
+![Post View 2](https://i.imgur.com/ikgh7dq.png)
+
 
 # Current Features
 
