@@ -51,7 +51,7 @@ class subCommentController: WKInterfaceController {
 						row.replyCount.setText("\(String(describing: replyCount)) Replies")
 						
 					}
-					if let gildedCount = stuff["gilded"]?.int{
+					if let gildedCount = comment["gilded"]?.int{
 						if gildedCount > 0{
 							row.gildedIndicator.setHidden(false)
 							print(gildedCount)
