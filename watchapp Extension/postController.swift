@@ -10,6 +10,7 @@ import WatchKit
 import Foundation
 import SwiftyJSON
 import Alamofire
+
 class postController: WKInterfaceController {
     
 	@IBOutlet var progressLabel: WKInterfaceLabel!
@@ -32,6 +33,11 @@ class postController: WKInterfaceController {
 		}
 		
 		if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
+			if let imagedat = UserDefaults.standard.object(forKey: "selectedThumbnail") as? Data{
+				if let im = UIImage(data: imagedat){
+					postImage.setImage(im)
+				}
+			}
 			if var url = post["url"].string{
 				if url.range(of: "imgur") != nil && url.range(of: "i.imgur") == nil && url.range(of: "/a/") == nil{ //If it's an imgur post, that isn't an album, but also is not a direct link
 					let id = url.components(separatedBy: ".com/").last!
@@ -40,16 +46,31 @@ class postController: WKInterfaceController {
 				if url.range(of: "http") == nil{
 					url = "https://" + url
 				}
+				if url.range(of: "https") == nil{
+					url = url.replacingOccurrences(of: "http://", with: "https://")
+				}
 				Alamofire.request(url)
 					.responseData { imageData in
 						if let data = imageData.data{
-							let image = UIImage(data: data)
-							print("setting \(image)")
-							self.postImage.setImage(image)
+							if post["post_hint"].string! == "image" && url.range(of: "gif") != nil{
+								if let b = UIImage.gifImageWithData(data){
+									self.postImage.setImage(b)
+									self.postImage.startAnimating()
+								}
+							} else{
+								let image = UIImage(data: data)
+								
+								print("setting \(image)")
+								self.postImage.setImage(image)
+							}
+							
+							
 						} else{
+							self.progressLabel.setText("Incompatible Website")
 							print("couldn't make image")
 						}
-				}
+					}
+					
 					.downloadProgress { progress in
 						self.progressLabel.setText("Downloading \(String(progress.fractionCompleted * 100).prefix(4))%")
 						if progress.fractionCompleted == 1.0{

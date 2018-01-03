@@ -111,7 +111,9 @@
                                 </tapGestureRecognizer>
                             </gestureRecognizers>
                         </imageView>
-                        <label alignment="left" text="Label" id="db8-mH-ghL"/>
+                        <label alignment="left" numberOfLines="0" id="db8-mH-ghL">
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                        </label>
                         <label alignment="left" text="Comments" id="2lF-dX-hSB">
                             <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
                         </label>

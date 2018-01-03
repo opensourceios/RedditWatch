@@ -251,6 +251,7 @@ class InterfaceController: WKInterfaceController{
 			if images[rowIndex] != nil{
 				print("Should attach image")
 				UserDefaults.standard.set(true, forKey: "shouldLoadImage")
+				UserDefaults.standard.set(UIImagePNGRepresentation(images[rowIndex]!), forKey: "selectedThumbnail")
 				self.pushController(withName: "lorem", context: post[ids[rowIndex]])
 			} else{
 				UserDefaults.standard.set(false, forKey: "shouldLoadImage")
