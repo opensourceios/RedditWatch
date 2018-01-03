@@ -189,3 +189,38 @@ extension UIImage {
 		return animation
 	}
 }
+
+extension TimeInterval{
+	func differenceBetween(timeInterval: TimeInterval = NSDate().timeIntervalSince1970, _ created_utc: Float?) -> String{
+		var timeString = ""
+		if let newTime = created_utc{
+			
+			let timeInterval = NSDate().timeIntervalSince1970
+			let dif = (Float(timeInterval) - newTime)
+			
+			let time = (dif / 60 / 60)
+			
+			if time * 60 < 60{
+				print(time)
+				let timedif = String(describing: time * 60).components(separatedBy: ".").first! + "m"
+				timeString = timedif
+			} else {
+				var timedif = String(describing: time).components(separatedBy: ".").first!
+				if Int(timedif)! > 23{
+					timedif = String(Int(timedif)! / 24)
+					if Int(timedif)! > 364{
+						timedif = String(Int(timedif)! / 365)
+						timeString = timedif + "y"
+					} else{
+						timeString = timedif + "d"
+						
+					}
+				} else{
+					timeString = timedif + "h"
+				}
+				
+			}
+		}
+		return timeString
+	}
+}

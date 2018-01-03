@@ -57,19 +57,12 @@ class subCommentController: WKInterfaceController {
                     row.userLabel.setText(user)
                     if let newTime = comment["created_utc"].float{
                         
-                        let timeInterval = NSDate().timeIntervalSince1970
-                        let dif = (Float(timeInterval) - newTime)
                         
-                        let time = (dif / 60 / 60)
                         
-                        if time * 60 < 60{
-                            print(time)
-                            let timedif = String(describing: time * 60).components(separatedBy: ".").first! + "m"
-                            row.timeLabel.setText(timedif)
-                        } else {
-                            let timedif = String(describing: time).components(separatedBy: ".").first! + "h"
-                            row.timeLabel.setText(timedif)
-                        }
+						if let newTime = comment["created_utc"].float{
+							
+							row.timeLabel.setText(TimeInterval().differenceBetween(newTime))
+						}
                     }
                     
                 }
@@ -90,7 +83,7 @@ class subCommentController: WKInterfaceController {
     }
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		
-		if let row = repliesTable.rowController(at: rowIndex) as? commentController{
+		if (repliesTable.rowController(at: rowIndex) as? commentController) != nil{
 			if true{ //Temporarily disabling crash-detection until fix to bug where replies to replies couldn't be viewed
 				WKInterfaceDevice.current().play(WKHapticType.click)
 				self.pushController(withName: "subComment", context: comments[idList[rowIndex]])

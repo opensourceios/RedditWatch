@@ -199,26 +199,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 									}
 									if let newTime = stuff["created_utc"].float{
 										
-										let timeInterval = NSDate().timeIntervalSince1970
-										let dif = (Float(timeInterval) - newTime)
-										
-										let time = (dif / 60 / 60)
-										
-										if time * 60 < 60{
-											print(time)
-											let timedif = String(describing: time * 60).components(separatedBy: ".").first! + "m"
-											row.postTime.setText(timedif)
-										} else {
-											var timedif = String(describing: time).components(separatedBy: ".").first!
-											if Int(timedif)! > 23{
-												timedif = String(Int(timedif)! / 24)
-												timedif = timedif + "d"
-											} else{
-												timedif = timedif + "h"
-											}
-											
-											row.postTime.setText(timedif)
-										}
+										row.postTime.setText(TimeInterval().differenceBetween(newTime))
 									}
 									
 								}

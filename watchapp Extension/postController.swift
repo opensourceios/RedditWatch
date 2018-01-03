@@ -167,22 +167,9 @@ class postController: WKInterfaceController {
                                     row.userLabel.setTextColor(UIColor(red:0.18, green:0.80, blue:0.44, alpha:1.0))
                                 }
                                 
-                                if let newTime = stuff["created_utc"]?.float{
-                                    
-                                    let timeInterval = NSDate().timeIntervalSince1970
-                                    let dif = (Float(timeInterval) - newTime)
-                                    
-                                    let time = (dif / 60 / 60)
-                                    
-                                    if time * 60 < 60{
-                                        print(time)
-                                        let timedif = String(describing: time * 60).components(separatedBy: ".").first! + "m"
-                                        row.timeLabel.setText(timedif)
-                                    } else {
-                                        let timedif = String(describing: time).components(separatedBy: ".").first! + "h"
-                                        row.timeLabel.setText(timedif)
-                                    }
-                                }
+								if let newTime = stuff["created_utc"]?.float{
+									row.timeLabel.setText(TimeInterval().differenceBetween(newTime))
+								}
                             } else{
                                 print("you done stuffed it")
                             }
