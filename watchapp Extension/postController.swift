@@ -21,6 +21,8 @@ class postController: WKInterfaceController {
     @IBOutlet var postImage: WKInterfaceImage!
     var comments = [String: JSON]()
     var waiiiiiit = JSON()
+	var downvoted = false
+	var upvoted = false
     @IBOutlet var postContent: WKInterfaceLabel!
     var ids = [String: Any]()
     var idList = [String]()
@@ -215,20 +217,46 @@ class postController: WKInterfaceController {
     }
 	@IBAction func upvote() {
 		WKInterfaceDevice.current().play(WKHapticType.click)
-		print(UserDefaults.standard.object(forKey: "selectedId"))
-		print(UserDefaults.standard.object(forKey: "access_token"))
-		self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
-		self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
-		RedditAPI().vote(1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
+		if downvoted{
+			
+			self.downvoteBUtto.setTitleWithColor(title: "↑", color: UIColor.white)
+		}
+		if !upvoted{
+			upvoted = true
+			print(UserDefaults.standard.object(forKey: "selectedId"))
+			print(UserDefaults.standard.object(forKey: "access_token"))
+			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
+			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
+			RedditAPI().vote(1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
+			
+		} else{
+			downvoted = false
+			upvoted = false
+			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
+			RedditAPI().vote(0, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
+		}
 		
 	}
 	@IBAction func downvote() {
 		WKInterfaceDevice.current().play(WKHapticType.click)
+		if upvoted{
+			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
+		}
+		if !downvoted{
+			downvoted = true
 		print(UserDefaults.standard.object(forKey: "selectedId"))
 		print(UserDefaults.standard.object(forKey: "access_token"))
 		self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
 		self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
-		RedditAPI().vote(-1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
+			RedditAPI().vote(-1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
+			
+		} else{
+			downvoted = false
+			upvoted = false
+			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
+			RedditAPI().vote(0, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
+			
+		}
 		
 	}
 	override func didDeactivate() {
