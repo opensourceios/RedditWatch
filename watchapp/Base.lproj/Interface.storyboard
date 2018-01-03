@@ -44,7 +44,7 @@
                                                     <label alignment="left" text="postName" textAlignment="left" numberOfLines="0" id="d1w-pC-oNz"/>
                                                 </items>
                                             </group>
-                                            <imageView alignment="left" id="0gQ-PJ-ULH"/>
+                                            <imageView width="120" alignment="left" id="0gQ-PJ-ULH"/>
                                             <group width="1" alignment="left" id="SW0-W7-XB4">
                                                 <items>
                                                     <label alignment="left" text="100000" id="xrS-Sc-4S3">

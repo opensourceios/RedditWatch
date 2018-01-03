@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cLb-hV-Kgu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="adK-Wk-PE0">
+            <objects>
+                <navigationController id="cLb-hV-Kgu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TxI-TC-ab6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yqP-kF-VjZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FBG-Y6-3mA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1204" y="-53"/>
+        </scene>
+        <!--Options-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="redditwatch" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,21 +33,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8K-81-SHr">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Resolution Image Mode  (Slow)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7x-ut-vyr">
+                                <rect key="frame" x="16" y="137" width="277" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="pics,all,popular" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4at-WT-NmH">
+                                <rect key="frame" x="16" y="207" width="277" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Subreddits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbc-AF-6qj">
+                                <rect key="frame" x="16" y="187" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8K-81-SHr">
+                                <rect key="frame" x="301" y="206" width="35" height="30"/>
+                                <state key="normal" title="Push"/>
                                 <connections>
                                     <action selector="clickedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kpf-dN-urp"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m8K-bQ-oFb">
+                                <rect key="frame" x="301" y="132" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchImageRes:" destination="BYZ-38-t0r" eventType="valueChanged" id="Mt4-iA-6XS"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="m7x-ut-vyr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="6Fi-Jm-5f5"/>
+                            <constraint firstItem="H8K-81-SHr" firstAttribute="leading" secondItem="m8K-bQ-oFb" secondAttribute="leading" id="74y-Ll-34t"/>
+                            <constraint firstItem="m7x-ut-vyr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="7mO-3B-TAi"/>
+                            <constraint firstItem="m8K-bQ-oFb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="8vb-cy-f9X"/>
+                            <constraint firstItem="4at-WT-NmH" firstAttribute="leading" secondItem="rbc-AF-6qj" secondAttribute="leading" id="K2Q-i8-a0u"/>
+                            <constraint firstItem="H8K-81-SHr" firstAttribute="top" secondItem="m8K-bQ-oFb" secondAttribute="bottom" constant="43" id="MR9-9Q-pXl"/>
+                            <constraint firstItem="m7x-ut-vyr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="T8p-fW-brc"/>
+                            <constraint firstItem="4at-WT-NmH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VmU-Lp-NBM"/>
+                            <constraint firstItem="H8K-81-SHr" firstAttribute="baseline" secondItem="4at-WT-NmH" secondAttribute="baseline" id="kDy-OF-x3f"/>
+                            <constraint firstItem="m8K-bQ-oFb" firstAttribute="leading" secondItem="m7x-ut-vyr" secondAttribute="trailing" constant="8" id="n1O-X0-AMy"/>
+                            <constraint firstItem="H8K-81-SHr" firstAttribute="leading" secondItem="4at-WT-NmH" secondAttribute="trailing" constant="8" symbolic="YES" id="rtO-5Y-1y8"/>
+                            <constraint firstItem="rbc-AF-6qj" firstAttribute="top" secondItem="m7x-ut-vyr" secondAttribute="bottom" constant="29" id="w80-Oc-HAz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Options" id="tdE-XQ-aAQ"/>
+                    <connections>
+                        <outlet property="highResSwitch" destination="m8K-bQ-oFb" id="eIT-Dn-Og2"/>
+                        <outlet property="userSubreddits" destination="4at-WT-NmH" id="8k9-pB-nPh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="89.505247376311857"/>
         </scene>
     </scenes>
 </document>

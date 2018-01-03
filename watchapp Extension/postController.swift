@@ -59,9 +59,11 @@ class postController: WKInterfaceController {
 								}
 							} else{
 								let image = UIImage(data: data)
-								
-								print("setting \(image)")
-								self.postImage.setImage(image)
+								if image != nil{
+									print("setting \(image)")
+									self.postImage.setImage(image)
+									
+								}
 							}
 							
 							

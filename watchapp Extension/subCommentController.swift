@@ -19,6 +19,8 @@ class subCommentController: WKInterfaceController {
     var post = JSON()
     @IBOutlet var repliesTable: WKInterfaceTable!
     override func awake(withContext context: Any?) {
+		self.setTitle("Comments")
+		
         super.awake(withContext: context)
         print(context)
         if let js = context as? JSON{
@@ -87,10 +89,9 @@ class subCommentController: WKInterfaceController {
         super.didDeactivate()
     }
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
-        self.setTitle("Comments")
-        
+		
 		if let row = repliesTable.rowController(at: rowIndex) as? commentController{
-			if row.replies > 0{
+			if true{ //Temporarily disabling crash-detection until fix to bug where replies to replies couldn't be viewed
 				WKInterfaceDevice.current().play(WKHapticType.click)
 				self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
 			} else{
