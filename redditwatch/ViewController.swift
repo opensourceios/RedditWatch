@@ -38,7 +38,7 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.connectButton.isEnabled = true
+		self.connectButton.isEnabled = false
 		connectButton.setTitle("Please launch on watch to connect to Reddit", for: .normal)
 		if let bool = UserDefaults.standard.object(forKey: "highResImage") as? Bool{
 				highResSwitch.setOn(bool, animated: false)

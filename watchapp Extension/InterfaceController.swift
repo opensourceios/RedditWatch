@@ -52,12 +52,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		wcSession = WCSession.default
 		wcSession?.delegate = self
 		wcSession?.activate()
-		let refresh_token = UserDefaults.standard.object(forKey: "refresh_token") as? String
-		RedditAPI().getAccessToken(grantType: "refresh_token", code: refresh_token!, completionHandler: { result in
+		if let refresh_token = UserDefaults.standard.object(forKey: "refresh_token") as? String
+		{RedditAPI().getAccessToken(grantType: "refresh_token", code: refresh_token, completionHandler: { result in
 			print("Got back \(result)")
 			print("Saving \(result["accesss_token"])")
 			UserDefaults.standard.set(result["acesss_token"], forKey: "access_token")
-		})
+		})}
 	}
 
 	override func didDeactivate() {
