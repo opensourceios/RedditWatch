@@ -41,12 +41,30 @@ class subCommentController: WKInterfaceController {
             if let row = repliesTable.rowController(at: index) as? commentController{
                 if let comment = comment{
                     guard let body = comment["body"].string, let score = comment["score"].int, let user = comment["author"].string else{
-                        
+                        print("Returning")
                         return}
                     if comment["author"].string! == UserDefaults().string(forKey: "selectedAuthor"){
                         row.userLabel.setTextColor(UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0))
                     }
-                    
+					if let replyCount = comment["replies"]["data"]["children"].array?.count{
+						row.replies = replyCount
+						row.replyCount.setText("\(String(describing: replyCount)) Replies")
+						
+					}
+					if let gildedCount = stuff["gilded"]?.int{
+						if gildedCount > 0{
+							row.gildedIndicator.setHidden(false)
+							print(gildedCount)
+							row.gildedIndicator.setText("\(gildedCount * "•")")
+							
+						} else{
+							print(gildedCount)
+							row.gildedIndicator.setHidden(true)
+						}
+					} else
+					{
+						print("couldn't find gild")
+					}
                     if (comment["distinguished"].null) != nil{
                         
                     } else{
@@ -55,6 +73,7 @@ class subCommentController: WKInterfaceController {
                     row.nameLabe.setText(body)
                     row.scoreLabel.setText("↑ " + String(describing: score) + " | ")
                     row.userLabel.setText(user)
+					
                     if let newTime = comment["created_utc"].float{
                         
                         
@@ -68,7 +87,7 @@ class subCommentController: WKInterfaceController {
                 }
             }
         }
-        
+		
         // Configure interface objects here.
     }
     
@@ -83,8 +102,8 @@ class subCommentController: WKInterfaceController {
     }
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		
-		if (repliesTable.rowController(at: rowIndex) as? commentController) != nil{
-			if true{ //Temporarily disabling crash-detection until fix to bug where replies to replies couldn't be viewed
+		if let row = repliesTable.rowController(at: rowIndex) as? commentController{
+			if row.replies > 0{ //Temporarily disabling crash-detection until fix to bug where replies to replies couldn't be viewed
 				WKInterfaceDevice.current().play(WKHapticType.click)
 				self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
 			} else{

@@ -222,21 +222,37 @@
                         </label>
                         <table alignment="left" id="92T-3E-HWh">
                             <items>
-                                <tableRow identifier="replyCell" id="aqy-hb-Uxt" customClass="commentController" customModule="watchapp_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="1" id="Lhs-S0-nSi">
+                                <tableRow identifier="replyCell" id="kfL-u3-1m1" customClass="commentController" customModule="watchapp_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="1" id="7K8-Yu-5K4">
                                         <items>
-                                            <label alignment="left" text="User" id="dGU-Ze-PB1">
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="font" type="system" pointSize="10"/>
-                                            </label>
-                                            <label alignment="left" text="Content" textAlignment="left" numberOfLines="0" id="gIv-0R-zXm"/>
-                                            <group width="1" alignment="left" id="ko8-vH-2Nk">
+                                            <group width="1" alignment="left" id="4lI-Kz-6Et">
                                                 <items>
-                                                    <label alignment="left" text="Score" id="TNQ-sw-sZT">
+                                                    <label alignment="left" text="User" id="4Ao-y3-XTP">
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="font" type="system" pointSize="10"/>
                                                     </label>
-                                                    <label alignment="left" text="Time" id="EWP-9j-1fZ">
+                                                    <label alignment="left" text="|" id="sj0-77-h6h">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                    <label alignment="left" text="Time" id="k5y-H3-a6X">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <label alignment="left" text="3•" numberOfLines="0" id="2QY-LP-VZO">
+                                                <color key="textColor" red="0.94509803920000002" green="0.76862745099999996" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                            </label>
+                                            <label alignment="left" text="Content" textAlignment="left" numberOfLines="0" id="Qs4-Eg-66I"/>
+                                            <group width="1" alignment="left" id="Fdn-fw-IE9">
+                                                <items>
+                                                    <label alignment="left" text="Score" id="Aqy-M0-lSQ">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                    <label alignment="left" text="0 Replies" id="wSp-eY-V6E">
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="font" type="system" pointSize="10"/>
                                                     </label>
@@ -245,10 +261,12 @@
                                         </items>
                                     </group>
                                     <connections>
-                                        <outlet property="nameLabe" destination="gIv-0R-zXm" id="tjj-W7-u9L"/>
-                                        <outlet property="scoreLabel" destination="TNQ-sw-sZT" id="OZx-oi-EWC"/>
-                                        <outlet property="timeLabel" destination="EWP-9j-1fZ" id="wFK-Vd-6zz"/>
-                                        <outlet property="userLabel" destination="dGU-Ze-PB1" id="cVT-3l-gQM"/>
+                                        <outlet property="gildedIndicator" destination="2QY-LP-VZO" id="l4T-my-blc"/>
+                                        <outlet property="nameLabe" destination="Qs4-Eg-66I" id="Q1B-fv-S9S"/>
+                                        <outlet property="replyCount" destination="wSp-eY-V6E" id="Wms-1G-BbO"/>
+                                        <outlet property="scoreLabel" destination="Aqy-M0-lSQ" id="7WL-uj-iEg"/>
+                                        <outlet property="timeLabel" destination="k5y-H3-a6X" id="V4y-gc-yDW"/>
+                                        <outlet property="userLabel" destination="4Ao-y3-XTP" id="mff-zr-eA6"/>
                                     </connections>
                                 </tableRow>
                             </items>
