@@ -65,7 +65,7 @@
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvg-eY-u5t">
-                                <rect key="frame" x="90" y="577" width="194" height="30"/>
+                                <rect key="frame" x="16" y="577" width="343" height="30"/>
                                 <state key="normal" title="Connect to Reddit"/>
                                 <connections>
                                     <action selector="connectToReddit" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ooo-gV-3ns"/>
@@ -74,14 +74,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kvg-eY-u5t" secondAttribute="trailing" constant="91" id="50y-9b-4kO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kvg-eY-u5t" secondAttribute="trailing" constant="16" id="50y-9b-4kO"/>
                             <constraint firstItem="m7x-ut-vyr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="6Fi-Jm-5f5"/>
                             <constraint firstItem="H8K-81-SHr" firstAttribute="leading" secondItem="m8K-bQ-oFb" secondAttribute="leading" id="74y-Ll-34t"/>
                             <constraint firstItem="m7x-ut-vyr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="7mO-3B-TAi"/>
                             <constraint firstItem="m8K-bQ-oFb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="8vb-cy-f9X"/>
                             <constraint firstItem="4at-WT-NmH" firstAttribute="leading" secondItem="rbc-AF-6qj" secondAttribute="leading" id="K2Q-i8-a0u"/>
                             <constraint firstItem="H8K-81-SHr" firstAttribute="top" secondItem="m8K-bQ-oFb" secondAttribute="bottom" constant="43" id="MR9-9Q-pXl"/>
-                            <constraint firstItem="Kvg-eY-u5t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="Rme-YY-rH9"/>
+                            <constraint firstItem="Kvg-eY-u5t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Rme-YY-rH9"/>
                             <constraint firstItem="m7x-ut-vyr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="T8p-fW-brc"/>
                             <constraint firstItem="4at-WT-NmH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VmU-Lp-NBM"/>
                             <constraint firstItem="H8K-81-SHr" firstAttribute="baseline" secondItem="4at-WT-NmH" secondAttribute="baseline" id="kDy-OF-x3f"/>
@@ -94,6 +94,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Options" id="tdE-XQ-aAQ"/>
                     <connections>
+                        <outlet property="connectButton" destination="Kvg-eY-u5t" id="d6w-eC-DXy"/>
                         <outlet property="highResSwitch" destination="m8K-bQ-oFb" id="eIT-Dn-Og2"/>
                         <outlet property="userSubreddits" destination="4at-WT-NmH" id="8k9-pB-nPh"/>
                     </connections>

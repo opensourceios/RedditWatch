@@ -12,9 +12,6 @@ import SwiftyJSON
 import WatchConnectivity
 import Alamofire
 class InterfaceController: WKInterfaceController, WCSessionDelegate{
-	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-		print("Done")
-	}
 	
 	
 	
@@ -29,7 +26,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 	var imageDownloadMode = false
 	
 	var phrases = UserDefaults.standard.object(forKey: "phrases") as? [String] ?? ["Popular", "All", "Funny"]
-	var wcSession: WCSession!
+	var wcSession: WCSession?
 	var highResImage = UserDefaults.standard.object(forKey: "highResImage") as? Bool ?? false
 	var currentSubreddit = String()
 	var currentSort = String()
@@ -37,7 +34,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 	
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
-		_ = ["test": "4"]
 //		let domain = Bundle.main.bundleIdentifier!
 //		UserDefaults.standard.removePersistentDomain(forName: domain) //Prevent nasty 0 __pthread_kill SIGABRT kill
 //		UserDefaults.standard.synchronize()
@@ -49,18 +45,26 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		
 	}
 	
+	
 	override func willActivate() {
 		// This method is called when watch view controller is about to be visible to user
 		super.willActivate()
 		wcSession = WCSession.default
-		wcSession.delegate = self
-		wcSession.activate()
+		wcSession?.delegate = self
+		wcSession?.activate()
+		let refresh_token = UserDefaults.standard.object(forKey: "refresh_token") as? String
+		RedditAPI().getAccessToken(grantType: "refresh_token", code: refresh_token!, completionHandler: { result in
+			print("Got back \(result)")
+			print("Saving \(result["accesss_token"])")
+			UserDefaults.standard.set(result["acesss_token"], forKey: "access_token")
+		})
 	}
-	
+
 	override func didDeactivate() {
 		// This method is called when watch view controller is no longer visible
 		super.didDeactivate()
 	}
+	
 	func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
 		if let responsePhrases = message["phrases"] as? [String]{
 			UserDefaults.standard.set(responsePhrases, forKey: "phrases")
@@ -70,6 +74,31 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 			UserDefaults.standard.set(highres, forKey: "highResImage")
 			highResImage = highres
 		}
+		if let refesh_token = message["refresh_token"] as? String{
+			UserDefaults.standard.set(refesh_token, forKey: "refresh_token")
+			RedditAPI().getAccessToken(grantType: "refresh_token", code: refesh_token, completionHandler: { result in
+				print("Saving \(result["access_token"])")
+				UserDefaults.standard.set(result["access_token"], forKey: "access_token")
+			})
+		}
+	}
+	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+		print("Done")
+		switch activationState {
+		case .activated:
+			print("activated")
+			if (self.wcSession?.isReachable)!{
+				self.wcSession?.sendMessage(["appLaunched": true], replyHandler: nil, errorHandler: { error in
+					print(error.localizedDescription)
+				})
+			} else{
+				print("Not reachable")
+			}
+		default:
+			print("not actived")
+		}
+		print(error?.localizedDescription)
+		
 	}
 	func setupTable(_ subreddit: String = "askreddit", sort: String = "hot"){
 		self.setTitle(subreddit.lowercased())
@@ -166,7 +195,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 										print(self.highResImage)
 										var url = ""
 										//if hint == "image"{
-										
+										row.id = stuff["id"].string!
+										//row.upvoteButton.set
 										if self.highResImage{
 											url = stuff["url"].string!
 										} else {
@@ -260,6 +290,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 	}
 	
 	
+	
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		WKInterfaceDevice.current().play(WKHapticType.click)
 		if (redditTable.rowController(at: rowIndex) as? NameRowController) != nil{
@@ -272,10 +303,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 				self.pushController(withName: "lorem", context: post[ids[rowIndex]])
 			} else{
 				UserDefaults.standard.set(false, forKey: "shouldLoadImage")
+				UserDefaults.standard.set(ids[rowIndex], forKey: "selectedId")
 				self.pushController(withName: "lorem", context: post[ids[rowIndex]])
 			}
 		}
 	}
+	
 }
 
 extension String{

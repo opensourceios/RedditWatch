@@ -16,6 +16,7 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 	@IBOutlet weak var userSubreddits: UITextField!
 	var authSession: SFAuthenticationSession?
 
+	@IBOutlet weak var connectButton: UIButton!
 	@IBOutlet weak var highResSwitch: UISwitch!
 	
 	func sessionDidBecomeInactive(_ session: WCSession) {
@@ -37,6 +38,8 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.connectButton.isEnabled = true
+		connectButton.setTitle("Please launch on watch to connect to Reddit", for: .normal)
 		if let bool = UserDefaults.standard.object(forKey: "highResImage") as? Bool{
 				highResSwitch.setOn(bool, animated: false)
 		} else{
@@ -74,14 +77,29 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 			print(successURL)
 			let user = self.getQueryStringParameter(url: (successURL.absoluteString), param: "code")
 			if let code = user{
-				RedditAPI().getAccessToken("authorization_code", code, completionHandler: {result in
-					print(result["access_token"])
-					print(result["refresh_token"])
+				print("Going")
+				RedditAPI().getAccessToken(grantType: "authorization_code", code: code, completionHandler: {result in
+					UserDefaults.standard.set(true, forKey: "connected")
+					self.wcSession.sendMessage(result, replyHandler: nil, errorHandler: { error in
+						print(error.localizedDescription)
+					})
 				})
 			}
 		})
 		self.authSession?.start()
 		
+	}
+
+	func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+		print("recieved")
+		if let launched = message["appLaunched"] as? Bool{
+			if launched{
+				DispatchQueue.main.async {
+					self.connectButton.isEnabled = true
+					self.connectButton.setTitle("Connect To Reddit", for: .normal)
+				}
+			}
+		}
 	}
 
 	@IBAction func clickedButton(_ sender: Any) {

@@ -14,6 +14,8 @@ import Alamofire
 class postController: WKInterfaceController {
     
 	@IBOutlet var progressLabel: WKInterfaceLabel!
+	@IBOutlet var upvoteButto: WKInterfaceButton!
+	@IBOutlet var downvoteBUtto: WKInterfaceButton!
 	@IBOutlet var postTitle: WKInterfaceLabel!
     @IBOutlet var commentsTable: WKInterfaceTable!
     @IBOutlet var postImage: WKInterfaceImage!
@@ -200,6 +202,7 @@ class postController: WKInterfaceController {
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         print(ids[Array(comments.keys)[rowIndex]])
 		
+		
 		if let row = commentsTable.rowController(at: rowIndex) as? commentController{
 			if row.replies > 0{
 				WKInterfaceDevice.current().play(WKHapticType.click)
@@ -210,7 +213,25 @@ class postController: WKInterfaceController {
 		}
 		
     }
-    override func didDeactivate() {
+	@IBAction func upvote() {
+		WKInterfaceDevice.current().play(WKHapticType.click)
+		print(UserDefaults.standard.object(forKey: "selectedId"))
+		print(UserDefaults.standard.object(forKey: "access_token"))
+		self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
+		self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
+		RedditAPI().vote(1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
+		
+	}
+	@IBAction func downvote() {
+		WKInterfaceDevice.current().play(WKHapticType.click)
+		print(UserDefaults.standard.object(forKey: "selectedId"))
+		print(UserDefaults.standard.object(forKey: "access_token"))
+		self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
+		self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
+		RedditAPI().vote(-1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
+		
+	}
+	override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
@@ -237,3 +258,11 @@ extension String{
     }
 }
 
+extension WKInterfaceButton {
+	func setTitleWithColor(title: String, color: UIColor) {
+		let attString = NSMutableAttributedString(string: title)
+		attString.setAttributes([NSAttributedStringKey.foregroundColor: color], range: NSMakeRange(0, attString.length))
+		self.setAttributedTitle(attString)
+	}
+	
+}

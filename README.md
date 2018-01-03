@@ -33,6 +33,8 @@ Bold features signify "Recently Added" features.
 
 * **Gif Support** (Very slow gif support; no gifv, webm, etc support at this time)
 
+* **Sign into account** and upvote/downvote (save coming later)
+
 # Planned Features
 
 * Click on subreddit links in comments
@@ -42,5 +44,4 @@ Bold features signify "Recently Added" features.
 
 * Click on actual links and get a "Reader Mode" output like Safari
 
-* Sign into account and be able to save, upvote/downvote things (Would require moving to a new API)
 

@@ -119,6 +119,20 @@
                         <label alignment="left" numberOfLines="0" id="db8-mH-ghL">
                             <fontDescription key="font" type="system" pointSize="13"/>
                         </label>
+                        <group width="1" alignment="left" id="Vkh-Cn-sDJ">
+                            <items>
+                                <button alignment="left" title="↑" id="5OH-vp-qZU">
+                                    <connections>
+                                        <action selector="upvote" destination="REJ-04-EQn" id="gYm-Bu-bQX"/>
+                                    </connections>
+                                </button>
+                                <button alignment="left" title="↓" id="Gej-z4-U1l">
+                                    <connections>
+                                        <action selector="downvote" destination="REJ-04-EQn" id="twl-11-AQ6"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                         <label alignment="left" text="Comments" id="2lF-dX-hSB">
                             <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
                         </label>
@@ -176,10 +190,12 @@
                     </items>
                     <connections>
                         <outlet property="commentsTable" destination="hlc-ag-5jF" id="em4-Dh-3qE"/>
+                        <outlet property="downvoteBUtto" destination="Gej-z4-U1l" id="d2I-vQ-dc2"/>
                         <outlet property="postContent" destination="XYC-nm-30e" id="1Va-Kt-tvP"/>
                         <outlet property="postImage" destination="wIb-5o-dFo" id="c4X-cu-erW"/>
                         <outlet property="postTitle" destination="AER-pV-NA4" id="cKd-cC-imR"/>
                         <outlet property="progressLabel" destination="db8-mH-ghL" id="kq2-kv-Fpr"/>
+                        <outlet property="upvoteButto" destination="5OH-vp-qZU" id="byQ-mJ-mWE"/>
                     </connections>
                 </controller>
             </objects>
