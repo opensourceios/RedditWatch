@@ -32,6 +32,8 @@
 		BE2406DF1FEA8BB200D92A34 /* postController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2406DE1FEA8BB200D92A34 /* postController.swift */; };
 		BE2406E21FEA9EAF00D92A34 /* commentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2406E01FEA9E3700D92A34 /* commentController.swift */; };
 		BE2406E41FEB1E5300D92A34 /* subCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2406E31FEB1E5300D92A34 /* subCommentController.swift */; };
+		BEDF987C1FFD0B3E00BFBC99 /* Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDF987B1FFD0B3E00BFBC99 /* Reddit.swift */; };
+		BEDF987D1FFD0B4500BFBC99 /* Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDF987B1FFD0B3E00BFBC99 /* Reddit.swift */; };
 		C72FD277C19DCB0D03725F9F /* Pods_redditwatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574D317AF5B46AE42DE27B9A /* Pods_redditwatchUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +135,7 @@
 		BE2406DE1FEA8BB200D92A34 /* postController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postController.swift; sourceTree = "<group>"; };
 		BE2406E01FEA9E3700D92A34 /* commentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentController.swift; sourceTree = "<group>"; };
 		BE2406E31FEB1E5300D92A34 /* subCommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subCommentController.swift; sourceTree = "<group>"; };
+		BEDF987B1FFD0B3E00BFBC99 /* Reddit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reddit.swift; sourceTree = "<group>"; };
 		CE900D4E5A4A0F6ECE5CFBF7 /* Pods-watchapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watchapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-watchapp/Pods-watchapp.release.xcconfig"; sourceTree = "<group>"; };
 		E5C988D08F5C46F2B5A20855 /* Pods-redditwatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redditwatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-redditwatch/Pods-redditwatch.release.xcconfig"; sourceTree = "<group>"; };
 		EFABE425A7A35A00D128DCCD /* Pods_redditwatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_redditwatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +297,7 @@
 				BE2406C91FEA744300D92A34 /* Assets.xcassets */,
 				BE2406CB1FEA744300D92A34 /* Info.plist */,
 				BE2406CC1FEA744300D92A34 /* PushNotificationPayload.apns */,
+				BEDF987B1FFD0B3E00BFBC99 /* Reddit.swift */,
 			);
 			path = "watchapp Extension";
 			sourceTree = "<group>";
@@ -631,8 +635,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-watchapp Extension/Pods-watchapp Extension-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-watchOS/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-watchOS/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -665,9 +669,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-redditwatch/Pods-redditwatch-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -747,6 +756,7 @@
 				BE2406DD1FEA756600D92A34 /* NameRowController.swift in Sources */,
 				BE2406851FEA743000D92A34 /* ViewController.swift in Sources */,
 				BE2406831FEA743000D92A34 /* AppDelegate.swift in Sources */,
+				BEDF987D1FFD0B4500BFBC99 /* Reddit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +781,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE2406C81FEA744300D92A34 /* NotificationController.swift in Sources */,
+				BEDF987C1FFD0B3E00BFBC99 /* Reddit.swift in Sources */,
 				BE2406E41FEB1E5300D92A34 /* subCommentController.swift in Sources */,
 				BE2406C61FEA744300D92A34 /* ExtensionDelegate.swift in Sources */,
 				BE2406C41FEA744300D92A34 /* InterfaceController.swift in Sources */,

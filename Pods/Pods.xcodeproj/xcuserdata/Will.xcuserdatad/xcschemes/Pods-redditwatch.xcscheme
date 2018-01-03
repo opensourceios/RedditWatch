@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5CB0C3F43805A4CFA8F61DE514A4E41D"
+               BlueprintIdentifier = "907BFA2DE4BD34F7C84580CE4EC12CBD"
                BuildableName = "Pods_redditwatch.framework"
                BlueprintName = "Pods-redditwatch"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5CB0C3F43805A4CFA8F61DE514A4E41D"
+            BlueprintIdentifier = "907BFA2DE4BD34F7C84580CE4EC12CBD"
             BuildableName = "Pods_redditwatch.framework"
             BlueprintName = "Pods-redditwatch"
             ReferencedContainer = "container:Pods.xcodeproj">
