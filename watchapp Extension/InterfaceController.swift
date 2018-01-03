@@ -38,9 +38,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
 		_ = ["test": "4"]
-		let domain = Bundle.main.bundleIdentifier!
-		UserDefaults.standard.removePersistentDomain(forName: domain) //Prevent nasty 0 __pthread_kill SIGABRT kill
-		UserDefaults.standard.synchronize()
+//		let domain = Bundle.main.bundleIdentifier!
+//		UserDefaults.standard.removePersistentDomain(forName: domain) //Prevent nasty 0 __pthread_kill SIGABRT kill
+//		UserDefaults.standard.synchronize()
 		
 		
 		
@@ -139,8 +139,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 									if let gildedCount = stuff["gilded"].int{
 										if gildedCount > 0{
 											row.gildedIndicator.setHidden(false)
+											
 											print(gildedCount)
 											row.gildedIndicator.setText("\(gildedCount * "•")")
+											
 											
 										} else{
 											print(gildedCount)
@@ -207,7 +209,14 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 											let timedif = String(describing: time * 60).components(separatedBy: ".").first! + "m"
 											row.postTime.setText(timedif)
 										} else {
-											let timedif = String(describing: time).components(separatedBy: ".").first! + "h"
+											var timedif = String(describing: time).components(separatedBy: ".").first!
+											if Int(timedif)! > 23{
+												timedif = String(Int(timedif)! / 24)
+												timedif = timedif + "d"
+											} else{
+												timedif = timedif + "h"
+											}
+											
 											row.postTime.setText(timedif)
 										}
 									}

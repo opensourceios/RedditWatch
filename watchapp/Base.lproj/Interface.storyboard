@@ -35,10 +35,15 @@
                                                     </label>
                                                 </items>
                                             </group>
-                                            <label width="119" height="12" alignment="left" text="••••" id="0pB-bV-WkI">
-                                                <color key="textColor" red="0.94509803921568625" green="0.76862745098039209" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="font" type="system" pointSize="14"/>
-                                            </label>
+                                            <group width="1" alignment="left" spacing="0.0" id="1F6-9D-xrm">
+                                                <items>
+                                                    <label width="119" alignment="left" text="••••••••••••••••••••" textAlignment="left" numberOfLines="0" id="0pB-bV-WkI">
+                                                        <color key="textColor" red="0.94509803921568625" green="0.76862745098039209" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" type="system" pointSize="14"/>
+                                                    </label>
+                                                </items>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                            </group>
                                             <group width="1" alignment="left" id="5lv-VK-lbd">
                                                 <items>
                                                     <label alignment="left" text="postName" textAlignment="left" numberOfLines="0" id="d1w-pC-oNz"/>
@@ -138,7 +143,7 @@
                                                     </label>
                                                 </items>
                                             </group>
-                                            <label alignment="left" text="3•" id="jGM-Af-DIK">
+                                            <label alignment="left" text="3•" numberOfLines="0" id="jGM-Af-DIK">
                                                 <color key="textColor" red="0.94509803921568625" green="0.76862745098039209" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="font" type="system" pointSize="10"/>
                                             </label>
