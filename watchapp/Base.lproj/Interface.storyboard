@@ -93,11 +93,16 @@
                                             <imageView width="120" alignment="left" id="0gQ-PJ-ULH">
                                                 <variation key="device=watch42mm" width="138"/>
                                             </imageView>
-                                            <group width="1" alignment="left" layout="vertical" id="CoP-x3-BzE">
+                                            <group width="1" alignment="left" layout="vertical" radius="5" id="CoP-x3-BzE">
                                                 <items>
                                                     <group width="1" alignment="left" id="HF3-0a-jvd">
                                                         <items>
-                                                            <imageView width="30" height="30" alignment="left" id="T1R-An-8Es"/>
+                                                            <group alignment="left" id="MP1-wr-6gj">
+                                                                <items>
+                                                                    <imageView width="30" height="30" alignment="left" id="T1R-An-8Es"/>
+                                                                </items>
+                                                                <edgeInsets key="margins" left="1" right="0.0" top="1" bottom="0.0"/>
+                                                            </group>
                                                             <group width="105" height="30" alignment="left" layout="vertical" spacing="1" id="riT-gS-EfY">
                                                                 <items>
                                                                     <label alignment="left" text="Fetching Name..." id="w6z-vv-Fxm">
