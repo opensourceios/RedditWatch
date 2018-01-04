@@ -97,14 +97,14 @@
                                                 <items>
                                                     <group width="1" alignment="left" id="HF3-0a-jvd">
                                                         <items>
-                                                            <imageView width="30" height="30" alignment="left" image="pic" id="T1R-An-8Es"/>
+                                                            <imageView width="30" height="30" alignment="left" id="T1R-An-8Es"/>
                                                             <group width="105" height="30" alignment="left" layout="vertical" spacing="1" id="riT-gS-EfY">
                                                                 <items>
-                                                                    <label alignment="left" text="Abraham Masri" id="w6z-vv-Fxm">
+                                                                    <label alignment="left" text="DisplayName" id="w6z-vv-Fxm">
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <fontDescription key="font" type="boldSystem" pointSize="12"/>
                                                                     </label>
-                                                                    <label alignment="left" text="@cheesecakeufo" id="duo-Mo-qsC">
+                                                                    <label alignment="left" text="@username" id="duo-Mo-qsC">
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="font" type="system" pointSize="10"/>
                                                                     </label>
@@ -114,21 +114,19 @@
                                                     </group>
                                                     <group width="1" alignment="left" id="HoA-fx-D9S">
                                                         <items>
-                                                            <label alignment="left" numberOfLines="0" id="9rM-ci-MDf">
-                                                                <string key="text">All of my jailbreak-related projects are now open source.
-I won't be working on these projects (or anything public) anymore but if you're interested in making improvements, go for it. Good luck! &lt;3</string>
+                                                            <label alignment="left" text="Tweet" numberOfLines="0" id="9rM-ci-MDf">
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <fontDescription key="font" type="system" weight="light" pointSize="12"/>
                                                             </label>
                                                         </items>
                                                     </group>
-                                                    <group width="1" alignment="left" id="e1E-85-5Od">
+                                                    <group width="1" alignment="left" layout="vertical" spacing="1" id="e1E-85-5Od">
                                                         <items>
-                                                            <label alignment="left" text="88 Retweets" id="8uL-It-9Nm">
+                                                            <label alignment="left" text="Retweets" id="8uL-It-9Nm">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                                             </label>
-                                                            <label alignment="left" text="471 Likes" id="yy3-G7-BtD">
+                                                            <label alignment="left" text="Likes" id="yy3-G7-BtD">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                                             </label>

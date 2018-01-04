@@ -207,7 +207,13 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 													//row.twitterRetweets.setText(String(describing: js["retweet_count"].int!))
 													row.twitterUsername.setText(js["user"]["screen_name"].string!)
 													row.twitterDisplayName.setText(js["user"]["name"].string!)
-													//row.twitterPic.setImageData(<#T##imageData: Data?##Data?#>)
+													self.downloadImage(url: js["user"]["profile_image_url_https"].string!, index: 0, completionHandler: { image in
+														if let img = image{
+															
+															row.twitterPic.setImage(img)
+														}
+													})
+													
 												}
 												
 											})
