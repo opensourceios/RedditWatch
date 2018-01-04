@@ -19,5 +19,68 @@
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "watchapp Extension/postController.swift"
+            timestampString = "536725859.893999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "watchapp_Extension.postController.__deallocating_deinit"
+                  moduleName = "watchapp Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Will/Developer/redditwatch/watchapp%20Extension/postController.swift"
+                  timestampString = "536724828.764837"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "watchapp_Extension.postController.__allocating_init() -&gt; watchapp_Extension.postController"
+                  moduleName = "watchapp Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Will/Developer/redditwatch/watchapp%20Extension/postController.swift"
+                  timestampString = "536724828.767481"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "3">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "watchapp_Extension.postController.init() -&gt; watchapp_Extension.postController"
+                  moduleName = "watchapp Extension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Will/Developer/redditwatch/watchapp%20Extension/postController.swift"
+                  timestampString = "536724828.76883"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

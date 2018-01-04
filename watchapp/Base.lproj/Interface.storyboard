@@ -119,16 +119,21 @@
                         <label alignment="left" numberOfLines="0" id="db8-mH-ghL">
                             <fontDescription key="font" type="system" pointSize="13"/>
                         </label>
-                        <group width="1" alignment="left" id="Vkh-Cn-sDJ">
+                        <group width="134" alignment="left" id="Vkh-Cn-sDJ">
                             <items>
-                                <button alignment="left" title="↑" id="5OH-vp-qZU">
+                                <button width="44" alignment="left" title="↑" id="5OH-vp-qZU">
                                     <connections>
                                         <action selector="upvote" destination="REJ-04-EQn" id="gYm-Bu-bQX"/>
                                     </connections>
                                 </button>
-                                <button alignment="left" title="↓" id="Gej-z4-U1l">
+                                <button width="44" alignment="left" title="↓" id="Gej-z4-U1l">
                                     <connections>
                                         <action selector="downvote" destination="REJ-04-EQn" id="twl-11-AQ6"/>
+                                    </connections>
+                                </button>
+                                <button width="44" alignment="left" title="💾" id="NUk-Ho-aqd">
+                                    <connections>
+                                        <action selector="savePost" destination="REJ-04-EQn" id="qW7-Vp-DKU"/>
                                     </connections>
                                 </button>
                             </items>
@@ -195,6 +200,7 @@
                         <outlet property="postImage" destination="wIb-5o-dFo" id="c4X-cu-erW"/>
                         <outlet property="postTitle" destination="AER-pV-NA4" id="cKd-cC-imR"/>
                         <outlet property="progressLabel" destination="db8-mH-ghL" id="kq2-kv-Fpr"/>
+                        <outlet property="savePostButton" destination="NUk-Ho-aqd" id="kJ1-Ea-Heu"/>
                         <outlet property="upvoteButto" destination="5OH-vp-qZU" id="byQ-mJ-mWE"/>
                     </connections>
                 </controller>

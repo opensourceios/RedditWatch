@@ -55,8 +55,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		if let refresh_token = UserDefaults.standard.object(forKey: "refresh_token") as? String
 		{RedditAPI().getAccessToken(grantType: "refresh_token", code: refresh_token, completionHandler: { result in
 			print("Got back \(result)")
-			print("Saving \(result["accesss_token"])")
-			UserDefaults.standard.set(result["acesss_token"], forKey: "access_token")
+			print("Saving \(result["acesss_token"])")
+			UserDefaults.standard.set(result["acesss_token"]!, forKey: "access_token")
 		})}
 	}
 
@@ -79,6 +79,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 			RedditAPI().getAccessToken(grantType: "refresh_token", code: refesh_token, completionHandler: { result in
 				print("Saving \(result["access_token"])")
 				UserDefaults.standard.set(result["access_token"], forKey: "access_token")
+				
 			})
 		}
 	}
@@ -157,9 +158,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 						}
 						self.redditTable.setAlpha(0.0)
 						self.redditTable.setNumberOfRows(self.names.count, withRowType: "redditCell")
-						print(self.post.count)
 						for (index, _) in self.post.enumerated(){
-							print(index)
 							if let row = self.redditTable.rowController(at: index) as? NameRowController{
 								if let stuff = self.post[self.ids[index]]
 								{
@@ -169,7 +168,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 										if gildedCount > 0{
 											row.gildedIndicator.setHidden(false)
 											
-											print(gildedCount)
 											row.gildedIndicator.setText("\(gildedCount * "•")")
 											
 											
@@ -192,7 +190,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 											
 											
 										}
-										print(self.highResImage)
 										var url = ""
 										//if hint == "image"{
 										row.id = stuff["id"].string!
@@ -210,7 +207,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 											url = "https://" + url
 										}
 										
-										print("\(stuff["title"].string!)\n\(url)\n\n")
 										Alamofire.request(url)
 											.responseData { data in
 												if let data = data.data{

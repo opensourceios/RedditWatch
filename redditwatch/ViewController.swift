@@ -46,6 +46,12 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 			print("couldn't do bool")
 		}
 		
+		if let b = UserDefaults.standard.object(forKey: "connected") as? Bool{
+			if b{
+				self.connectButton.isEnabled = false
+				self.connectButton.setTitle("Connected to Reddit", for: .normal)
+			}
+		}
 		
 		wcSession = WCSession.default
 		wcSession.delegate = self
@@ -80,6 +86,8 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 				print("Going")
 				RedditAPI().getAccessToken(grantType: "authorization_code", code: code, completionHandler: {result in
 					UserDefaults.standard.set(true, forKey: "connected")
+					self.connectButton.isEnabled = false
+					self.connectButton.setTitle("Connected to Reddit", for: .normal)
 					self.wcSession.sendMessage(result, replyHandler: nil, errorHandler: { error in
 						print(error.localizedDescription)
 					})

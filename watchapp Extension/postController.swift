@@ -16,9 +16,11 @@ class postController: WKInterfaceController {
 	@IBOutlet var progressLabel: WKInterfaceLabel!
 	@IBOutlet var upvoteButto: WKInterfaceButton!
 	@IBOutlet var downvoteBUtto: WKInterfaceButton!
+	@IBOutlet var savePostButton: WKInterfaceButton!
 	@IBOutlet var postTitle: WKInterfaceLabel!
     @IBOutlet var commentsTable: WKInterfaceTable!
     @IBOutlet var postImage: WKInterfaceImage!
+	var saved = false
     var comments = [String: JSON]()
     var waiiiiiit = JSON()
 	var downvoted = false
@@ -30,11 +32,26 @@ class postController: WKInterfaceController {
         
 		
         super.awake(withContext: context)
+		
+		downvoteBUtto.setHidden(true)
+		upvoteButto.setHidden(true)
+		savePostButton.setHidden(true)
+		
 		guard let post = context as? JSON else{
 			InterfaceController().becomeCurrentPage()
 			return
 			
+			
 		}
+		
+		if let connected = UserDefaults.standard.object(forKey: "connected") as? Bool{
+			if connected {
+				downvoteBUtto.setHidden(false)
+				upvoteButto.setHidden(false)
+				savePostButton.setHidden(false)
+			}
+		}
+		print(UserDefaults.standard.object(forKey: "connected"))
 		
 		if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
 			if let imagedat = UserDefaults.standard.object(forKey: "selectedThumbnail") as? Data{
@@ -219,7 +236,7 @@ class postController: WKInterfaceController {
 		WKInterfaceDevice.current().play(WKHapticType.click)
 		if downvoted{
 			
-			self.downvoteBUtto.setTitleWithColor(title: "↑", color: UIColor.white)
+			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
 		}
 		if !upvoted{
 			upvoted = true
@@ -258,6 +275,20 @@ class postController: WKInterfaceController {
 			
 		}
 		
+	}
+	@IBAction func savePost() {
+		WKInterfaceDevice.current().play(WKHapticType.click)
+		if !saved{
+			let id = UserDefaults.standard.object(forKey: "selectedId") as! String
+			let token = UserDefaults.standard.object(forKey: "access_token") as! String
+			RedditAPI().save(id: id, type: "t3", access_token: token)
+			saved = true
+		} else{
+			let id = UserDefaults.standard.object(forKey: "selectedId") as! String
+			let token = UserDefaults.standard.object(forKey: "access_token") as! String
+			RedditAPI().save(id: id, type: "t3", access_token: token, true)
+			saved = false
+		}
 	}
 	override func didDeactivate() {
         // This method is called when watch view controller is no longer visible

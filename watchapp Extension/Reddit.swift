@@ -27,6 +27,9 @@ class RedditAPI{
 		Alamofire.request("https://www.reddit.com/api/v1/access_token", method: .post, parameters: parameters)
 			.authenticate(user: "uUgh0YyY_k_6ow", password: "")
 			.responseJSON(completionHandler: {data in
+				if data.response?.statusCode == 200{
+					UserDefaults.standard.set(true, forKey: "connected")
+				}
 				if let dat = data.data{
 					if let json = try? JSON(data: dat){
 						print(json)
@@ -55,6 +58,24 @@ class RedditAPI{
 		]
 		print(headers)
 		Alamofire.request("https://oauth.reddit.com/api/vote", method: .post, parameters: parameters, headers: headers)
+			.responseString(completionHandler: {response in
+				print(response.result.value)
+			})
+	}
+	func save(id: String, type: String, access_token: String, _ unsave:Bool = false){
+		let parameters = [
+			"id": type + "_" + id,
+			] as [String : Any]
+		let headers = [
+			"Authorization": "bearer \(access_token)",
+			"User-Agent": "RedditWatch/0.1 by 123icebuggy",
+			]
+		print(headers)
+		var save = "save"
+		if unsave{
+			save = "un" + save
+		}
+		Alamofire.request("https://oauth.reddit.com/api/\(save)", method: .post, parameters: parameters, headers: headers)
 			.responseString(completionHandler: {response in
 				print(response.result.value)
 			})
