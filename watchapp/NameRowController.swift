@@ -19,5 +19,13 @@ class NameRowController: NSObject {
 	@IBOutlet var gildedIndicator: WKInterfaceLabel!
 	var id = String()
 	
+	@IBOutlet var twitterHousing: WKInterfaceGroup!
+	@IBOutlet var twitterPic: WKInterfaceImage!
 	
+	@IBOutlet var tweetText: WKInterfaceLabel!
+	@IBOutlet var twitterDisplayName: WKInterfaceLabel!
+	@IBOutlet var twitterRetweets: WKInterfaceLabel!
+	
+	@IBOutlet var twitterLikes: WKInterfaceLabel!
+	@IBOutlet var twitterUsername: WKInterfaceLabel!
 }

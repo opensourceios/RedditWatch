@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38" orientation="portrait">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,10 +9,51 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--setup-->
+        <scene sceneID="Swv-hZ-t8C">
+            <objects>
+                <controller identifier="setup" id="Yqu-tg-kX6">
+                    <items>
+                        <group width="1" height="1" alignment="left" id="ogn-Jy-rZ9">
+                            <items>
+                                <label width="1" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="4ID-Es-4ua">
+                                    <string key="text">Welcome to RedditWatch! 
+ Please swipe to the next page to get started</string>
+                                </label>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <segue destination="Hv0-rJ-c07" kind="relationship" relationship="nextPage" id="tIa-Pb-QPw"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="209" y="-32"/>
+        </scene>
+        <!--page2-->
+        <scene sceneID="JA0-sv-xiu">
+            <objects>
+                <controller identifier="page2" id="Hv0-rJ-c07" customClass="waitForiPhone" customModule="watchapp_Extension">
+                    <items>
+                        <label width="1" height="131" alignment="left" text="Please open RedditWatch on your iOS Device to setup" textAlignment="center" numberOfLines="0" id="zqq-gJ-q0U"/>
+                        <button width="1" alignment="left" title="Get Started" id="sDM-7Y-gaJ">
+                            <connections>
+                                <action selector="getStarted" destination="Hv0-rJ-c07" id="wEu-Db-IJK"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="getStartedButton" destination="sDM-7Y-gaJ" id="eTL-hy-jXK"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="465.53846153846155" y="-44.025641025641029"/>
+        </scene>
+        <!--interface-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watchapp" customModuleProvider="target">
+                <controller identifier="interface" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watchapp" customModuleProvider="target">
                     <items>
                         <table alignment="left" id="7TQ-iq-R1T">
                             <items>
@@ -49,7 +90,53 @@
                                                     <label alignment="left" text="postName" textAlignment="left" numberOfLines="0" id="d1w-pC-oNz"/>
                                                 </items>
                                             </group>
-                                            <imageView width="120" alignment="left" id="0gQ-PJ-ULH"/>
+                                            <imageView width="120" alignment="left" id="0gQ-PJ-ULH">
+                                                <variation key="device=watch42mm" width="138"/>
+                                            </imageView>
+                                            <group width="1" alignment="left" layout="vertical" id="CoP-x3-BzE">
+                                                <items>
+                                                    <group width="1" alignment="left" id="HF3-0a-jvd">
+                                                        <items>
+                                                            <imageView width="30" height="30" alignment="left" image="pic" id="T1R-An-8Es"/>
+                                                            <group width="105" height="30" alignment="left" layout="vertical" spacing="1" id="riT-gS-EfY">
+                                                                <items>
+                                                                    <label alignment="left" text="Abraham Masri" id="w6z-vv-Fxm">
+                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <fontDescription key="font" type="boldSystem" pointSize="12"/>
+                                                                    </label>
+                                                                    <label alignment="left" text="@cheesecakeufo" id="duo-Mo-qsC">
+                                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                                    </label>
+                                                                </items>
+                                                            </group>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="HoA-fx-D9S">
+                                                        <items>
+                                                            <label alignment="left" numberOfLines="0" id="9rM-ci-MDf">
+                                                                <string key="text">All of my jailbreak-related projects are now open source.
+I won't be working on these projects (or anything public) anymore but if you're interested in making improvements, go for it. Good luck! &lt;3</string>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <fontDescription key="font" type="system" weight="light" pointSize="12"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="e1E-85-5Od">
+                                                        <items>
+                                                            <label alignment="left" text="88 Retweets" id="8uL-It-9Nm">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
+                                                            </label>
+                                                            <label alignment="left" text="471 Likes" id="yy3-G7-BtD">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </group>
                                             <group width="1" alignment="left" id="SW0-W7-XB4">
                                                 <items>
                                                     <label alignment="left" text="100000" id="xrS-Sc-4S3">
@@ -72,6 +159,13 @@
                                         <outlet property="postImage" destination="0gQ-PJ-ULH" id="e4G-ia-WSY"/>
                                         <outlet property="postScore" destination="xrS-Sc-4S3" id="EKG-jx-LzL"/>
                                         <outlet property="postTime" destination="5yz-Cg-zGX" id="EoJ-WS-Thp"/>
+                                        <outlet property="tweetText" destination="9rM-ci-MDf" id="fYQ-1V-9Gn"/>
+                                        <outlet property="twitterDisplayName" destination="w6z-vv-Fxm" id="wqB-8V-wzO"/>
+                                        <outlet property="twitterHousing" destination="CoP-x3-BzE" id="QcL-qv-DKo"/>
+                                        <outlet property="twitterLikes" destination="yy3-G7-BtD" id="0ts-Zk-sge"/>
+                                        <outlet property="twitterPic" destination="T1R-An-8Es" id="aVS-6o-bcq"/>
+                                        <outlet property="twitterRetweets" destination="8uL-It-9Nm" id="xva-Ep-WZr"/>
+                                        <outlet property="twitterUsername" destination="duo-Mo-qsC" id="JGP-i2-MB1"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -96,7 +190,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="170" y="287"/>
         </scene>
         <!--Posts-->
         <scene sceneID="PI6-05-8lD">

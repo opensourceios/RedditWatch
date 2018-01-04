@@ -11,6 +11,8 @@ import Foundation
 import SwiftyJSON
 import WatchConnectivity
 import Alamofire
+import OAuthSwift
+
 class InterfaceController: WKInterfaceController, WCSessionDelegate{
 	
 	
@@ -25,7 +27,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 	var ids = [String]()
 	var imageDownloadMode = false
 	
-	var phrases = UserDefaults.standard.object(forKey: "phrases") as? [String] ?? ["Popular", "All", "Funny"]
+	var phrases = ["Popular", "All", "Funny"]
 	var wcSession: WCSession?
 	var highResImage = UserDefaults.standard.object(forKey: "highResImage") as? Bool ?? false
 	var currentSubreddit = String()
@@ -37,10 +39,17 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 //		let domain = Bundle.main.bundleIdentifier!
 //		UserDefaults.standard.removePersistentDomain(forName: domain) //Prevent nasty 0 __pthread_kill SIGABRT kill
 //		UserDefaults.standard.synchronize()
+		print("we back bitche")
+		if let bool = UserDefaults.standard.object(forKey: "setup") as? Bool{
+			if bool{
+				changeSubreddit()
+			}
+		}else{
+			self.presentController(withNamesAndContexts: [("setup", AnyObject.self as AnyObject), ("page2", AnyObject.self as AnyObject)])
+			
+		}
 		
 		
-		
-		changeSubreddit()
 		
 		
 	}
@@ -57,7 +66,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 			print("Got back \(result)")
 			print("Saving \(result["acesss_token"])")
 			UserDefaults.standard.set(result["acesss_token"]!, forKey: "access_token")
-		})}
+		})} else{
+			self.presentController(withName: "setup", context: nil)
+		}
+		
 	}
 
 	override func didDeactivate() {
@@ -185,38 +197,56 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 									let score = stuff["score"].int!
 									row.postScore.setText("↑ \(String(describing: score)) |")
 									if stuff["post_hint"].string != nil{
-										if let height = stuff["thumbnail_height"].int{
+										if stuff["url"].string!.range(of: "twitter") != nil && (stuff["url"].string!.range(of: "status") != nil){
+											let id = stuff["url"].string!.components(separatedBy: "/").last!
+											Twitter().getTweet(tweetId: id, completionHandler: {tweet in
+												if let js = tweet{
+													print(js)
+													row.tweetText.setText(js["text"].string!)
+													row.twitterLikes.setText(String(js["favorite_count"].int!))
+													//row.twitterRetweets.setText(String(describing: js["retweet_count"].int!))
+													row.twitterUsername.setText(js["user"]["screen_name"].string!)
+													row.twitterDisplayName.setText(js["user"]["name"].string!)
+													//row.twitterPic.setImageData(<#T##imageData: Data?##Data?#>)
+												}
+												
+											})
+										} else {
+											row.twitterHousing.setHidden(true)
+											if let height = stuff["thumbnail_height"].int{
 											row.postImage.setHeight(CGFloat(height))
 											
 											
-										}
-										var url = ""
-										//if hint == "image"{
-										row.id = stuff["id"].string!
-										//row.upvoteButton.set
-										if self.highResImage{
-											url = stuff["url"].string!
-										} else {
-											url = stuff["thumbnail"].string! //back to thumbnail, show full image on post view
-											if url == "image" || url == "nsfw"{
-												url = stuff["url"].string!
 											}
-										}
-										
-										if url.range(of: "http") == nil{
-											url = "https://" + url
-										}
-										
-										Alamofire.request(url)
-											.responseData { data in
-												if let data = data.data{
-													if let image = UIImage(data: data){
-														row.postImage.setImage(image)
-														self.images[index] = image
+											var url = ""
+											//if hint == "image"{
+											row.id = stuff["id"].string!
+											//row.upvoteButton.set
+											if self.highResImage{
+												url = stuff["url"].string!
+											} else {
+												url = stuff["thumbnail"].string! //back to thumbnail, show full image on post view
+												if url == "image" || url == "nsfw"{
+													url = stuff["url"].string!
+												}
+											}
+											
+											if url.range(of: "http") == nil{
+												url = "https://" + url
+											}
+											
+											Alamofire.request(url)
+												.responseData { data in
+													if let data = data.data{
+														if let image = UIImage(data: data){
+															row.postImage.setImage(image)
+															self.images[index] = image
+														}
+														
 													}
 													
-												}
-												
+											}
+											
 										}
 										
 										//}
