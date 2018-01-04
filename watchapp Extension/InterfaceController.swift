@@ -198,10 +198,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 									row.postScore.setText("↑ \(String(describing: score)) |")
 									if stuff["post_hint"].string != nil{
 										if stuff["url"].string!.range(of: "twitter") != nil && (stuff["url"].string!.range(of: "status") != nil){
+											print("MATCH: \(stuff["url"].string!)")
 											let id = stuff["url"].string!.components(separatedBy: "/").last!
 											Twitter().getTweet(tweetId: id, completionHandler: {tweet in
 												if let js = tweet{
-													print(js)
 													row.tweetText.setText(js["text"].string!)
 													row.twitterLikes.setText(String(js["favorite_count"].int!))
 													//row.twitterRetweets.setText(String(describing: js["retweet_count"].int!))
@@ -257,6 +257,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 										
 										//}
 									} else{
+										row.twitterHousing.setHidden(true)
 										print("No hint for \(stuff["title"].string)")
 									}
 									if let newTime = stuff["created_utc"].float{
