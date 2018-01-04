@@ -100,11 +100,11 @@
                                                             <imageView width="30" height="30" alignment="left" id="T1R-An-8Es"/>
                                                             <group width="105" height="30" alignment="left" layout="vertical" spacing="1" id="riT-gS-EfY">
                                                                 <items>
-                                                                    <label alignment="left" text="DisplayName" id="w6z-vv-Fxm">
+                                                                    <label alignment="left" text="Fetching Name..." id="w6z-vv-Fxm">
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <fontDescription key="font" type="boldSystem" pointSize="12"/>
                                                                     </label>
-                                                                    <label alignment="left" text="@username" id="duo-Mo-qsC">
+                                                                    <label alignment="left" text="Fetching Username..." id="duo-Mo-qsC">
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="font" type="system" pointSize="10"/>
                                                                     </label>
@@ -114,7 +114,7 @@
                                                     </group>
                                                     <group width="1" alignment="left" id="HoA-fx-D9S">
                                                         <items>
-                                                            <label alignment="left" text="Tweet" numberOfLines="0" id="9rM-ci-MDf">
+                                                            <label alignment="left" text="Fetching Status..." numberOfLines="0" id="9rM-ci-MDf">
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <fontDescription key="font" type="system" weight="light" pointSize="12"/>
                                                             </label>
@@ -122,11 +122,11 @@
                                                     </group>
                                                     <group width="1" alignment="left" layout="vertical" spacing="1" id="e1E-85-5Od">
                                                         <items>
-                                                            <label alignment="left" text="Retweets" id="8uL-It-9Nm">
+                                                            <label alignment="left" text="Fetching Retweets..." id="8uL-It-9Nm">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                                             </label>
-                                                            <label alignment="left" text="Likes" id="yy3-G7-BtD">
+                                                            <label alignment="left" text="Fetching Likes..." id="yy3-G7-BtD">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                                             </label>

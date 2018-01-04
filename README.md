@@ -31,9 +31,11 @@ Bold features signify "Recently Added" features.
 
 * **See Gilded Posts**
 
-* **Gif Support** (Very slow gif support; no gifv, webm, etc support at this time)
+* **Gif Support (not inline)** (Very slow gif support; no gifv, webm, etc support at this time)
 
-* **Sign into account** and upvote/downvote (save coming later)
+* **Sign into account** upvote/downvote and save posts
+
+* **Inline Twitter support**
 
 # Planned Features
 

@@ -175,7 +175,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 								if let stuff = self.post[self.ids[index]]
 								{
 									
-									row.nameLabe.setText(stuff["title"].string!)
+									row.nameLabe.setText(stuff["title"].string!.dehtmlify())
 									if let gildedCount = stuff["gilded"].int{
 										if gildedCount > 0{
 											row.gildedIndicator.setHidden(false)
@@ -203,8 +203,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 											Twitter().getTweet(tweetId: id, completionHandler: {tweet in
 												if let js = tweet{
 													row.tweetText.setText(js["text"].string!)
-													row.twitterLikes.setText(String(js["favorite_count"].int!))
-													//row.twitterRetweets.setText(String(describing: js["retweet_count"].int!))
+													row.twitterLikes.setText(String(js["favorite_count"].int!) + " Likes")
+													row.twitterRetweets.setText(String(describing: js["retweet_count"].int!) +	 " Retweets")
 													row.twitterUsername.setText(js["user"]["screen_name"].string!)
 													row.twitterDisplayName.setText(js["user"]["name"].string!)
 													self.downloadImage(url: js["user"]["profile_image_url_https"].string!, index: 0, completionHandler: { image in
