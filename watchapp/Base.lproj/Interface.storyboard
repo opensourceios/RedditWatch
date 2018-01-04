@@ -119,24 +119,28 @@
                         <label alignment="left" numberOfLines="0" id="db8-mH-ghL">
                             <fontDescription key="font" type="system" pointSize="13"/>
                         </label>
-                        <group width="134" alignment="left" id="Vkh-Cn-sDJ">
+                        <group width="136" alignment="left" id="Vkh-Cn-sDJ">
                             <items>
                                 <button width="44" alignment="left" title="↑" id="5OH-vp-qZU">
+                                    <variation key="device=watch42mm" width="51"/>
                                     <connections>
                                         <action selector="upvote" destination="REJ-04-EQn" id="gYm-Bu-bQX"/>
                                     </connections>
                                 </button>
                                 <button width="44" alignment="left" title="↓" id="Gej-z4-U1l">
+                                    <variation key="device=watch42mm" width="51"/>
                                     <connections>
                                         <action selector="downvote" destination="REJ-04-EQn" id="twl-11-AQ6"/>
                                     </connections>
                                 </button>
                                 <button width="44" alignment="left" title="💾" id="NUk-Ho-aqd">
+                                    <variation key="device=watch42mm" width="51"/>
                                     <connections>
                                         <action selector="savePost" destination="REJ-04-EQn" id="qW7-Vp-DKU"/>
                                     </connections>
                                 </button>
                             </items>
+                            <variation key="device=watch42mm" width="154"/>
                         </group>
                         <label alignment="left" text="Comments" id="2lF-dX-hSB">
                             <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
@@ -205,7 +209,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="468" y="346"/>
+            <point key="canvasLocation" x="467.28205128205133" y="344.35897435897436"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

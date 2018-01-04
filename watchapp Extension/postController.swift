@@ -55,9 +55,8 @@ class postController: WKInterfaceController {
 		
 		if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
 			if let imagedat = UserDefaults.standard.object(forKey: "selectedThumbnail") as? Data{
-				if let im = UIImage(data: imagedat){
-					postImage.setImage(im)
-				}
+				postImage.setImageData(imagedat)
+				
 			}
 			if var url = post["url"].string{
 				if url.range(of: "imgur") != nil && url.range(of: "i.imgur") == nil && url.range(of: "/a/") == nil{ //If it's an imgur post, that isn't an album, but also is not a direct link
