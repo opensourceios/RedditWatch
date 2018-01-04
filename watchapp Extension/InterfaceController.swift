@@ -205,7 +205,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 													row.tweetText.setText(js["text"].string!)
 													row.twitterLikes.setText(String(js["favorite_count"].int!) + " Likes")
 													row.twitterRetweets.setText(String(describing: js["retweet_count"].int!) +	 " Retweets")
-													row.twitterUsername.setText(js["user"]["screen_name"].string!)
+													row.twitterUsername.setText("@" + js["user"]["screen_name"].string!)
 													row.twitterDisplayName.setText(js["user"]["name"].string!)
 													self.downloadImage(url: js["user"]["profile_image_url_https"].string!, index: 0, completionHandler: { image in
 														if let img = image{
