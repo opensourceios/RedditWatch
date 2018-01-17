@@ -12,36 +12,38 @@ import SafariServices
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControllerDelegate {
+class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var userSubreddits: UITextField!
 	var authSession: SFAuthenticationSession?
-
+	
+	@IBOutlet weak var clientTable: UITableView!
 	@IBOutlet weak var connectButton: UIButton!
 	@IBOutlet weak var highResSwitch: UISwitch!
-	
-	func sessionDidBecomeInactive(_ session: WCSession) {
-		//
-	}
-	
-	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-		print("Done")
-	}
-	func sessionDidDeactivate(_ session: WCSession) {
-		//
-	}
-	
+	let clients = ["Reddit", "Apollo"]
+	var availableClients = [String]()
+	var selectedClient = UserDefaults.standard.object(forKey: "selectedClient") as? String ?? "reddit"
 	var phases = UserDefaults.standard.object(forKey: "phrases") as? [String] ?? ["pics","all", "popular"]
 	
 	var wcSession: WCSession!
 	override func viewWillAppear(_ animated: Bool) {
-	userSubreddits.text = phases.joined(separator: ",")
+		userSubreddits.text = phases.joined(separator: ",")
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		for element in clients.enumerated(){
+			if UIApplication.shared.canOpenURL(URL(string: element.element + "://")!){
+				availableClients.append(element.element)
+			}
+			
+		}
+		
+		clientTable.delegate = self
+		clientTable.dataSource = self
 		self.connectButton.isEnabled = false
 		connectButton.setTitle("Please launch on watch to connect to Reddit", for: .normal)
 		if let bool = UserDefaults.standard.object(forKey: "highResImage") as? Bool{
-				highResSwitch.setOn(bool, animated: false)
+			highResSwitch.setOn(bool, animated: false)
 		} else{
 			print("couldn't do bool")
 		}
@@ -68,6 +70,41 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 	func getQueryStringParameter(url: String, param: String) -> String? {
 		guard let url = URLComponents(string: url) else { return nil }
 		return url.queryItems?.first(where: { $0.name == param })?.value
+	}
+	func sessionDidBecomeInactive(_ session: WCSession) {
+		//
+	}
+	
+	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+		print("Done")
+	}
+	func sessionDidDeactivate(_ session: WCSession) {
+		//
+	}
+	
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return availableClients.count
+	}
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = clientTable.dequeueReusableCell(withIdentifier: "client")
+		cell?.textLabel?.text = availableClients[indexPath.row]
+		if availableClients[indexPath.row].lowercased() == selectedClient{
+			UserDefaults.standard.set(availableClients[indexPath.row].lowercased(), forKey: "selectedClient")
+			print("Adding checkmark because \(availableClients[indexPath.row].lowercased()) == \(selectedClient)")
+			cell?.accessoryType = .checkmark
+		}else{
+			cell?.accessoryType = .none
+		}
+		return cell!
+	}
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		selectedClient = (clientTable.cellForRow(at: indexPath)?.textLabel?.text?.lowercased())!
+		print(selectedClient)
+		UserDefaults.standard.set(selectedClient, forKey: "selectedClient")
+		clientTable.reloadData()
 	}
 	@IBAction func connectToReddit(){
 		
@@ -97,7 +134,7 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 		self.authSession?.start()
 		
 	}
-
+	
 	func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
 		print("recieved")
 		if let launched = message["appLaunched"] as? Bool{
@@ -109,7 +146,7 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 			}
 		}
 	}
-
+	
 	@IBAction func clickedButton(_ sender: Any) {
 		
 		UserDefaults.standard.set(userSubreddits.text?.components(separatedBy: ","), forKey: "phrases")
@@ -121,6 +158,7 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 		
 	}
 	@IBAction func switchImageRes(_ sender: Any) {
+		print("switching")
 		if let sender = sender as? UISwitch{
 			switch sender.isOn{
 			case true:
@@ -130,6 +168,23 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 				wcSession.sendMessage(["highResImage": false], replyHandler: nil, errorHandler: nil)
 				UserDefaults.standard.set(false, forKey: "highResImage")
 			}
+		}
+	}
+	override func restoreUserActivityState(_ activity: NSUserActivity) {
+		print("Processing")
+		if let id = activity.userInfo!["current"]{
+			let instagramHooks = "apollo://reddit.com/\(id)"
+			let instagramUrl = URL(string: instagramHooks)!
+			if UIApplication.shared.canOpenURL(instagramUrl)
+			{
+				UIApplication.shared.open(instagramUrl)
+				
+			} else {
+				//redirect to safari because the user doesn't have Instagram
+				print("No go")
+			}
+		} else{
+			
 		}
 	}
 }

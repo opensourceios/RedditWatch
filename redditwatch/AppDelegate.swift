@@ -47,7 +47,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		print(url)
 		return true
 	}
-
-
+	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+		if let id = userActivity.userInfo!["current"] as? String, let sub = userActivity.userInfo!["subreddit"] as? String{
+			guard let selectedClient = UserDefaults.standard.object(forKey: "selectedClient") as? String else { return false}
+			
+			var redditHooks = ""
+			switch selectedClient{
+			case "apollo":
+				redditHooks = "apollo://reddit.com/\(id)"
+			case "reddit":
+				redditHooks = "reddit:///r/\(sub)/comments/\(id)"
+				
+			default:
+				redditHooks = "reddit:///r/\(sub)/comments/\(id)"
+			}
+			print(redditHooks)
+			
+			var redditUrl = URL(string: redditHooks)!
+			if UIApplication.shared.canOpenURL(redditUrl)
+			{
+				UIApplication.shared.open(redditUrl)
+				
+			} else {
+				//redirect to safari because the user doesn't have reddit
+				print("No go")
+			}
+		} else{
+			print("Would let id: \(userActivity.userInfo)")
+		}
+		return true
+	}
+	func application(application: UIApplication,
+					 continueUserActivity userActivity: NSUserActivity,
+					 restorationHandler: (([AnyObject]!) -> Void))
+		-> Bool {
+			print("HERE")
+			if let id = userActivity.userInfo!["current"]{
+				var redditHooks = "apollo://reddit.com/\(id)"
+				var redditUrl = URL(string: redditHooks)!
+				if UIApplication.shared.canOpenURL(redditUrl)
+				{
+					UIApplication.shared.open(redditUrl)
+					
+				} else {
+					//redirect to safari because the user doesn't have reddit
+					print("No go")
+				}
+			} else{
+				print("Would let id: \(userActivity.userInfo)")
+			}
+	
+			print(userActivity)
+			// Do some checks to make sure you can proceed
+			if let window = self.window {
+				ViewController().restoreUserActivityState(userActivity)
+			}
+			return true
+	}
+	
+	
 }
 

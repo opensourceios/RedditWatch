@@ -36,6 +36,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 	
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
+		invalidateUserActivity()
 //		let domain = Bundle.main.bundleIdentifier!
 //		UserDefaults.standard.removePersistentDomain(forName: domain) //Prevent nasty 0 __pthread_kill SIGABRT kill
 //		UserDefaults.standard.synchronize()

@@ -12,31 +12,31 @@ import SwiftyJSON
 import Alamofire
 
 class postController: WKInterfaceController {
-    
+	
 	@IBOutlet var progressLabel: WKInterfaceLabel!
 	@IBOutlet var upvoteButto: WKInterfaceButton!
 	@IBOutlet var downvoteBUtto: WKInterfaceButton!
 	@IBOutlet var savePostButton: WKInterfaceButton!
 	@IBOutlet var postTitle: WKInterfaceLabel!
-    @IBOutlet var commentsTable: WKInterfaceTable!
-    @IBOutlet var postImage: WKInterfaceImage!
+	@IBOutlet var commentsTable: WKInterfaceTable!
+	@IBOutlet var postImage: WKInterfaceImage!
 	var saved = false
-    var comments = [String: JSON]()
-    var waiiiiiit = JSON()
+	var comments = [String: JSON]()
+	var waiiiiiit = JSON()
 	var downvoted = false
 	var upvoted = false
-    @IBOutlet var postContent: WKInterfaceLabel!
-    var ids = [String: Any]()
-    var idList = [String]()
-    override func awake(withContext context: Any?) {
-        
+	@IBOutlet var postContent: WKInterfaceLabel!
+	var ids = [String: Any]()
+	var idList = [String]()
+	override func awake(withContext context: Any?) {
 		
-        super.awake(withContext: context)
+		
+		super.awake(withContext: context)
+		
 		
 		downvoteBUtto.setHidden(true)
 		upvoteButto.setHidden(true)
 		savePostButton.setHidden(true)
-		
 		guard let post = context as? JSON else{
 			InterfaceController().becomeCurrentPage()
 			return
@@ -102,130 +102,130 @@ class postController: WKInterfaceController {
 			}
 		}
 		waiiiiiit = post
-        UserDefaults.standard.set(post["author"].string, forKey: "selectedAuthor")
-        if let content = post["selftext"].string{
-            postContent.setText(content.dehtmlify())
-        }
+		UserDefaults.standard.set(post["author"].string, forKey: "selectedAuthor")
+		if let content = post["selftext"].string{
+			postContent.setText(content.dehtmlify())
+		}
 		
-        if let title = post["title"].string{
-            postTitle.setText(title)
-        }
-        // Configure interface objects here.
-        if let subreddit = post["subreddit"].string, let id = post["id"].string {
-            getComments(subreddit: subreddit, id: id)
-        } else{
-            print("wouldn't let")
-        }
-    }
-    
-    
-    func getComments(subreddit: String, id: String){
-        let url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(id)/.json")
-        comments.removeAll()
-        print("her though")
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            print("here too")
-			if (error != nil){
-				WKInterfaceDevice.current().play(WKHapticType.failure)
-				self.presentAlert(withTitle: "Error", message: error?.localizedDescription, preferredStyle: .alert, actions: [WKAlertAction.init(title: "Confirm", style: WKAlertActionStyle.default, handler: {
-					print("Ho")
-				})])
-			} else{
-				
-			}
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    if let da = json.array?.last!["data"]["children"]{
-                        for (_, element) in da.enumerated(){
-                            
-                            self.comments[element.1["data"]["id"].string!] = element.1["data"]
-                            self.idList.append(element.1["data"]["id"].string!)
-                        }
-                    } else{
-                        print("yeah no")
-                    }
-					
-                    print(self.comments.count)
-                    self.commentsTable.setAlpha(0.0)
-                    self.commentsTable.setNumberOfRows(self.comments.count - 1, withRowType: "commentCell")
-                    for (index, element) in self.idList.enumerated(){
-                        if let row = self.commentsTable.rowController(at: index) as? commentController{
-                            if let stuff = self.comments[element]?.dictionary{
-                                row.nameLabe.setText(stuff["body"]?.string?.dehtmlify())
-                                if let score = stuff["score"]{
-                                    
-                                    row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
-                                }
+		if let title = post["title"].string{
+			postTitle.setText(title)
+		}
+		// Configure interface objects here.
+		if let subreddit = post["subreddit"].string, let id = post["id"].string {
+			getComments(subreddit: subreddit, id: id)
+			
+	
+			updateUserActivity("com.willbishop.watchy.handoff", userInfo: ["current": id, "subreddit": subreddit], webpageURL: nil)
+			
+			
+		} else{
+			print("wouldn't let")
+		}
+	}
+	
+	
+	func getComments(subreddit: String, id: String){
+		let url = URL(string: "https://www.reddit.com/r/\(subreddit)/comments/\(id).json")
+		comments.removeAll()
+		print(url)
+		let headers = [
+			"user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36"
+		]
+		Alamofire.request(url!, method: .get, headers: headers)
+			.responseData { data in
+				if let data = data.data {
+					do {
+						let json = try JSON(data: data)
+						if let da = json.array?.last!["data"]["children"]{
+							for (_, element) in da.enumerated(){
 								
-								if let gildedCount = stuff["gilded"]?.int{
-									if gildedCount > 0{
-										row.gildedIndicator.setHidden(false)
-										print(gildedCount)
-										row.gildedIndicator.setText("\(gildedCount * "•")")
+								self.comments[element.1["data"]["id"].string!] = element.1["data"]
+								self.idList.append(element.1["data"]["id"].string!)
+							}
+						} else{
+							print("yeah no")
+						}
+						
+						print(self.comments.count)
+						self.commentsTable.setAlpha(0.0)
+						self.commentsTable.setNumberOfRows(self.comments.count - 1, withRowType: "commentCell")
+						for (index, element) in self.idList.enumerated(){
+							if let row = self.commentsTable.rowController(at: index) as? commentController{
+								if let stuff = self.comments[element]?.dictionary{
+									row.nameLabe.setText(stuff["body"]?.string?.dehtmlify())
+									if let score = stuff["score"]{
 										
-									} else{
-										print(gildedCount)
-										row.gildedIndicator.setHidden(true)
-									}
-								} else
-								{
-									print("couldn't find gild")
-								}
-								if let replyCount = stuff["replies"]!["data"]["children"].array{
-									if let _ = replyCount.last!["data"]["body"].string{
-										row.replies = replyCount.count
-										row.replyCount.setText("\(String(describing: replyCount.count)) Replies")
-									} else{
-										row.replies = replyCount.count - 1
-										row.replyCount.setText("\(String(describing: replyCount.count - 1)) Replies")
-										
+										row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
 									}
 									
+									if let gildedCount = stuff["gilded"]?.int{
+										if gildedCount > 0{
+											row.gildedIndicator.setHidden(false)
+											print(gildedCount)
+											row.gildedIndicator.setText("\(gildedCount * "•")")
+											
+										} else{
+											print(gildedCount)
+											row.gildedIndicator.setHidden(true)
+										}
+									} else
+									{
+										print("couldn't find gild")
+									}
+									if let replyCount = stuff["replies"]!["data"]["children"].array{
+										if let _ = replyCount.last!["data"]["body"].string{
+											row.replies = replyCount.count
+											row.replyCount.setText("\(String(describing: replyCount.count)) Replies")
+										} else{
+											row.replies = replyCount.count - 1
+											row.replyCount.setText("\(String(describing: replyCount.count - 1)) Replies")
+											
+										}
+										
+									}
+									row.userLabel.setText(stuff["author"]?.string)
+									
+									if stuff["author"]?.string! == UserDefaults().string(forKey: "selectedAuthor"){
+										row.userLabel.setTextColor(UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0))
+									}
+									if (stuff["distinguished"]?.null) != nil{
+										
+									} else{
+										row.userLabel.setTextColor(UIColor(red:0.18, green:0.80, blue:0.44, alpha:1.0))
+									}
+									
+									if let newTime = stuff["created_utc"]?.float{
+										row.timeLabel.setText(TimeInterval().differenceBetween(newTime))
+									}
+								} else{
+									print("you done stuffed it")
 								}
-                                row.userLabel.setText(stuff["author"]?.string)
-                                
-                                if stuff["author"]?.string! == UserDefaults().string(forKey: "selectedAuthor"){
-                                    row.userLabel.setTextColor(UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0))
-                                }
-                                if (stuff["distinguished"]?.null) != nil{
-                                    
-                                } else{
-                                    row.userLabel.setTextColor(UIColor(red:0.18, green:0.80, blue:0.44, alpha:1.0))
-                                }
-                                
-								if let newTime = stuff["created_utc"]?.float{
-									row.timeLabel.setText(TimeInterval().differenceBetween(newTime))
-								}
-                            } else{
-                                print("you done stuffed it")
-                            }
-                        } else{
-                            print("helllll no")
-                        }
-                    }
-                    self.commentsTable.setAlpha(1.0)
-                    WKInterfaceDevice.current().play(WKHapticType.stop)
-
-                    
-                } catch {
-                    print("Swifty json messed up... though it's totally your fault")
-                }
-            } else{
-                print("wouldn't let")
-            }
-        }
-        task.resume()
-    }
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
+							} else{
+								print("helllll no")
+							}
+						}
+						self.commentsTable.setAlpha(1.0)
+						WKInterfaceDevice.current().play(WKHapticType.stop)
+						
+						
+					} catch {
+						print("Swifty json messed up... though it's totally your fault")
+					}
+				} else{
+					print("wouldn't let")
+				}
+		}
+		
+	}
+	override func willActivate() {
+		// This method is called when watch view controller is about to be visible to user
+		super.willActivate()
+	}
 	@IBAction func imageTapped(_ sender: Any) {
 		print("Heyo")
 	}
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
-        print(ids[Array(comments.keys)[rowIndex]])
+		print(ids[Array(comments.keys)[rowIndex]])
 		
 		
 		if let row = commentsTable.rowController(at: rowIndex) as? commentController{
@@ -237,7 +237,7 @@ class postController: WKInterfaceController {
 			}
 		}
 		
-    }
+	}
 	@IBAction func upvote() {
 		WKInterfaceDevice.current().play(WKHapticType.click)
 		if downvoted{
@@ -267,10 +267,10 @@ class postController: WKInterfaceController {
 		}
 		if !downvoted{
 			downvoted = true
-		print(UserDefaults.standard.object(forKey: "selectedId"))
-		print(UserDefaults.standard.object(forKey: "access_token"))
-		self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
-		self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
+			print(UserDefaults.standard.object(forKey: "selectedId"))
+			print(UserDefaults.standard.object(forKey: "access_token"))
+			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
+			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
 			RedditAPI().vote(-1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
 			
 		} else{
@@ -284,7 +284,7 @@ class postController: WKInterfaceController {
 	}
 	@IBAction func savePost() {
 		WKInterfaceDevice.current().play(WKHapticType.click)
-	
+		
 		if !saved{
 			savePostButton.setBackgroundColor(UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
 			let id = UserDefaults.standard.object(forKey: "selectedId") as! String
@@ -300,30 +300,30 @@ class postController: WKInterfaceController {
 		}
 	}
 	override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-    
+		// This method is called when watch view controller is no longer visible
+		super.didDeactivate()
+	}
+	
 }
 
 extension String{
-    func dehtmlify() -> String{
-        let html = [
-            "&quot;"    : "\"",
-             "&amp;"     : "&",
-             "&apos;"    : "'",
-             "&lt;"      : "<",
-             "&gt;"      : ">",
-             "&qt;"         : "" //I don't know that &qt; is atm
-        ]
-        var replacement = self
-        for (_, element) in html.enumerated(){
-            replacement = replacement.replacingOccurrences(of: element.key, with: element.value)
-        }
-        
-        return replacement
-        
-    }
+	func dehtmlify() -> String{
+		let html = [
+			"&quot;"    : "\"",
+			"&amp;"     : "&",
+			"&apos;"    : "'",
+			"&lt;"      : "<",
+			"&gt;"      : ">",
+			"&qt;"         : "" //I don't know that &qt; is atm
+		]
+		var replacement = self
+		for (_, element) in html.enumerated(){
+			replacement = replacement.replacingOccurrences(of: element.key, with: element.value)
+		}
+		
+		return replacement
+		
+	}
 }
 
 extension WKInterfaceButton {
