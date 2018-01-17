@@ -52,9 +52,15 @@ class subCommentController: WKInterfaceController {
                     if comment["author"].string! == UserDefaults().string(forKey: "selectedAuthor"){
                         row.userLabel.setTextColor(UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0))
                     }
-					if let replyCount = comment["replies"]["data"]["children"].array?.count{
-						row.replies = replyCount
-						row.replyCount.setText("\(String(describing: replyCount)) Replies")
+					if let replyCount = comment["replies"]["data"]["children"].array{
+						if let _ = replyCount.last!["data"]["body"].string{
+							row.replies = replyCount.count
+							row.replyCount.setText("\(String(describing: replyCount.count)) Replies")
+						} else{
+							row.replies = replyCount.count - 1
+							row.replyCount.setText("\(String(describing: replyCount.count - 1)) Replies")
+							
+						}
 						
 					}
 					if let gildedCount = comment["gilded"].int{
