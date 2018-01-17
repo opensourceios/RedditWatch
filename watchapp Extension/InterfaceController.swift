@@ -61,8 +61,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		wcSession = WCSession.default
 		wcSession?.delegate = self
 		wcSession?.activate()
-		if let refresh_token = UserDefaults.standard.object(forKey: "refresh_token") as? String
-		{RedditAPI().getAccessToken(grantType: "refresh_token", code: refresh_token, completionHandler: { result in
+		var previous = Date()
+		
+		
+		if let refresh_token = UserDefaults.standard.object(forKey: "refresh_token") as? String{
+			
+			RedditAPI().getAccessToken(grantType: "refresh_token", code: refresh_token, completionHandler: { result in
 			print("Got back \(result)")
 			print("Saving \(result["acesss_token"])")
 			UserDefaults.standard.set(result["acesss_token"]!, forKey: "access_token")
@@ -126,7 +130,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		} else{
 			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json")
 		}
-		print(url)
 		
 		names.removeAll()
 		images.removeAll()
@@ -134,7 +137,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		post.removeAll()
 		posts.removeAll()
 		self.redditTable.setNumberOfRows(0, withRowType: "redditCell")
-		print("her though")
 		WKInterfaceDevice.current().play(WKHapticType.start)
 		Alamofire.request(url!, parameters: parameters)
 			.responseData { (dat) in
@@ -184,7 +186,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 											
 											
 										} else{
-											print(gildedCount)
 											row.gildedIndicator.setHidden(true)
 										}
 									} else
@@ -257,7 +258,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 										//}
 									} else{
 										row.twitterHousing.setHidden(true)
-										print("No hint for \(stuff["title"].string)")
 									}
 									if let newTime = stuff["created_utc"].float{
 										
@@ -304,7 +304,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		let suggestions = UserDefaults.standard.object(forKey: "phrases") as? [String] ?? phrases
 		presentTextInputController(withSuggestions: suggestions, allowedInputMode:   WKTextInputMode.plain) { (arr: [Any]?) in
 			if let input = arr?.first as? String{
-				self.setupTable(input)
+				self.setupTable(input.lowercased().replacingOccurrences(of: " ", with: ""))
 			} else{
 				WKInterfaceDevice.current().play(WKHapticType.failure)
 				self.changeSubreddit()

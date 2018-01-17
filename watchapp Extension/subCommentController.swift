@@ -30,11 +30,17 @@ class subCommentController: WKInterfaceController {
             for (_, element) in (js["replies"]["data"]["children"].array?.enumerated())!{
                 let id = element["data"]["id"]
                 idList.append(id.string!)
-                comments[id.string!] = element["data"]
+				if let _ = element["data"]["body"].string{
+					comments[id.string!] = element["data"]
+					
+				}
+			
                 
             }
             
         }
+		print("Let's make do with: ")
+		print(comments.count)
         repliesTable.setNumberOfRows(comments.count, withRowType: "replyCell")
         for (index, element) in idList.enumerated(){
             let comment = comments[element]

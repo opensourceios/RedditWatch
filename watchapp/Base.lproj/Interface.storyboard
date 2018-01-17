@@ -231,6 +231,7 @@
                                     </connections>
                                 </button>
                                 <button width="44" alignment="left" title="💾" id="NUk-Ho-aqd">
+                                    <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <variation key="device=watch42mm" width="51"/>
                                     <connections>
                                         <action selector="savePost" destination="REJ-04-EQn" id="qW7-Vp-DKU"/>

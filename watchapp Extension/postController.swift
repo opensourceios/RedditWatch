@@ -145,6 +145,7 @@ class postController: WKInterfaceController {
                     } else{
                         print("yeah no")
                     }
+					
                     print(self.comments.count)
                     self.commentsTable.setAlpha(0.0)
                     self.commentsTable.setNumberOfRows(self.comments.count - 1, withRowType: "commentCell")
@@ -173,6 +174,7 @@ class postController: WKInterfaceController {
 								}
                                 if let replyCount = stuff["replies"]!["data"]["children"].array?.count{
 									row.replies = replyCount
+									
 									row.replyCount.setText("\(String(describing: replyCount)) Replies")
 									
 								}
@@ -277,12 +279,15 @@ class postController: WKInterfaceController {
 	}
 	@IBAction func savePost() {
 		WKInterfaceDevice.current().play(WKHapticType.click)
+	
 		if !saved{
+			savePostButton.setBackgroundColor(UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
 			let id = UserDefaults.standard.object(forKey: "selectedId") as! String
 			let token = UserDefaults.standard.object(forKey: "access_token") as! String
 			RedditAPI().save(id: id, type: "t3", access_token: token)
 			saved = true
 		} else{
+			savePostButton.setBackgroundColor(UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0))
 			let id = UserDefaults.standard.object(forKey: "selectedId") as! String
 			let token = UserDefaults.standard.object(forKey: "access_token") as! String
 			RedditAPI().save(id: id, type: "t3", access_token: token, true)
