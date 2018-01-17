@@ -13,6 +13,7 @@ import Alamofire
 
 class postController: WKInterfaceController {
 	
+	@IBOutlet var postAuthor: WKInterfaceLabel!
 	@IBOutlet var progressLabel: WKInterfaceLabel!
 	@IBOutlet var upvoteButto: WKInterfaceButton!
 	@IBOutlet var downvoteBUtto: WKInterfaceButton!
@@ -20,11 +21,14 @@ class postController: WKInterfaceController {
 	@IBOutlet var postTitle: WKInterfaceLabel!
 	@IBOutlet var commentsTable: WKInterfaceTable!
 	@IBOutlet var postImage: WKInterfaceImage!
+	@IBOutlet var postTime: WKInterfaceLabel!
+	
 	var saved = false
 	var comments = [String: JSON]()
 	var waiiiiiit = JSON()
 	var downvoted = false
 	var upvoted = false
+	var score = Int()
 	@IBOutlet var postContent: WKInterfaceLabel!
 	var ids = [String: Any]()
 	var idList = [String]()
@@ -52,10 +56,28 @@ class postController: WKInterfaceController {
 			}
 		}
 		print(UserDefaults.standard.object(forKey: "connected"))
+		if let author = post["author"].string{
+			postAuthor.setText(author)
+		}
+		if let newTime = post["created_utc"].float{
+			postTime.setText(TimeInterval().differenceBetween(newTime))
+		}
+		if let score = post["score"].int{
+			var scoretouse: String!
+			self.score = score
+			if score > 999{
+				scoretouse = String(score / 1000) + "k"
+			} else{
+				scoretouse = String(score)
+			}
+			upvoteButto.setTitle("↑\n\(scoretouse!)")
+		}
+		
 		
 		if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
 			if let imagedat = UserDefaults.standard.object(forKey: "selectedThumbnail") as? Data{
 				postImage.setImageData(imagedat)
+				
 				
 			}
 			if var url = post["url"].string{
@@ -110,6 +132,7 @@ class postController: WKInterfaceController {
 		if let title = post["title"].string{
 			postTitle.setText(title)
 		}
+		
 		// Configure interface objects here.
 		if let subreddit = post["subreddit"].string, let id = post["id"].string {
 			getComments(subreddit: subreddit, id: id)
@@ -248,14 +271,27 @@ class postController: WKInterfaceController {
 			upvoted = true
 			print(UserDefaults.standard.object(forKey: "selectedId"))
 			print(UserDefaults.standard.object(forKey: "access_token"))
-			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
+			var scoretouse: String!
+			if score + 1 > 999{
+				scoretouse = String(score / 1000) + "k"
+			} else{
+				scoretouse = String(score + 1)
+			}
+			self.upvoteButto.setTitleWithColor(title: "↑\n\(scoretouse!)", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
 			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
 			RedditAPI().vote(1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
 			
 		} else{
 			downvoted = false
 			upvoted = false
-			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
+			var scoretouse: String!
+			if score - 1 > 999{
+				
+				scoretouse = String(score / 1000) + "k"
+			} else{
+				scoretouse = String(score - 1)
+			}
+			self.upvoteButto.setTitleWithColor(title: "↑\n\(scoretouse!)", color: UIColor.white)
 			RedditAPI().vote(0, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
 		}
 		

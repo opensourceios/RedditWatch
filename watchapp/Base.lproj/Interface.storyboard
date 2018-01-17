@@ -173,6 +173,11 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <button width="2" height="10" alignment="left" title="dummy" id="0RT-bm-qah">
+                            <connections>
+                                <action selector="loadMorePosts" destination="AgC-eL-Hgc" id="DOS-vV-Qo2"/>
+                            </connections>
+                        </button>
                     </items>
                     <menu key="menu" id="CA2-iO-lml">
                         <items>
@@ -189,17 +194,34 @@
                         </items>
                     </menu>
                     <connections>
+                        <outlet property="loadMoreButton" destination="0RT-bm-qah" id="Uov-lV-LyG"/>
                         <outlet property="redditTable" destination="7TQ-iq-R1T" id="nej-aM-PzD"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="170" y="287"/>
+            <point key="canvasLocation" x="170" y="286.82051282051282"/>
         </scene>
         <!--Posts-->
         <scene sceneID="PI6-05-8lD">
             <objects>
                 <controller identifier="lorem" title="Posts" id="REJ-04-EQn" customClass="postController" customModule="watchapp_Extension">
                     <items>
+                        <group width="1" alignment="left" id="nyT-7o-a6z">
+                            <items>
+                                <label height="12" alignment="left" text="Label" id="OKp-rM-XiC">
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                </label>
+                                <label height="12" alignment="left" text="|" id="HSe-3W-jAu">
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                </label>
+                                <label height="12" alignment="left" text="Label" id="bqh-xa-1je">
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                </label>
+                            </items>
+                        </group>
                         <label alignment="left" text="Post" numberOfLines="0" id="AER-pV-NA4">
                             <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
                         </label>
@@ -218,7 +240,7 @@
                         </label>
                         <group width="136" alignment="left" id="Vkh-Cn-sDJ">
                             <items>
-                                <button width="44" alignment="left" title="↑" id="5OH-vp-qZU">
+                                <button width="44" alignment="left" title="↑ 29k" id="5OH-vp-qZU">
                                     <variation key="device=watch42mm" width="51"/>
                                     <connections>
                                         <action selector="upvote" destination="REJ-04-EQn" id="gYm-Bu-bQX"/>
@@ -298,8 +320,10 @@
                     <connections>
                         <outlet property="commentsTable" destination="hlc-ag-5jF" id="em4-Dh-3qE"/>
                         <outlet property="downvoteBUtto" destination="Gej-z4-U1l" id="d2I-vQ-dc2"/>
+                        <outlet property="postAuthor" destination="OKp-rM-XiC" id="pLu-p3-EjP"/>
                         <outlet property="postContent" destination="XYC-nm-30e" id="1Va-Kt-tvP"/>
                         <outlet property="postImage" destination="wIb-5o-dFo" id="c4X-cu-erW"/>
+                        <outlet property="postTime" destination="bqh-xa-1je" id="kD8-Vi-1Zg"/>
                         <outlet property="postTitle" destination="AER-pV-NA4" id="cKd-cC-imR"/>
                         <outlet property="progressLabel" destination="db8-mH-ghL" id="kq2-kv-Fpr"/>
                         <outlet property="savePostButton" destination="NUk-Ho-aqd" id="kJ1-Ea-Heu"/>

@@ -52,7 +52,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		
 		
 		
-		
 	}
 	
 	
@@ -240,8 +239,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 											row.twitterHousing.setHidden(true)
 											if let height = stuff["thumbnail_height"].int{
 												row.postImage.setHeight(CGFloat(height))
-												
-												
 											}
 											var url = ""
 											//if hint == "image"{
