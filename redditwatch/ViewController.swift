@@ -19,7 +19,7 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 	@IBOutlet weak var clientTable: UITableView!
 	@IBOutlet weak var connectButton: UIButton!
 	@IBOutlet weak var highResSwitch: UISwitch!
-	let clients = ["Reddit", "Apollo"]
+	let clients = ["Reddit", "Apollo", "Narwhal"]
 	var availableClients = [String]()
 	var selectedClient = UserDefaults.standard.object(forKey: "selectedClient") as? String ?? "reddit"
 	var phases = UserDefaults.standard.object(forKey: "phrases") as? [String] ?? ["pics","all", "popular"]

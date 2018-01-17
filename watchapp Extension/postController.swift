@@ -13,6 +13,8 @@ import Alamofire
 
 class postController: WKInterfaceController {
 	
+	@IBOutlet var postComments: WKInterfaceLabel!
+	@IBOutlet var postScore: WKInterfaceLabel!
 	@IBOutlet var postAuthor: WKInterfaceLabel!
 	@IBOutlet var progressLabel: WKInterfaceLabel!
 	@IBOutlet var upvoteButto: WKInterfaceButton!
@@ -28,7 +30,6 @@ class postController: WKInterfaceController {
 	var waiiiiiit = JSON()
 	var downvoted = false
 	var upvoted = false
-	var score = Int()
 	@IBOutlet var postContent: WKInterfaceLabel!
 	var ids = [String: Any]()
 	var idList = [String]()
@@ -63,14 +64,11 @@ class postController: WKInterfaceController {
 			postTime.setText(TimeInterval().differenceBetween(newTime))
 		}
 		if let score = post["score"].int{
-			var scoretouse: String!
-			self.score = score
-			if score > 999{
-				scoretouse = String(score / 1000) + "k"
-			} else{
-				scoretouse = String(score)
-			}
-			upvoteButto.setTitle("↑\n\(scoretouse!)")
+			
+			postScore.setText("↑ \(String(score))")
+		}
+		if let replies = post["num_comments"].int{
+			postComments.setText("\(replies) Comments")
 		}
 		
 		
@@ -271,27 +269,14 @@ class postController: WKInterfaceController {
 			upvoted = true
 			print(UserDefaults.standard.object(forKey: "selectedId"))
 			print(UserDefaults.standard.object(forKey: "access_token"))
-			var scoretouse: String!
-			if score + 1 > 999{
-				scoretouse = String(score / 1000) + "k"
-			} else{
-				scoretouse = String(score + 1)
-			}
-			self.upvoteButto.setTitleWithColor(title: "↑\n\(scoretouse!)", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
+			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
 			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
 			RedditAPI().vote(1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
 			
 		} else{
 			downvoted = false
 			upvoted = false
-			var scoretouse: String!
-			if score - 1 > 999{
-				
-				scoretouse = String(score / 1000) + "k"
-			} else{
-				scoretouse = String(score - 1)
-			}
-			self.upvoteButto.setTitleWithColor(title: "↑\n\(scoretouse!)", color: UIColor.white)
+			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
 			RedditAPI().vote(0, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
 		}
 		

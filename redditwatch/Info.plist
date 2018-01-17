@@ -4,6 +4,7 @@
 <dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>narwhal</string>
 		<string>reddit</string>
 		<string>apollo</string>
 	</array>

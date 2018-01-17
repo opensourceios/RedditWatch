@@ -238,9 +238,25 @@
                         <label alignment="left" numberOfLines="0" id="db8-mH-ghL">
                             <fontDescription key="font" type="system" pointSize="13"/>
                         </label>
+                        <group width="1" alignment="left" id="9Rf-iY-3Ox">
+                            <items>
+                                <label alignment="left" text="100000" id="sMW-Ik-ZcU">
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                </label>
+                                <label height="12" alignment="left" text="|" id="PUy-3D-VLu">
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                </label>
+                                <label alignment="left" text="23 Comments" id="aO3-dD-Sk3">
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                </label>
+                            </items>
+                        </group>
                         <group width="136" alignment="left" id="Vkh-Cn-sDJ">
                             <items>
-                                <button width="44" alignment="left" title="↑ 29k" id="5OH-vp-qZU">
+                                <button width="44" alignment="left" title="↑" id="5OH-vp-qZU">
                                     <variation key="device=watch42mm" width="51"/>
                                     <connections>
                                         <action selector="upvote" destination="REJ-04-EQn" id="gYm-Bu-bQX"/>
@@ -321,8 +337,10 @@
                         <outlet property="commentsTable" destination="hlc-ag-5jF" id="em4-Dh-3qE"/>
                         <outlet property="downvoteBUtto" destination="Gej-z4-U1l" id="d2I-vQ-dc2"/>
                         <outlet property="postAuthor" destination="OKp-rM-XiC" id="pLu-p3-EjP"/>
+                        <outlet property="postComments" destination="aO3-dD-Sk3" id="GqO-N8-5DB"/>
                         <outlet property="postContent" destination="XYC-nm-30e" id="1Va-Kt-tvP"/>
                         <outlet property="postImage" destination="wIb-5o-dFo" id="c4X-cu-erW"/>
+                        <outlet property="postScore" destination="sMW-Ik-ZcU" id="u1K-P8-I7e"/>
                         <outlet property="postTime" destination="bqh-xa-1je" id="kD8-Vi-1Zg"/>
                         <outlet property="postTitle" destination="AER-pV-NA4" id="cKd-cC-imR"/>
                         <outlet property="progressLabel" destination="db8-mH-ghL" id="kq2-kv-Fpr"/>
