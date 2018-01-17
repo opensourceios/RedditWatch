@@ -79,5 +79,8 @@ class RedditAPI{
 			.responseString(completionHandler: {response in
 				print(response.result.value)
 			})
+			.response { reponse in
+				print("Got \(reponse.response?.statusCode)")
+		}
 	}
 }

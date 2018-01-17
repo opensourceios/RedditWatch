@@ -37,9 +37,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
 		invalidateUserActivity()
-//		let domain = Bundle.main.bundleIdentifier!
-//		UserDefaults.standard.removePersistentDomain(forName: domain) //Prevent nasty 0 __pthread_kill SIGABRT kill
-//		UserDefaults.standard.synchronize()
+		//		let domain = Bundle.main.bundleIdentifier!
+		//		UserDefaults.standard.removePersistentDomain(forName: domain) //Prevent nasty 0 __pthread_kill SIGABRT kill
+		//		UserDefaults.standard.synchronize()
 		print("we back bitche")
 		if let bool = UserDefaults.standard.object(forKey: "setup") as? Bool{
 			if bool{
@@ -62,21 +62,39 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		wcSession = WCSession.default
 		wcSession?.delegate = self
 		wcSession?.activate()
-		var previous = Date()
 		
+		var lastTime = Date()
+		var shouldRefresh = false
+		
+		if let lastRefresh = UserDefaults.standard.object(forKey: "lastRefresh") as? Date{
+			lastTime = lastRefresh
+		} else{
+			shouldRefresh = true
+		}
+		
+		var timeSince = Date().timeIntervalSince(lastTime)
+		if timeSince > 1800{
+			shouldRefresh = true
+		}
 		
 		if let refresh_token = UserDefaults.standard.object(forKey: "refresh_token") as? String{
-			
-			RedditAPI().getAccessToken(grantType: "refresh_token", code: refresh_token, completionHandler: { result in
-			print("Got back \(result)")
-			print("Saving \(result["acesss_token"])")
-			UserDefaults.standard.set(result["acesss_token"]!, forKey: "access_token")
-		})} else{
+			if shouldRefresh{
+				UserDefaults.standard.set(Date(), forKey: "lastRefresh")
+				print("Haven't refreshed access in atleast 30 mins")
+				RedditAPI().getAccessToken(grantType: "refresh_token", code: refresh_token, completionHandler: { result in
+					print("Got back \(result)")
+					print("Saving \(result["acesss_token"])")
+					UserDefaults.standard.set(result["acesss_token"]!, forKey: "access_token")
+				})
+			} else{
+				print("Not refreshing because refreshed recently")
+			}
+		} else{
 			self.presentController(withName: "setup", context: nil)
 		}
 		
 	}
-
+	
 	override func didDeactivate() {
 		// This method is called when watch view controller is no longer visible
 		super.didDeactivate()
@@ -221,9 +239,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 										} else {
 											row.twitterHousing.setHidden(true)
 											if let height = stuff["thumbnail_height"].int{
-											row.postImage.setHeight(CGFloat(height))
-											
-											
+												row.postImage.setHeight(CGFloat(height))
+												
+												
 											}
 											var url = ""
 											//if hint == "image"{
