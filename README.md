@@ -25,21 +25,33 @@ Bold features signify "Recently Added" features.
 
 * Haptics to signal when the content is loaded (WatchKit URLSession is often slow)
 
-* **Image Support**
+* Image Support
 
-* **Sort Subreddit Posts**
+* Sort Subreddit Posts
 
-* **See Gilded Posts**
+* See Gilded Posts
 
-* **Gif Support (not inline)** (Very slow gif support; no gifv, webm, etc support at this time)
+* Gif Support (not inline) (Very slow gif support; no gifv, webm, etc support at this time)
 
-* **Sign into account** upvote/downvote and save posts
+* Sign into account (upvote/downvote and save posts)
 
-* **Inline Twitter support**
+* Inline Twitter support
+
+* **Handoff support to your favourite Reddit clients (Apollo, Reddit, Narwhal, more to come)
+
+
+# Most Recent Features
+
+* **Handoff support**
+
+* **Saving posts**
+
 
 # Planned Features
 
 * Click on subreddit links in comments
+
+* Sort comments
 
 
 # Maybe One Day Features
