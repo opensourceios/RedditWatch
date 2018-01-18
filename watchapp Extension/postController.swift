@@ -38,7 +38,7 @@ class postController: WKInterfaceController {
 		
 		super.awake(withContext: context)
 		
-		
+		addMenuItem(with: WKMenuItemIcon.info, title: "Change Sort", action: #selector(changeSort))
 		downvoteBUtto.setHidden(true)
 		upvoteButto.setHidden(true)
 		savePostButton.setHidden(true)
@@ -145,13 +145,18 @@ class postController: WKInterfaceController {
 	}
 	
 	
-	func getComments(subreddit: String, id: String){
+	func getComments(subreddit: String, id: String, sort: String = "best"){
 		let url = URL(string: "https://www.reddit.com/r/\(subreddit)/comments/\(id).json")
 		comments.removeAll()
 		print(url)
 		let headers = [
 			"user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36"
 		]
+		_ = [
+			"sort": sort
+		]
+		
+		
 		Alamofire.request(url!, method: .get, headers: headers)
 			.responseData { data in
 				if let data = data.data {
@@ -324,7 +329,9 @@ class postController: WKInterfaceController {
 		// This method is called when watch view controller is no longer visible
 		super.didDeactivate()
 	}
-	
+	@objc func changeSort(){
+		self.presentController(withName: "commentSort", context: waiiiiiit["title"])
+	}
 }
 
 extension String{

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch42" orientation="portrait">
+    <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -41,6 +41,34 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="465.53846153846155" y="-44.025641025641029"/>
+        </scene>
+        <!--commentSort-->
+        <scene sceneID="OY5-sb-MFj">
+            <objects>
+                <controller identifier="commentSort" id="2wZ-qX-ZIr" customClass="commentSort" customModule="watchapp_Extension">
+                    <items>
+                        <table alignment="left" id="ZBD-RG-xDU">
+                            <items>
+                                <tableRow identifier="commentSort" id="Qp0-fW-Xp7" customClass="sortCell" customModule="redditwatch">
+                                    <group key="rootItem" width="1" height="40" alignment="left" id="19D-58-q0a">
+                                        <items>
+                                            <label alignment="left" text="Best" id="Gcn-B9-1lP"/>
+                                        </items>
+                                        <edgeInsets key="margins" left="8" right="0.0" top="10" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="sortLab" destination="Gcn-B9-1lP" id="ft9-Tj-LKh"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="commentSortTable" destination="ZBD-RG-xDU" id="7hR-pp-H9a"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="763" y="-61"/>
         </scene>
         <!--interface-->
         <scene sceneID="aou-V4-d1y">
