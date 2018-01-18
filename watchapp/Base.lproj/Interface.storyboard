@@ -36,16 +36,8 @@
             <objects>
                 <controller identifier="page2" id="Hv0-rJ-c07" customClass="waitForiPhone" customModule="watchapp_Extension">
                     <items>
-                        <label width="1" height="131" alignment="left" text="Please open RedditWatch on your iOS Device to setup" textAlignment="center" numberOfLines="0" id="zqq-gJ-q0U"/>
-                        <button width="1" alignment="left" title="Get Started" id="sDM-7Y-gaJ">
-                            <connections>
-                                <action selector="getStarted" destination="Hv0-rJ-c07" id="wEu-Db-IJK"/>
-                            </connections>
-                        </button>
+                        <label width="1" height="1" alignment="left" text="Please open RedditWatch on your iOS Device to setup" textAlignment="center" numberOfLines="0" id="zqq-gJ-q0U"/>
                     </items>
-                    <connections>
-                        <outlet property="getStartedButton" destination="sDM-7Y-gaJ" id="eTL-hy-jXK"/>
-                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="465.53846153846155" y="-44.025641025641029"/>
@@ -173,11 +165,6 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <button width="2" height="10" alignment="left" title="dummy" id="0RT-bm-qah">
-                            <connections>
-                                <action selector="loadMorePosts" destination="AgC-eL-Hgc" id="DOS-vV-Qo2"/>
-                            </connections>
-                        </button>
                     </items>
                     <menu key="menu" id="CA2-iO-lml">
                         <items>
@@ -194,7 +181,6 @@
                         </items>
                     </menu>
                     <connections>
-                        <outlet property="loadMoreButton" destination="0RT-bm-qah" id="Uov-lV-LyG"/>
                         <outlet property="redditTable" destination="7TQ-iq-R1T" id="nej-aM-PzD"/>
                     </connections>
                 </controller>

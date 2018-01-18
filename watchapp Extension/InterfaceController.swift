@@ -71,7 +71,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 			shouldRefresh = true
 		}
 		
-		var timeSince = Date().timeIntervalSince(lastTime)
+		let timeSince = Date().timeIntervalSince(lastTime)
 		if timeSince > 1800{
 			shouldRefresh = true
 		}
@@ -89,6 +89,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 				print("Not refreshing because refreshed recently")
 			}
 		} else{
+			print("Not setup")
 			self.presentController(withName: "setup", context: nil)
 		}
 		
@@ -108,13 +109,29 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 			UserDefaults.standard.set(highres, forKey: "highResImage")
 			highResImage = highres
 		}
+		print("RECEIVED")
+		
 		if let refesh_token = message["refresh_token"] as? String{
+			print(refesh_token)
 			UserDefaults.standard.set(refesh_token, forKey: "refresh_token")
 			RedditAPI().getAccessToken(grantType: "refresh_token", code: refesh_token, completionHandler: { result in
-				print("Saving \(result["access_token"])")
-				UserDefaults.standard.set(result["access_token"], forKey: "access_token")
+				print(result)
+				print("Saving \(result["acesss_token"])")
+				UserDefaults.standard.set(result["acesss_token"], forKey: "access_token")
+				UserDefaults.standard.set(true, forKey: "connected")
+				print("SHould enable")
+				self.dismiss()
+				self.changeSubreddit()
+				self.wcSession?.sendMessage(["setup":true], replyHandler: nil, errorHandler: { error in
+					print(error.localizedDescription)
+				})
+				UserDefaults.standard.set(true, forKey: "setup")
+				
+				
 				
 			})
+		} else{
+			print("WOULDN'T LET")
 		}
 	}
 	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {

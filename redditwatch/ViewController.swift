@@ -117,18 +117,25 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 				print("error")
 				return
 			}
+			self.connectButton.isEnabled = false
+			self.connectButton.setTitle("Connecting...", for: .normal)
 			print(successURL)
 			let user = self.getQueryStringParameter(url: (successURL.absoluteString), param: "code")
 			if let code = user{
 				print("Going")
 				RedditAPI().getAccessToken(grantType: "authorization_code", code: code, completionHandler: {result in
 					UserDefaults.standard.set(true, forKey: "connected")
+					UserDefaults.standard.set(true, forKey: "setup")
+					print(result)
 					self.connectButton.isEnabled = false
-					self.connectButton.setTitle("Connected to Reddit", for: .normal)
+					self.connectButton.setTitle("Connected To Reddit", for: .normal)
 					self.wcSession.sendMessage(result, replyHandler: nil, errorHandler: { error in
 						print(error.localizedDescription)
 					})
 				})
+			} else {
+				self.connectButton.isEnabled = true
+				self.connectButton.setTitle("Connect To Reddit", for: .normal)
 			}
 		})
 		self.authSession?.start()
@@ -140,9 +147,20 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 		if let launched = message["appLaunched"] as? Bool{
 			if launched{
 				DispatchQueue.main.async {
-					self.connectButton.isEnabled = true
-					self.connectButton.setTitle("Connect To Reddit", for: .normal)
+					if let bool = UserDefaults.standard.object(forKey: "setup") as? Bool{
+						//
+					} else{
+						self.connectButton.isEnabled = true
+						self.connectButton.setTitle("Connect To Reddit", for: .normal)
+					}
+					
 				}
+			}
+		}
+		if let setup = message["setup"] as? Bool{
+			if setup{
+				self.connectButton.isEnabled = false
+				self.connectButton.setTitle("Connected to Reddit", for: .normal)
 			}
 		}
 	}

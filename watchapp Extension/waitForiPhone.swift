@@ -35,12 +35,12 @@ class waitForiPhone: WKInterfaceController, WCSessionDelegate {
 		wcSession = WCSession.default
 		wcSession?.delegate = self
 		wcSession?.activate()
-		getStartedButton.setEnabled(false)
-		if let connected = UserDefaults.standard.object(forKey: "connected") as? Bool{
-			if connected {
-				getStartedButton.setEnabled(true)
-			}
-		}
+//		getStartedButton.setEnabled(false)
+//		if let connected = UserDefaults.standard.object(forKey: "connected") as? Bool{
+//			if connected {
+//				getStartedButton.setEnabled(true)
+//			}
+//		}
 	}
 	
 	
@@ -50,18 +50,24 @@ class waitForiPhone: WKInterfaceController, WCSessionDelegate {
 		self.dismiss()
 	}
 	func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-		
+		print("RECEIVED")
+		print(message)
 		if let refesh_token = message["refresh_token"] as? String{
+			print(refesh_token)
 			UserDefaults.standard.set(refesh_token, forKey: "refresh_token")
 			RedditAPI().getAccessToken(grantType: "refresh_token", code: refesh_token, completionHandler: { result in
+				print(result)
 				print("Saving \(result["access_token"])")
 				UserDefaults.standard.set(result["access_token"], forKey: "access_token")
 				UserDefaults.standard.set(true, forKey: "connected")
 				print("SHould enable")
-				self.getStartedButton.setEnabled(true)
+//				self.getStartedButton.setEnabled(true)
+				
 				
 				
 			})
+		} else{
+			print("WOULDN'T LET")
 		}
 	}
 
