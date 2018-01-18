@@ -57,7 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				redditHooks = "apollo://reddit.com/\(id)"
 			case "reddit":
 				redditHooks = "reddit:///r/\(sub)/comments/\(id)"
-				
+			case "narwhal":
+				redditHooks = "narwhal://open-url/reddit.com/r/\(sub)/comments/\(id)"
 			default:
 				redditHooks = "reddit:///r/\(sub)/comments/\(id)"
 			}
