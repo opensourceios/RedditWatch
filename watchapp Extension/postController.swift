@@ -33,11 +33,11 @@ class postController: WKInterfaceController {
 	@IBOutlet var postContent: WKInterfaceLabel!
 	var ids = [String: Any]()
 	var idList = [String]()
+	var currentSort = "best"
 	override func awake(withContext context: Any?) {
 		
 		
 		super.awake(withContext: context)
-		
 		addMenuItem(with: WKMenuItemIcon.info, title: "Change Sort", action: #selector(changeSort))
 		downvoteBUtto.setHidden(true)
 		upvoteButto.setHidden(true)
@@ -70,7 +70,7 @@ class postController: WKInterfaceController {
 		if let replies = post["num_comments"].int{
 			postComments.setText("\(replies) Comments")
 		}
-		
+	
 		
 		if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
 			if let imagedat = UserDefaults.standard.object(forKey: "selectedThumbnail") as? Data{
@@ -89,11 +89,15 @@ class postController: WKInterfaceController {
 				if url.range(of: "https") == nil{
 					url = url.replacingOccurrences(of: "http://", with: "https://")
 				}
+				print("Downloading")
+				
 				Alamofire.request(url)
 					.responseData { imageData in
+						print("Downloaded")
 						if let data = imageData.data{
 							if post["post_hint"].string! == "image" && url.range(of: "gif") != nil{
 								if let b = UIImage.gifImageWithData(data){
+									print("Gif")
 									self.postImage.setImage(b)
 									self.postImage.startAnimating()
 								}
@@ -148,20 +152,23 @@ class postController: WKInterfaceController {
 	func getComments(subreddit: String, id: String, sort: String = "best"){
 		let url = URL(string: "https://www.reddit.com/r/\(subreddit)/comments/\(id).json")
 		comments.removeAll()
+		ids.removeAll()
+		idList.removeAll()
+		
 		print(url)
-		let headers = [
-			"user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36"
-		]
-		_ = [
-			"sort": sort
+		
+		let parameters = [
+			"sort": sort.lowercased()
 		]
 		
-		
-		Alamofire.request(url!, method: .get, headers: headers)
+		print(sort)
+		Alamofire.request(url!,  parameters: parameters)
 			.responseData { data in
+			
 				if let data = data.data {
 					do {
 						let json = try JSON(data: data)
+						
 						if let da = json.array?.last!["data"]["children"]{
 							for (_, element) in da.enumerated(){
 								
@@ -172,7 +179,6 @@ class postController: WKInterfaceController {
 							print("yeah no")
 						}
 						
-						print(self.comments.count)
 						self.commentsTable.setAlpha(0.0)
 						self.commentsTable.setNumberOfRows(self.comments.count - 1, withRowType: "commentCell")
 						for (index, element) in self.idList.enumerated(){
@@ -187,11 +193,9 @@ class postController: WKInterfaceController {
 									if let gildedCount = stuff["gilded"]?.int{
 										if gildedCount > 0{
 											row.gildedIndicator.setHidden(false)
-											print(gildedCount)
 											row.gildedIndicator.setText("\(gildedCount * "•")")
 											
 										} else{
-											print(gildedCount)
 											row.gildedIndicator.setHidden(true)
 										}
 									} else
@@ -246,6 +250,20 @@ class postController: WKInterfaceController {
 	override func willActivate() {
 		// This method is called when watch view controller is about to be visible to user
 		super.willActivate()
+		print("Back bitches")
+		if let sort = UserDefaults.standard.object(forKey: waiiiiiit["title"].string!) as? String{
+			UserDefaults.standard.removeObject(forKey: waiiiiiit["title"].string!)
+			if let subreddit = waiiiiiit["subreddit"].string, let id = waiiiiiit["id"].string {
+				if sort.lowercased() != currentSort{
+					getComments(subreddit: subreddit, id: id, sort: sort)
+					currentSort = sort.lowercased()
+					self.commentsTable.setNumberOfRows(0, withRowType: "commentCell")
+				} else{
+					WKInterfaceDevice.current().play(WKHapticType.retry) //Retry, because they may have tapped the wrong sort.
+				}
+				
+			}
+		}
 	}
 	@IBAction func imageTapped(_ sender: Any) {
 		print("Heyo")
@@ -330,7 +348,9 @@ class postController: WKInterfaceController {
 		super.didDeactivate()
 	}
 	@objc func changeSort(){
-		self.presentController(withName: "commentSort", context: waiiiiiit["title"])
+		
+		self.presentController(withName: "commentSort", context: waiiiiiit["title"].string!)
+		
 	}
 }
 

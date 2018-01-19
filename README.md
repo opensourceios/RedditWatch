@@ -37,21 +37,14 @@ Bold features signify "Recently Added" features.
 
 * Inline Twitter support
 
-* **Handoff support to your favourite Reddit clients (Apollo, Reddit, Narwhal, more to come)
+* **Handoff support to your favourite Reddit clients** (Apollo, Reddit, Narwhal, more to come)
 
-
-# Most Recent Features
-
-* **Handoff support**
-
-* **Saving posts**
-
+* **Sort Comments**
 
 # Planned Features
 
 * Click on subreddit links in comments
 
-* Sort comments
 
 
 # Maybe One Day Features

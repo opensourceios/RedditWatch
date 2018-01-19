@@ -49,7 +49,7 @@
                     <items>
                         <table alignment="left" id="ZBD-RG-xDU">
                             <items>
-                                <tableRow identifier="commentSort" id="Qp0-fW-Xp7" customClass="sortCell" customModule="redditwatch">
+                                <tableRow identifier="commentSort" id="Qp0-fW-Xp7" customClass="sortCell" customModule="watchapp_Extension">
                                     <group key="rootItem" width="1" height="40" alignment="left" id="19D-58-q0a">
                                         <items>
                                             <label alignment="left" text="Best" id="Gcn-B9-1lP"/>

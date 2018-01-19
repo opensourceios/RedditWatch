@@ -36,7 +36,6 @@
 		BE64A7A71FFDD8A2005B9350 /* waitForiPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE64A7A61FFDD8A2005B9350 /* waitForiPhone.swift */; };
 		BE8B1FC120107A6D00D24D26 /* commentSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8B1FC020107A6D00D24D26 /* commentSort.swift */; };
 		BE8B1FC420107DDA00D24D26 /* sortCel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8B1FC220107D0C00D24D26 /* sortCel.swift */; };
-		BE8B1FC520107E9F00D24D26 /* sortCel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8B1FC220107D0C00D24D26 /* sortCel.swift */; };
 		BEDF987C1FFD0B3E00BFBC99 /* Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDF987B1FFD0B3E00BFBC99 /* Reddit.swift */; };
 		BEDF987D1FFD0B4500BFBC99 /* Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDF987B1FFD0B3E00BFBC99 /* Reddit.swift */; };
 		C72FD277C19DCB0D03725F9F /* Pods_redditwatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574D317AF5B46AE42DE27B9A /* Pods_redditwatchUITests.framework */; };
@@ -768,7 +767,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE8B1FC520107E9F00D24D26 /* sortCel.swift in Sources */,
 				BE2406DD1FEA756600D92A34 /* NameRowController.swift in Sources */,
 				BE2406851FEA743000D92A34 /* ViewController.swift in Sources */,
 				BE2406831FEA743000D92A34 /* AppDelegate.swift in Sources */,
