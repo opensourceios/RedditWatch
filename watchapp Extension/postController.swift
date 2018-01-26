@@ -70,8 +70,6 @@ class postController: WKInterfaceController {
 		if let replies = post["num_comments"].int{
 			postComments.setText("\(replies) Comments")
 		}
-	
-		
 		if UserDefaults.standard.object(forKey: "shouldLoadImage") as! Bool{
 			if let imagedat = UserDefaults.standard.object(forKey: "selectedThumbnail") as? Data{
 				postImage.setImageData(imagedat)
@@ -93,7 +91,7 @@ class postController: WKInterfaceController {
 				
 				Alamofire.request(url)
 					.responseData { imageData in
-						print("Downloaded")
+						
 						if let data = imageData.data{
 							if post["post_hint"].string! == "image" && url.range(of: "gif") != nil{
 								if let b = UIImage.gifImageWithData(data){
@@ -251,6 +249,7 @@ class postController: WKInterfaceController {
 		// This method is called when watch view controller is about to be visible to user
 		super.willActivate()
 		print("Back bitches")
+		
 		if let sort = UserDefaults.standard.object(forKey: waiiiiiit["title"].string!) as? String{
 			UserDefaults.standard.removeObject(forKey: waiiiiiit["title"].string!)
 			if let subreddit = waiiiiiit["subreddit"].string, let id = waiiiiiit["id"].string {
@@ -348,8 +347,12 @@ class postController: WKInterfaceController {
 		super.didDeactivate()
 	}
 	@objc func changeSort(){
-		
-		self.presentController(withName: "commentSort", context: waiiiiiit["title"].string!)
+		let context = [
+			"type": "comment",
+			"sorts": ["Best", "Top", "New", "Controversial", "Old"],
+			"title": waiiiiiit["title"].string!
+			] as [String : Any?]
+		self.presentController(withName: "commentSort", context: context)
 		
 	}
 }

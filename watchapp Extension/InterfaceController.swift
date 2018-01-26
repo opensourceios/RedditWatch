@@ -62,6 +62,11 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		wcSession?.delegate = self
 		wcSession?.activate()
 		
+		if let sort = UserDefaults.standard.object(forKey: currentSubreddit + "sort") as? String{
+			UserDefaults.standard.removeObject(forKey: currentSubreddit + "sort")
+			setupTable(currentSubreddit, sort: sort)
+		}
+		
 		var lastTime = Date()
 		var shouldRefresh = false
 		
@@ -92,6 +97,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 			print("Not setup")
 			self.presentController(withName: "setup", context: nil)
 		}
+		
+		
 		
 	}
 	
@@ -157,15 +164,16 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		self.currentSubreddit = subreddit
 		self.currentSort = sort
 		var parameters = [String: Any]()
-		var url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json")
-		if sort == "top"{
-			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json")
+		var url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort.lowercased()).json")
+		if sort.lowercased() == "top"{
+			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort.lowercased()).json")
 			parameters["t"] = "all"
 			
 		} else{
-			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json")
+			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort.lowercased()).json")
 		}
-		
+		print(parameters)
+		print(url)
 		names.removeAll()
 		images.removeAll()
 		ids.removeAll()
@@ -326,12 +334,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 					}
 				}
 		}
-		//			.downloadProgress { progress in
-		////				if let row = self.redditTable.rowController(at: index) as? NameRowController{
-		////
-		////					//row.percentComplete.setText(String(describing: progress.fileCompletedCount) + "%")
-		////				}
-		//		}
+	
 	}
 	@IBAction func changeSubreddit() {
 		let suggestions = UserDefaults.standard.object(forKey: "phrases") as? [String] ?? phrases
@@ -345,12 +348,21 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		}
 	}
 	@IBAction func changeSort() {
-		let sorts = ["Hot", "New", "Rising", "Controversial", "Top", "Gilded"]
-		presentTextInputController(withSuggestions: sorts, allowedInputMode: WKTextInputMode.plain){ (arr: [Any]?) in
-			if let sort = arr?.first as? String{
-				self.setupTable(self.currentSubreddit, sort: sort.lowercased())
-			}
-		}
+		
+		let context = [
+			"type": "subreddit",
+			"sorts": ["Hot", "New", "Rising", "Controversial", "Top", "Gilded"],
+			"title": nil,
+			"subreddit": currentSubreddit
+			] as [String : Any?]
+		self.presentController(withName: "commentSort", context: context)
+		
+//		let sorts = ["Hot", "New", "Rising", "Controversial", "Top", "Gilded"]
+//		presentTextInputController(withSuggestions: sorts, allowedInputMode: WKTextInputMode.plain){ (arr: [Any]?) in
+//			if let sort = arr?.first as? String{
+//				self.setupTable(self.currentSubreddit, sort: sort.lowercased())
+//			}
+//		}
 		
 	}
 	
