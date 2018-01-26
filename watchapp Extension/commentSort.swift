@@ -65,7 +65,7 @@ class commentSort: WKInterfaceController {
 		if type == "comment"{
 			UserDefaults.standard.set(sorts[rowIndex], forKey: post)
 		} else if type == "subreddit"{
-			UserDefaults.standard.set(sorts[rowIndex], forKey: subreddit + "sort")
+			UserDefaults.standard.set(sorts[rowIndex].lowercased(), forKey: subreddit + "sort")
 		}
 		self.dismiss()
 	}

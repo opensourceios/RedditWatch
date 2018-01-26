@@ -164,16 +164,15 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		self.currentSubreddit = subreddit
 		self.currentSort = sort
 		var parameters = [String: Any]()
-		var url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort.lowercased()).json")
-		if sort.lowercased() == "top"{
-			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort.lowercased()).json")
+		var url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json")
+		if sort == "top"{
+			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json")
 			parameters["t"] = "all"
 			
 		} else{
-			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort.lowercased()).json")
+			url = URL(string: "https://www.reddit.com/r/\(subreddit)/\(sort).json")
 		}
-		print(parameters)
-		print(url)
+		
 		names.removeAll()
 		images.removeAll()
 		ids.removeAll()
