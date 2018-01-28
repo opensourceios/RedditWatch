@@ -117,7 +117,32 @@ class subCommentController: WKInterfaceController {
 		presentTextInputController(withSuggestions: ["No"], allowedInputMode: .plain, completion: { (arr: [Any]?) in
 			if let arr = arr{
 				if let comment = arr.first as? String{
-					RedditAPI().post(commentText: comment, access_token: access_token, parentId: id, type: "comment")
+					RedditAPI().post(commentText: comment, access_token: access_token, parentId: id, type: "comment", completionHandler: {js in
+						print(js)
+						guard let dat = js["json"]["data"]["things"].array else{return}
+						guard let first = dat.first else {return}
+						
+						let postedComment = first["data"]
+						
+						
+						if let author = postedComment["author"].string, let body = postedComment["body"].string{
+							
+							print("Created")
+							let idx = NSIndexSet(index: 0)
+							self.repliesTable.insertRows(at: idx as IndexSet, withRowType: "replyCell")
+							if var row = self.repliesTable.rowController(at: 0) as? commentController{
+								row.scoreLabel.setText("↑ 1 |")
+								row.timeLabel.setText("Just Now")
+								row.gildedIndicator.setHidden(true)
+								row.replyCount.setText("0 Replies")
+								row.userLabel.setText(author)
+								row.nameLabe.setText(body)
+								print("Set")
+								self.repliesTable.scrollToRow(at: 0)
+							}
+						}
+						
+					})
 				}
 			}
 		})

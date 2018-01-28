@@ -137,7 +137,7 @@ class postController: WKInterfaceController {
 		if let subreddit = post["subreddit"].string, let id = post["id"].string {
 			getComments(subreddit: subreddit, id: id)
 			
-	
+			
 			updateUserActivity("com.willbishop.watchy.handoff", userInfo: ["current": id, "subreddit": subreddit], webpageURL: nil)
 			
 			
@@ -162,7 +162,7 @@ class postController: WKInterfaceController {
 		print(sort)
 		Alamofire.request(url!,  parameters: parameters)
 			.responseData { data in
-			
+				
 				if let data = data.data {
 					do {
 						let json = try JSON(data: data)
@@ -210,7 +210,7 @@ class postController: WKInterfaceController {
 												row.replyCount.setText("\(String(describing: replyCount.count - 1)) Replies")
 												
 											}
-										
+											
 										}
 										
 									}
@@ -274,7 +274,7 @@ class postController: WKInterfaceController {
 		print(ids[Array(comments.keys)[rowIndex]])
 		
 		
-		if let row = commentsTable.rowController(at: rowIndex) as? commentController{
+		if (commentsTable.rowController(at: rowIndex) as? commentController) != nil{
 			//if row.replies > 0{
 			WKInterfaceDevice.current().play(WKHapticType.click)
 			self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
@@ -364,10 +364,35 @@ class postController: WKInterfaceController {
 				if let comment = arr.first as? String{
 					guard let access_token = UserDefaults.standard.object(forKey: "access_token") as? String else {return}
 					print(self.currentPost["id"].string!)
-					RedditAPI().post(commentText: comment, access_token: access_token, parentId: (self.currentPost["id"].string!))
+					RedditAPI().post(commentText: comment, access_token: access_token, parentId: (self.currentPost["id"].string!), completionHandler: {js in
+						
+						guard let dat = js["json"]["data"]["things"].array else{return}
+						guard let first = dat.first else {return}
+					
+						let postedComment = first["data"]
+						
+						
+						if let author = postedComment["author"].string, let body = postedComment["body"].string{
+							
+							print("Created")
+							let idx = NSIndexSet(index: 0)
+							self.commentsTable.insertRows(at: idx as IndexSet, withRowType: "commentCell")
+							if var row = self.commentsTable.rowController(at: 0) as? commentController{
+								row.scoreLabel.setText("↑ 1 |")
+								row.timeLabel.setText("Just Now")
+								row.gildedIndicator.setHidden(true)
+								row.replyCount.setText("0 Replies")
+								row.userLabel.setText(author)
+								row.nameLabe.setText(body)
+								print("Set")
+								self.commentsTable.scrollToRow(at: 0)
+							}
+						}
+						
+					})
 					
 					//TODO: Add row to post without refresh
-				
+					
 				}
 			}
 		}
