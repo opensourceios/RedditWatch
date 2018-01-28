@@ -83,13 +83,16 @@ class RedditAPI{
 				print("Got \(reponse.response?.statusCode)")
 		}
 	}
-	func post(commentText: String, access_token: String, parentId: String){
+	func post(commentText: String, access_token: String, parentId: String, type: String = "post"){
 		let headers = [
 			"Authorization": "bearer \(access_token)",
 			"User-Agent": "RedditWatch/0.1 by 123icebuggy",
 		]
+		let types = ["post": "t3_", "comment": "t1_"]
+		
+		print("\(types[type])\(parentId)")
 		let parameters = [
-			"thing_id": "t3_\(parentId)",
+			"thing_id": "\(types[type]!)\(parentId)",
 			"text": commentText,
 			"return_rtjson": false,
 			"api_type": "json"

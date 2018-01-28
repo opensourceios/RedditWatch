@@ -402,6 +402,11 @@
                             <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
                         </label>
                         <label width="136" alignment="left" text="s" numberOfLines="0" id="wn6-kp-3FM"/>
+                        <button width="1" alignment="left" title="Reply" id="FLz-k3-IdH">
+                            <connections>
+                                <action selector="postReply" destination="xh4-hG-gSc" id="1SW-5Y-5wi"/>
+                            </connections>
+                        </button>
                         <label alignment="left" text="Replies" id="l6H-ET-sOs">
                             <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
                         </label>
@@ -459,6 +464,7 @@
                     </items>
                     <connections>
                         <outlet property="commentLabel" destination="wn6-kp-3FM" id="yb2-ZY-DDL"/>
+                        <outlet property="postReply" destination="FLz-k3-IdH" id="CER-aK-eFe"/>
                         <outlet property="repliesTable" destination="92T-3E-HWh" id="Mhc-7t-YG9"/>
                     </connections>
                 </controller>

@@ -272,12 +272,12 @@ class postController: WKInterfaceController {
 		
 		
 		if let row = commentsTable.rowController(at: rowIndex) as? commentController{
-			if row.replies > 0{
-				WKInterfaceDevice.current().play(WKHapticType.click)
-				self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
-			} else{
-				WKInterfaceDevice.current().play(WKHapticType.failure)
-			}
+			//if row.replies > 0{
+			WKInterfaceDevice.current().play(WKHapticType.click)
+			self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
+			//} else{
+			//	WKInterfaceDevice.current().play(WKHapticType.failure)
+			//}
 		}
 		
 	}

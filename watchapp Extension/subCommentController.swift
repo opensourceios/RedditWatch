@@ -27,17 +27,16 @@ class subCommentController: WKInterfaceController {
             post = js
             commentLabel.setText(js["body"].string!)
             //    print(js["replies"])
-            for (_, element) in (js["replies"]["data"]["children"].array?.enumerated())!{
-                let id = element["data"]["id"]
-                idList.append(id.string!)
-				if let _ = element["data"]["body"].string{
-					comments[id.string!] = element["data"]
-					
+			if let replies = js["replies"]["data"]["children"].array as? [JSON]{
+				for (_, element) in replies.enumerated(){
+					let id = element["data"]["id"]
+					idList.append(id.string!)
+					if let _ = element["data"]["body"].string{
+						comments[id.string!] = element["data"]
+						
+					}
 				}
-			
-                
-            }
-            
+			}
         }
 		print("Let's make do with: ")
 		print(comments.count)
@@ -112,7 +111,18 @@ class subCommentController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+	@IBAction func postReply() {
+		guard let id = post["id"].string else {return}
+		guard let access_token = UserDefaults.standard.object(forKey: "access_token") as? String else{return}
+		presentTextInputController(withSuggestions: ["No"], allowedInputMode: .plain, completion: { (arr: [Any]?) in
+			if let arr = arr{
+				if let comment = arr.first as? String{
+					RedditAPI().post(commentText: comment, access_token: access_token, parentId: id, type: "comment")
+				}
+			}
+		})
+	}
+	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		
 		if let row = repliesTable.rowController(at: rowIndex) as? commentController{
 			if row.replies > 0{ //Temporarily disabling crash-detection until fix to bug where replies to replies couldn't be viewed
