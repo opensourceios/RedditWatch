@@ -26,7 +26,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 	var post = [String: JSON]()
 	var ids = [String]()
 	var imageDownloadMode = false
-	
+	var showSubredditLabels = ["popular", "all"]
 	var phrases = ["Popular", "All", "Funny"]
 	var wcSession: WCSession?
 	var highResImage = UserDefaults.standard.object(forKey: "highResImage") as? Bool ?? false
@@ -235,7 +235,20 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 									{
 										print("couldn't find gild")
 									}
-									
+									if let flair = stuff["link_flair_text"].string{
+										row.postFlair.setText(flair)
+									} else{
+										row.postFlair.setHidden(true)
+									}
+									if let subreddit = stuff["subreddit"].string{
+										if self.showSubredditLabels.contains(self.currentSubreddit){
+											row.postSubreddit.setText("r/" + subreddit)
+										} else{
+											row.postSubreddit.setHidden(true)
+										}
+									} else{
+										row.postSubreddit.setHidden(true)
+									}
 									row.postAuthor.setText(stuff["author"].string!)
 									row.postCommentCount.setText(String(stuff["num_comments"].int!) + " Comments")
 									let score = stuff["score"].int!

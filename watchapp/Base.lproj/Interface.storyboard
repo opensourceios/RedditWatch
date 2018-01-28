@@ -105,8 +105,16 @@
                                                 </items>
                                                 <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                             </group>
-                                            <group width="1" alignment="left" id="5lv-VK-lbd">
+                                            <group width="1" alignment="left" layout="vertical" spacing="0.0" id="5lv-VK-lbd">
                                                 <items>
+                                                    <label alignment="left" text="Label" id="Dmv-RG-kMd">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="12"/>
+                                                    </label>
+                                                    <label alignment="left" text="Energy" id="eku-zY-Mtt">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="12"/>
+                                                    </label>
                                                     <label alignment="left" text="postName" textAlignment="left" numberOfLines="0" id="d1w-pC-oNz"/>
                                                 </items>
                                             </group>
@@ -179,8 +187,10 @@
                                         <outlet property="nameLabe" destination="d1w-pC-oNz" id="AYi-Gl-U7O"/>
                                         <outlet property="postAuthor" destination="xgV-8f-Y9j" id="7R4-7q-cE6"/>
                                         <outlet property="postCommentCount" destination="UdK-AY-RoU" id="Obq-5I-NGw"/>
+                                        <outlet property="postFlair" destination="eku-zY-Mtt" id="VtG-SW-eOQ"/>
                                         <outlet property="postImage" destination="0gQ-PJ-ULH" id="e4G-ia-WSY"/>
                                         <outlet property="postScore" destination="xrS-Sc-4S3" id="EKG-jx-LzL"/>
+                                        <outlet property="postSubreddit" destination="Dmv-RG-kMd" id="Zba-Uf-QmP"/>
                                         <outlet property="postTime" destination="5yz-Cg-zGX" id="EoJ-WS-Thp"/>
                                         <outlet property="tweetText" destination="9rM-ci-MDf" id="fYQ-1V-9Gn"/>
                                         <outlet property="twitterDisplayName" destination="w6z-vv-Fxm" id="wqB-8V-wzO"/>

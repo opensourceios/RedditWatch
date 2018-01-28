@@ -15,6 +15,8 @@ class NameRowController: NSObject {
 	@IBOutlet var postAuthor: WKInterfaceLabel!
 	@IBOutlet var postCommentCount: WKInterfaceLabel!
 	
+	@IBOutlet var postSubreddit: WKInterfaceLabel!
+	@IBOutlet var postFlair: WKInterfaceLabel!
 	@IBOutlet var upvoteButton: WKInterfaceButton!
 	@IBOutlet var gildedIndicator: WKInterfaceLabel!
 	var id = String()
