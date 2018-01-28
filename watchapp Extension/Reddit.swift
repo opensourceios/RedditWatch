@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import WatchKit
 
 class RedditAPI{
 	
@@ -101,7 +102,15 @@ class RedditAPI{
 		
 		let b = Alamofire.request("https://oauth.reddit.com/api/comment", method: .post, parameters: parameters, headers: headers)
 			.responseJSON{ js in
-				completionHandler(try! JSON(data: js.data!))
+				if (200 ... 299).contains(js.response!.statusCode){ //Only attempt to process it if we already KNOW it's succesful
+					completionHandler(try! JSON(data: js.data!))
+				} else{
+					#if os(watchOS) //Only try to vibrate if on watchOS
+						WKInterfaceDevice.current().play(WKHapticType.failure) //Notify user of failure
+					#endif
+					
+				}
+				
 			}
 			.response { reponse in
 				print("Got \(reponse.response?.statusCode)")
