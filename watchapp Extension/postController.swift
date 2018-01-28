@@ -27,7 +27,7 @@ class postController: WKInterfaceController {
 	
 	var saved = false
 	var comments = [String: JSON]()
-	var waiiiiiit = JSON()
+	var currentPost = JSON()
 	var downvoted = false
 	var upvoted = false
 	@IBOutlet var postContent: WKInterfaceLabel!
@@ -123,7 +123,7 @@ class postController: WKInterfaceController {
 				}
 			}
 		}
-		waiiiiiit = post
+		currentPost = post
 		UserDefaults.standard.set(post["author"].string, forKey: "selectedAuthor")
 		if let content = post["selftext"].string{
 			postContent.setText(content.dehtmlify())
@@ -178,7 +178,7 @@ class postController: WKInterfaceController {
 						}
 						
 						self.commentsTable.setAlpha(0.0)
-						self.commentsTable.setNumberOfRows(self.comments.count - 1, withRowType: "commentCell")
+						self.commentsTable.setNumberOfRows(self.comments.count, withRowType: "commentCell")
 						for (index, element) in self.idList.enumerated(){
 							if let row = self.commentsTable.rowController(at: index) as? commentController{
 								if let stuff = self.comments[element]?.dictionary{
@@ -250,9 +250,9 @@ class postController: WKInterfaceController {
 		super.willActivate()
 		print("Back bitches")
 		
-		if let sort = UserDefaults.standard.object(forKey: waiiiiiit["title"].string!) as? String{
-			UserDefaults.standard.removeObject(forKey: waiiiiiit["title"].string!)
-			if let subreddit = waiiiiiit["subreddit"].string, let id = waiiiiiit["id"].string {
+		if let sort = UserDefaults.standard.object(forKey: currentPost["title"].string!) as? String{
+			UserDefaults.standard.removeObject(forKey: currentPost["title"].string!)
+			if let subreddit = currentPost["subreddit"].string, let id = currentPost["id"].string {
 				if sort.lowercased() != currentSort{
 					getComments(subreddit: subreddit, id: id, sort: sort)
 					currentSort = sort.lowercased()
@@ -350,10 +350,24 @@ class postController: WKInterfaceController {
 		let context = [
 			"type": "comment",
 			"sorts": ["Best", "Top", "New", "Controversial", "Old"],
-			"title": waiiiiiit["title"].string!
+			"title": currentPost["title"].string!
 			] as [String : Any?]
 		self.presentController(withName: "commentSort", context: context)
 		
+	}
+	@IBAction func postComment() {
+		presentTextInputController(withSuggestions: ["No"], allowedInputMode:  WKTextInputMode.plain) { (arr: [Any]?) in
+			if let arr = arr{
+				if let comment = arr.first as? String{
+					guard let access_token = UserDefaults.standard.object(forKey: "access_token") as? String else {return}
+					print(self.currentPost["id"].string!)
+					RedditAPI().post(commentText: comment, access_token: access_token, parentId: (self.currentPost["id"].string!))
+					
+					//TODO: Add row to post without refresh
+				
+				}
+			}
+		}
 	}
 }
 

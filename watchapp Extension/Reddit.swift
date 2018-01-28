@@ -83,4 +83,24 @@ class RedditAPI{
 				print("Got \(reponse.response?.statusCode)")
 		}
 	}
+	func post(commentText: String, access_token: String, parentId: String){
+		let headers = [
+			"Authorization": "bearer \(access_token)",
+			"User-Agent": "RedditWatch/0.1 by 123icebuggy",
+		]
+		let parameters = [
+			"thing_id": "t3_\(parentId)",
+			"text": commentText,
+			"return_rtjson": false,
+			"api_type": "json"
+			] as [String : Any]
+		
+		Alamofire.request("https://oauth.reddit.com/api/comment", method: .post, parameters: parameters, headers: headers)
+			.responseString(completionHandler: {response in
+				print(response.result.value)
+			})
+			.response { reponse in
+				print("Got \(reponse.response?.statusCode)")
+		}
+	}
 }

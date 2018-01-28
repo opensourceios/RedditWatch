@@ -80,6 +80,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 		if timeSince > 1800{
 			shouldRefresh = true
 		}
+		print(timeSince)
 		
 		if let refresh_token = UserDefaults.standard.object(forKey: "refresh_token") as? String{
 			if shouldRefresh{
@@ -215,7 +216,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 						self.redditTable.setAlpha(0.0)
 						self.redditTable.setNumberOfRows(self.names.count, withRowType: "redditCell")
 						for (index, _) in self.post.enumerated(){
-							if let row = self.redditTable.rowController(at: index) as? NameRowController{
+							if let row = self.redditTable.rowController(at: index ) as? NameRowController{
 								if let stuff = self.post[self.ids[index]]
 								{
 									

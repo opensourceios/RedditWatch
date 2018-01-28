@@ -292,6 +292,11 @@
                             </items>
                             <variation key="device=watch42mm" width="154"/>
                         </group>
+                        <button width="1" alignment="left" title="Post Comment" id="4Ex-Xb-yZO">
+                            <connections>
+                                <action selector="postComment" destination="REJ-04-EQn" id="c3S-WM-rVc"/>
+                            </connections>
+                        </button>
                         <label alignment="left" text="Comments" id="2lF-dX-hSB">
                             <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
                         </label>

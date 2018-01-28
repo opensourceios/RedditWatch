@@ -41,9 +41,13 @@ Bold features signify "Recently Added" features.
 
 * **Sort Comments**
 
+* **Comment on posts**
+
 # Planned Features
 
 * Click on subreddit links in comments
+
+* Reply to comments
 
 
 
