@@ -203,7 +203,12 @@ extension TimeInterval{
 			if time * 60 < 60{
 				print(time)
 				let timedif = String(describing: time * 60).components(separatedBy: ".").first! + "m"
-				timeString = timedif
+				if timedif == "0m"{
+					timeString = "Just now"
+				}else{
+					timeString = timedif
+					
+				}
 			} else {
 				var timedif = String(describing: time).components(separatedBy: ".").first!
 				if Int(timedif)! > 23{

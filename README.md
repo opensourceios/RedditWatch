@@ -43,12 +43,11 @@ Bold features signify "Recently Added" features.
 
 * **Comment on posts**
 
+* **Reply to comments**
+
 # Planned Features
 
 * Click on subreddit links in comments
-
-* Reply to comments
-
 
 
 # Maybe One Day Features

@@ -93,7 +93,7 @@ class RedditAPI{
 		print("\(types[type])\(parentId)")
 		let parameters = [
 			"thing_id": "\(types[type]!)\(parentId)",
-			"text": commentText,
+			"text": commentText.replacingOccurrences(of: "\n", with: "\n\n"),
 			"return_rtjson": false,
 			"api_type": "json"
 			] as [String : Any]
