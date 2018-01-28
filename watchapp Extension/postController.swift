@@ -200,14 +200,17 @@ class postController: WKInterfaceController {
 									{
 										print("couldn't find gild")
 									}
-									if let replyCount = stuff["replies"]!["data"]["children"].array{
-										if let _ = replyCount.last!["data"]["body"].string{
-											row.replies = replyCount.count
-											row.replyCount.setText("\(String(describing: replyCount.count)) Replies")
-										} else{
-											row.replies = replyCount.count - 1
-											row.replyCount.setText("\(String(describing: replyCount.count - 1)) Replies")
-											
+									if let rep = stuff["replies"]{
+										if let replyCount = rep["data"]["children"].array{
+											if let _ = replyCount.last!["data"]["body"].string{
+												row.replies = replyCount.count
+												row.replyCount.setText("\(String(describing: replyCount.count)) Replies")
+											} else{
+												row.replies = replyCount.count - 1
+												row.replyCount.setText("\(String(describing: replyCount.count - 1)) Replies")
+												
+											}
+										
 										}
 										
 									}

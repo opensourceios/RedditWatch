@@ -147,7 +147,7 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 		if let launched = message["appLaunched"] as? Bool{
 			if launched{
 				DispatchQueue.main.async {
-					if let bool = UserDefaults.standard.object(forKey: "setup") as? Bool{
+					if (UserDefaults.standard.object(forKey: "setup") as? Bool) != nil{
 						//
 					} else{
 						self.connectButton.isEnabled = true
@@ -188,6 +188,10 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 			}
 		}
 	}
+	@IBAction func resetAllData(_ sender: Any) {	UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+		UserDefaults.standard.synchronize()
+		print(["a"][1])
+	}
 	override func restoreUserActivityState(_ activity: NSUserActivity) {
 		print("Processing")
 		if let id = activity.userInfo!["current"]{
@@ -198,7 +202,7 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 				UIApplication.shared.open(instagramUrl)
 				
 			} else {
-				//redirect to safari because the user doesn't have Instagram
+					
 				print("No go")
 			}
 		} else{

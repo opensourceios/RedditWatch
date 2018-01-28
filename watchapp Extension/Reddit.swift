@@ -75,13 +75,14 @@ class RedditAPI{
 		if unsave{
 			save = "un" + save
 		}
-		Alamofire.request("https://oauth.reddit.com/api/\(save)", method: .post, parameters: parameters, headers: headers)
+		let b = Alamofire.request("https://oauth.reddit.com/api/\(save)", method: .post, parameters: parameters, headers: headers)
 			.responseString(completionHandler: {response in
 				print(response.result.value)
 			})
 			.response { reponse in
 				print("Got \(reponse.response?.statusCode)")
 		}
+		debugPrint(b)
 	}
 	func post(commentText: String, access_token: String, parentId: String, type: String = "post"){
 		let headers = [
@@ -90,7 +91,7 @@ class RedditAPI{
 		]
 		let types = ["post": "t3_", "comment": "t1_"]
 		
-		print("\(types[type])\(parentId)")
+		print("\(types[type]!	)\(parentId)")
 		let parameters = [
 			"thing_id": "\(types[type]!)\(parentId)",
 			"text": commentText.replacingOccurrences(of: "\n", with: "\n\n"),
@@ -98,12 +99,13 @@ class RedditAPI{
 			"api_type": "json"
 			] as [String : Any]
 		
-		Alamofire.request("https://oauth.reddit.com/api/comment", method: .post, parameters: parameters, headers: headers)
+		let b = Alamofire.request("https://oauth.reddit.com/api/comment", method: .post, parameters: parameters, headers: headers)
 			.responseString(completionHandler: {response in
 				print(response.result.value)
 			})
 			.response { reponse in
 				print("Got \(reponse.response?.statusCode)")
 		}
+		debugPrint(b)
 	}
 }
