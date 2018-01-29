@@ -5,10 +5,10 @@ I got annoyed by not being able to distract myself whenever I wanted, and though
 
 # Screenshots
 
-![Subreddit View](https://i.imgur.com/uo2DR4b.png)
-![Post View](https://i.imgur.com/3xqmxn9.png)
-![Subreddit View 2](https://i.imgur.com/NFK2Jlh.png)
-![Post View 2](https://i.imgur.com/gJZrveL.png)
+![Subreddit View](https://i.imgur.com/1uQFYwh.png)
+![Post View](https://i.imgur.com/jFes2DS.png)
+![Subreddit View 2](https://i.imgur.com/beQhpmF.png)
+![Post View 2](https://i.imgur.com/HqUk3sg.png)
 
 
 # Current Features
