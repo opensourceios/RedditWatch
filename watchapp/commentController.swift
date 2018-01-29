@@ -12,7 +12,7 @@ class commentController: NSObject {
 
 	@IBOutlet var gildedIndicator: WKInterfaceLabel!
 	@IBOutlet var userLabel: WKInterfaceLabel!
-	@IBOutlet var nameLabe: WKInterfaceLabel!
+	@IBOutlet var nameLabel: WKInterfaceLabel!
 	@IBOutlet var timeLabel: WKInterfaceLabel!
 	@IBOutlet var scoreLabel: WKInterfaceLabel!
 	@IBOutlet var replyCount: WKInterfaceLabel!

@@ -17,8 +17,8 @@ class postController: WKInterfaceController {
 	@IBOutlet var postScore: WKInterfaceLabel!
 	@IBOutlet var postAuthor: WKInterfaceLabel!
 	@IBOutlet var progressLabel: WKInterfaceLabel!
-	@IBOutlet var upvoteButto: WKInterfaceButton!
-	@IBOutlet var downvoteBUtto: WKInterfaceButton!
+	@IBOutlet var upvoteButton: WKInterfaceButton!
+	@IBOutlet var downvoteButton: WKInterfaceButton!
 	@IBOutlet var savePostButton: WKInterfaceButton!
 	@IBOutlet var postTitle: WKInterfaceLabel!
 	@IBOutlet var commentsTable: WKInterfaceTable!
@@ -39,8 +39,8 @@ class postController: WKInterfaceController {
 		
 		super.awake(withContext: context)
 		addMenuItem(with: WKMenuItemIcon.info, title: "Change Sort", action: #selector(changeSort))
-		downvoteBUtto.setHidden(true)
-		upvoteButto.setHidden(true)
+		downvoteButton.setHidden(true)
+		upvoteButton.setHidden(true)
 		savePostButton.setHidden(true)
 		guard let post = context as? JSON else{
 			InterfaceController().becomeCurrentPage()
@@ -51,8 +51,8 @@ class postController: WKInterfaceController {
 		
 		if let connected = UserDefaults.standard.object(forKey: "connected") as? Bool{
 			if connected {
-				downvoteBUtto.setHidden(false)
-				upvoteButto.setHidden(false)
+				downvoteButton.setHidden(false)
+				upvoteButton.setHidden(false)
 				savePostButton.setHidden(false)
 			}
 		}
@@ -182,7 +182,7 @@ class postController: WKInterfaceController {
 						for (index, element) in self.idList.enumerated(){
 							if let row = self.commentsTable.rowController(at: index) as? commentController{
 								if let stuff = self.comments[element]?.dictionary{
-									row.nameLabe.setText(stuff["body"]?.string?.dehtmlify())
+									row.nameLabel.setText(stuff["body"]?.string?.dehtmlify())
 									if let score = stuff["score"]{
 										
 										row.scoreLabel.setText("↑ \(String(describing: score.int!)) |")
@@ -299,20 +299,20 @@ class postController: WKInterfaceController {
 		WKInterfaceDevice.current().play(WKHapticType.click)
 		if downvoted{
 			
-			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
+			self.downvoteButton.setTitleWithColor(title: "↓", color: UIColor.white)
 		}
 		if !upvoted{
 			upvoted = true
 			print(UserDefaults.standard.object(forKey: "selectedId"))
 			print(UserDefaults.standard.object(forKey: "access_token"))
-			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
-			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
+			self.upvoteButton.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
+			self.downvoteButton.setTitleWithColor(title: "↓", color: UIColor.white)
 			RedditAPI().vote(1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
 			
 		} else{
 			downvoted = false
 			upvoted = false
-			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
+			self.upvoteButton.setTitleWithColor(title: "↑", color: UIColor.white)
 			RedditAPI().vote(0, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
 		}
 		
@@ -320,20 +320,20 @@ class postController: WKInterfaceController {
 	@IBAction func downvote() {
 		WKInterfaceDevice.current().play(WKHapticType.click)
 		if upvoted{
-			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
+			self.upvoteButton.setTitleWithColor(title: "↑", color: UIColor.white)
 		}
 		if !downvoted{
 			downvoted = true
 			print(UserDefaults.standard.object(forKey: "selectedId"))
 			print(UserDefaults.standard.object(forKey: "access_token"))
-			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
-			self.upvoteButto.setTitleWithColor(title: "↑", color: UIColor.white)
+			self.downvoteButton.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
+			self.upvoteButton.setTitleWithColor(title: "↑", color: UIColor.white)
 			RedditAPI().vote(-1, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
 			
 		} else{
 			downvoted = false
 			upvoted = false
-			self.downvoteBUtto.setTitleWithColor(title: "↓", color: UIColor.white)
+			self.downvoteButton.setTitleWithColor(title: "↓", color: UIColor.white)
 			RedditAPI().vote(0, id: "t3_\(UserDefaults.standard.object(forKey: "selectedId") as! String)", access_token: UserDefaults.standard.object(forKey: "access_token") as! String)
 			
 		}
@@ -394,7 +394,7 @@ class postController: WKInterfaceController {
 								row.gildedIndicator.setHidden(true)
 								row.replyCount.setText("0 Replies")
 								row.userLabel.setText(author)
-								row.nameLabe.setText(body)
+								row.nameLabel.setText(body)
 								print("Set")
 								self.commentsTable.scrollToRow(at: 0)
 							}

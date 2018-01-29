@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch42" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
@@ -375,7 +371,7 @@
                                     </group>
                                     <connections>
                                         <outlet property="gildedIndicator" destination="jGM-Af-DIK" id="zY6-vD-517"/>
-                                        <outlet property="nameLabe" destination="2Kh-WE-e0c" id="sah-0N-XjQ"/>
+                                        <outlet property="nameLabel" destination="2Kh-WE-e0c" id="sah-0N-XjQ"/>
                                         <outlet property="replyCount" destination="plC-MK-gzC" id="dFD-BV-PhA"/>
                                         <outlet property="scoreLabel" destination="vuB-eE-0Do" id="qN7-8v-sB8"/>
                                         <outlet property="timeLabel" destination="iXJ-hw-lZ9" id="P7Y-fy-vDh"/>
@@ -485,7 +481,7 @@
                                     </group>
                                     <connections>
                                         <outlet property="gildedIndicator" destination="2QY-LP-VZO" id="l4T-my-blc"/>
-                                        <outlet property="nameLabe" destination="Qs4-Eg-66I" id="Q1B-fv-S9S"/>
+                                        <outlet property="nameLabel" destination="Qs4-Eg-66I" id="Q1B-fv-S9S"/>
                                         <outlet property="replyCount" destination="wSp-eY-V6E" id="Wms-1G-BbO"/>
                                         <outlet property="scoreLabel" destination="Aqy-M0-lSQ" id="7WL-uj-iEg"/>
                                         <outlet property="timeLabel" destination="k5y-H3-a6X" id="V4y-gc-yDW"/>

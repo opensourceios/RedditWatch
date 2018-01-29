@@ -87,7 +87,7 @@ class subCommentController: WKInterfaceController {
 						
 						
 					}
-                    row.nameLabe.setText(body)
+                    row.nameLabel.setText(body)
                     row.scoreLabel.setText("↑ " + String(describing: score) + " | ")
                     row.userLabel.setText(user)
 					
@@ -142,7 +142,7 @@ class subCommentController: WKInterfaceController {
 								row.gildedIndicator.setHidden(true)
 								row.replyCount.setText("0 Replies")
 								row.userLabel.setText(author)
-								row.nameLabe.setText(body)
+								row.nameLabel.setText(body)
 								print("Set")
 								self.repliesTable.scrollToRow(at: 0)
 							}
@@ -156,12 +156,12 @@ class subCommentController: WKInterfaceController {
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		
 		if let row = repliesTable.rowController(at: rowIndex) as? commentController{
-			if row.replies > 0{ //Temporarily disabling crash-detection until fix to bug where replies to replies couldn't be viewed
-				WKInterfaceDevice.current().play(WKHapticType.click)
-				self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
-			} else{
+			//if row.replies > 0{ //Temporarily disabling crash-detection until fix to bug where replies to replies couldn't be viewed
+			WKInterfaceDevice.current().play(WKHapticType.click)
+			self.pushController(withName: "subComment", context: comments[idList[rowIndex]])
+			//} else{
 				WKInterfaceDevice.current().play(WKHapticType.failure)
-			}
+			//}
 		}
     }
     
