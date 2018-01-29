@@ -245,9 +245,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 									} else{
 										row.postFlair.setHidden(true)
 									}
-									if let subreddit = stuff["subreddit"].string{
+									if let subreddit = stuff["subreddit_name_prefixed"].string{
 										if self.showSubredditLabels.contains(self.currentSubreddit){
-											row.postSubreddit.setText("r/" + subreddit)
+											row.postSubreddit.setText(subreddit)
 										} else{
 											row.postSubreddit.setHidden(true)
 										}
