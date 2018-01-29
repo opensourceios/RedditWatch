@@ -9,19 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="adK-Wk-PE0">
-            <objects>
-                <navigationController id="cLb-hV-Kgu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TxI-TC-ab6">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FBG-Y6-3mA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1204" y="-53"/>
-        </scene>
         <!--Options-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -51,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="pics,all,popular" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4at-WT-NmH">
-                                <rect key="frame" x="16" y="211" width="277" height="30"/>
+                                <rect key="frame" x="16" y="211" width="119" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -117,6 +104,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="H8K-81-SHr" secondAttribute="trailing" constant="40" id="2c2-Sd-m2a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kvg-eY-u5t" secondAttribute="trailing" constant="16" id="50y-9b-4kO"/>
                             <constraint firstItem="m7x-ut-vyr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="121" id="6Fi-Jm-5f5"/>
                             <constraint firstItem="H8K-81-SHr" firstAttribute="leading" secondItem="m8K-bQ-oFb" secondAttribute="leading" id="74y-Ll-34t"/>
@@ -129,8 +117,9 @@
                             <constraint firstItem="4at-WT-NmH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VmU-Lp-NBM"/>
                             <constraint firstItem="H8K-81-SHr" firstAttribute="baseline" secondItem="4at-WT-NmH" secondAttribute="baseline" id="kDy-OF-x3f"/>
                             <constraint firstItem="m8K-bQ-oFb" firstAttribute="leading" secondItem="m7x-ut-vyr" secondAttribute="trailing" constant="7" id="n1O-X0-AMy"/>
-                            <constraint firstItem="H8K-81-SHr" firstAttribute="leading" secondItem="4at-WT-NmH" secondAttribute="trailing" constant="7" id="rtO-5Y-1y8"/>
+                            <constraint firstItem="H8K-81-SHr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4at-WT-NmH" secondAttribute="trailing" symbolic="YES" id="rtO-5Y-1y8"/>
                             <constraint firstItem="rbc-AF-6qj" firstAttribute="top" secondItem="m7x-ut-vyr" secondAttribute="bottom" constant="29" id="w80-Oc-HAz"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rbc-AF-6qj" secondAttribute="trailing" constant="20" symbolic="YES" id="wn4-ia-Irb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Kvg-eY-u5t" secondAttribute="bottom" constant="20" id="zti-CL-ke0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

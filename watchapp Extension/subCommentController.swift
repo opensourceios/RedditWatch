@@ -22,12 +22,11 @@ class subCommentController: WKInterfaceController {
 		self.setTitle("Comments")
 		
         super.awake(withContext: context)
-        print(context)
         if let js = context as? JSON{
             post = js
             commentLabel.setText(js["body"].string!)
             //    print(js["replies"])
-			if let replies = js["replies"]["data"]["children"].array as? [JSON]{
+			if let replies = js["replies"]["data"]["children"].array{
 				for (_, element) in replies.enumerated(){
 					let id = element["data"]["id"]
 					idList.append(id.string!)
@@ -90,16 +89,12 @@ class subCommentController: WKInterfaceController {
                     row.nameLabel.setText(body)
                     row.scoreLabel.setText("↑ " + String(describing: score) + " | ")
                     row.userLabel.setText(user)
+					    
+					if let newTime = comment["created_utc"].float{
+						
+						row.timeLabel.setText(TimeInterval().differenceBetween(newTime))
+					}
 					
-                    if let newTime = comment["created_utc"].float{
-                        
-                        
-                        
-						if let newTime = comment["created_utc"].float{
-							
-							row.timeLabel.setText(TimeInterval().differenceBetween(newTime))
-						}
-                    }
                     
                 }
             }
@@ -136,7 +131,7 @@ class subCommentController: WKInterfaceController {
 							print("Created")
 							let idx = NSIndexSet(index: 0)
 							self.repliesTable.insertRows(at: idx as IndexSet, withRowType: "replyCell")
-							if var row = self.repliesTable.rowController(at: 0) as? commentController{
+							if let row = self.repliesTable.rowController(at: 0) as? commentController{
 								row.scoreLabel.setText("↑ 1 |")
 								row.timeLabel.setText("Just Now")
 								row.gildedIndicator.setHidden(true)
@@ -155,7 +150,7 @@ class subCommentController: WKInterfaceController {
 	}
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		
-		if let row = repliesTable.rowController(at: rowIndex) as? commentController{
+		if let _ = repliesTable.rowController(at: rowIndex) as? commentController{
 			//if row.replies > 0{ //Temporarily disabling crash-detection until fix to bug where replies to replies couldn't be viewed
 			WKInterfaceDevice.current().play(WKHapticType.click)
 			self.pushController(withName: "subComment", context: comments[idList[rowIndex]])

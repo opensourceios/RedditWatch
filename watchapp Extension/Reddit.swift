@@ -60,7 +60,7 @@ class RedditAPI{
 		print(headers)
 		Alamofire.request("https://oauth.reddit.com/api/vote", method: .post, parameters: parameters, headers: headers)
 			.responseString(completionHandler: {response in
-				print(response.result.value)
+				print(String(describing: response.result.value))
 			})
 	}
 	func save(id: String, type: String, access_token: String, _ unsave:Bool = false){
@@ -78,10 +78,10 @@ class RedditAPI{
 		}
 		let b = Alamofire.request("https://oauth.reddit.com/api/\(save)", method: .post, parameters: parameters, headers: headers)
 			.responseString(completionHandler: {response in
-				print(response.result.value)
+				print(String(describing: response.result.value))
 			})
 			.response { reponse in
-				print("Got \(reponse.response?.statusCode)")
+				print("Got \(String(describing: reponse.response?.statusCode))")
 		}
 		debugPrint(b)
 	}
@@ -113,7 +113,7 @@ class RedditAPI{
 				
 			}
 			.response { reponse in
-				print("Got \(reponse.response?.statusCode)")
+				print("Got \(String(describing: reponse.response?.statusCode))")
 		}
 		debugPrint(b)
 	}

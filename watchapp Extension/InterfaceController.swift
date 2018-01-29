@@ -90,7 +90,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 				print("Haven't refreshed access in atleast 30 mins")
 				RedditAPI().getAccessToken(grantType: "refresh_token", code: refresh_token, completionHandler: { result in
 					print("Got back \(result)")
-					print("Saving \(result["acesss_token"])")
+					print("Saving \(String(describing: result["acesss_token"]))")
 					UserDefaults.standard.set(result["acesss_token"]!, forKey: "access_token")
 				})
 			} else{
@@ -126,7 +126,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 			UserDefaults.standard.set(refesh_token, forKey: "refresh_token")
 			RedditAPI().getAccessToken(grantType: "refresh_token", code: refesh_token, completionHandler: { result in
 				print(result)
-				print("Saving \(result["acesss_token"])")
+				print("Saving \(String(describing: result["acesss_token"]))")
 				UserDefaults.standard.set(result["acesss_token"], forKey: "access_token")
 				UserDefaults.standard.set(true, forKey: "connected")
 				print("SHould enable")
@@ -159,7 +159,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 		default:
 			print("not actived")
 		}
-		print(error?.localizedDescription)
+		print(String(describing: error?.localizedDescription))
 		
 	}
 	func setupTable(_ subreddit: String = "askreddit", sort: String = "hot"){
@@ -187,7 +187,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 			.responseData { (dat) in
 				let data = dat.data
 				let error = dat.error
-				print(error)
+				print(String(describing: error))
 				if (error != nil){
 					WKInterfaceDevice.current().play(WKHapticType.failure)
 					self.presentAlert(withTitle: "Error", message: error?.localizedDescription, preferredStyle: .alert, actions: [WKAlertAction.init(title: "Confirm", style: WKAlertActionStyle.default, handler: {

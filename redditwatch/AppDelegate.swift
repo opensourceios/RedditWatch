@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 			print(redditHooks)
 			
-			var redditUrl = URL(string: redditHooks)!
+			let redditUrl = URL(string: redditHooks)!
 			if UIApplication.shared.canOpenURL(redditUrl)
 			{
 				UIApplication.shared.open(redditUrl)
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				print("No go")
 			}
 		} else{
-			print("Would let id: \(userActivity.userInfo)")
+			print("Would let id: \(userActivity.userInfo!)")
 		}
 		return true
 	}
@@ -84,8 +84,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		-> Bool {
 			print("HERE")
 			if let id = userActivity.userInfo!["current"]{
-				var redditHooks = "apollo://reddit.com/\(id)"
-				var redditUrl = URL(string: redditHooks)!
+				let redditHooks = "apollo://reddit.com/\(id)"
+				let redditUrl = URL(string: redditHooks)!
 				if UIApplication.shared.canOpenURL(redditUrl)
 				{
 					UIApplication.shared.open(redditUrl)
@@ -95,12 +95,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					print("No go")
 				}
 			} else{
-				print("Would let id: \(userActivity.userInfo)")
+				print("Would let id: \(String(describing: userActivity.userInfo))")
 			}
 	
 			print(userActivity)
 			// Do some checks to make sure you can proceed
-			if let window = self.window {
+			if self.window != nil {
 				ViewController().restoreUserActivityState(userActivity)
 			}
 			return true
