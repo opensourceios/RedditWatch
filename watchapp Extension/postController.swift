@@ -222,7 +222,13 @@ class postController: WKInterfaceController {
 									if (stuff["distinguished"]?.null) != nil{
 										
 									} else{
-										row.userLabel.setTextColor(UIColor(red:0.18, green:0.80, blue:0.44, alpha:1.0))
+										guard let distin = stuff["distinguished"]?.string else {return}
+										if distin == "moderator"{
+											row.userLabel.setTextColor(UIColor(red:0.18, green:0.80, blue:0.44, alpha:1.0))
+											
+										} else if distin == "admin"{
+											row.userLabel.setTextColor(UIColor(red:0.91, green:0.30, blue:0.24, alpha:1.0))
+										}
 									}
 									
 									if let newTime = stuff["created_utc"]?.float{
