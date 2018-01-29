@@ -13,13 +13,15 @@ import WatchConnectivity
 import Alamofire
 import OAuthSwift
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate{
+class InterfaceController: WKInterfaceController, WCSessionDelegate, customDelegate{
 	
 	
 	
 	
 	@IBOutlet var redditTable: WKInterfaceTable!
 	
+	var upvoted = false
+	var downvoted = false
 	var posts = [String: [String: Any]]()
 	var names = [String]()
 	var images = [Int: UIImage]()
@@ -221,6 +223,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 								{
 									
 									row.nameLabe.setText(stuff["title"].string!.dehtmlify())
+									row.id = stuff["id"].string!
+									row.delegate = self
+									
 									if let gildedCount = stuff["gilded"].int{
 										if gildedCount > 0{
 											row.gildedIndicator.setHidden(false)
@@ -398,6 +403,26 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
 				self.pushController(withName: "lorem", context: post[ids[rowIndex]])
 			}
 		}
+	}
+	func didSelect(_ button: WKInterfaceButton, onCellWith id: String, action: String) {
+		print(id)
+		guard let access_token = UserDefaults.standard.object(forKey: "access_token") as? String else {return}
+		var dir = 0
+		if action == "upvote" && !upvoted{
+			dir = 1
+			button.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
+			
+		}else if action == "upvote" && upvoted{
+			dir = 0
+			button.setTitleWithColor(title: "↑", color: UIColor.white)
+		} else if action == "downvote" && !downvoted{
+			dir = -1
+			button.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
+		} else if action == "downvote" && downvoted{
+			button.setTitleWithColor(title: "↓", color: UIColor.white)
+		}
+		
+		RedditAPI().vote(dir, id: "t3_" + id, access_token: access_token)
 	}
 	
 }

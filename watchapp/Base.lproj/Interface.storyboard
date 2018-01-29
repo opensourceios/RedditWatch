@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38" orientation="portrait">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -180,9 +180,26 @@
                                                     </label>
                                                 </items>
                                             </group>
+                                            <group width="1" alignment="left" id="DOc-o6-0C7">
+                                                <items>
+                                                    <button width="60" alignment="left" title="↑" id="mR3-ye-98b">
+                                                        <variation key="device=watch42mm" width="68"/>
+                                                        <connections>
+                                                            <action selector="upvotePost" destination="AmW-RG-yUR" id="k1j-0o-RZ8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button width="60" alignment="left" title="↓" id="5K6-uX-zmH">
+                                                        <variation key="device=watch42mm" width="68"/>
+                                                        <connections>
+                                                            <action selector="downvotePost" destination="AmW-RG-yUR" id="rIq-eE-pqS"/>
+                                                        </connections>
+                                                    </button>
+                                                </items>
+                                            </group>
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="downvoteButton" destination="5K6-uX-zmH" id="rRg-GY-9dB"/>
                                         <outlet property="gildedIndicator" destination="0pB-bV-WkI" id="ZWO-bp-YFT"/>
                                         <outlet property="nameLabe" destination="d1w-pC-oNz" id="AYi-Gl-U7O"/>
                                         <outlet property="postAuthor" destination="xgV-8f-Y9j" id="7R4-7q-cE6"/>
@@ -199,6 +216,7 @@
                                         <outlet property="twitterPic" destination="T1R-An-8Es" id="aVS-6o-bcq"/>
                                         <outlet property="twitterRetweets" destination="8uL-It-9Nm" id="xva-Ep-WZr"/>
                                         <outlet property="twitterUsername" destination="duo-Mo-qsC" id="JGP-i2-MB1"/>
+                                        <outlet property="upvoteButton" destination="mR3-ye-98b" id="1hd-yS-0LG"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -223,7 +241,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="170" y="286.82051282051282"/>
+            <point key="canvasLocation" x="170" y="286"/>
         </scene>
         <!--Posts-->
         <scene sceneID="PI6-05-8lD">
