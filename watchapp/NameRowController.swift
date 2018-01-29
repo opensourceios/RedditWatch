@@ -31,6 +31,7 @@ class NameRowController: NSObject {
 	
 	@IBOutlet var twitterHousing: WKInterfaceGroup!
 	@IBOutlet var twitterPic: WKInterfaceImage!
+	@IBOutlet var nsfwIndicator: WKInterfaceLabel!
 	
 	@IBOutlet var tweetText: WKInterfaceLabel!
 	@IBOutlet var twitterDisplayName: WKInterfaceLabel!

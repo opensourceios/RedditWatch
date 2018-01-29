@@ -245,6 +245,13 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 									} else{
 										row.postFlair.setHidden(true)
 									}
+									if let nsfw = stuff["over_18"].bool{
+										if nsfw{
+											row.nsfwIndicator.setHidden(false)
+										} else{
+											row.nsfwIndicator.setHidden(true)
+										}
+									}
 									if let subreddit = stuff["subreddit_name_prefixed"].string{
 										if self.showSubredditLabels.contains(self.currentSubreddit){
 											row.postSubreddit.setText(subreddit)
