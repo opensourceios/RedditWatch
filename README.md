@@ -37,13 +37,17 @@ Bold features signify "Recently Added" features.
 
 * Inline Twitter support
 
-* **Handoff support to your favourite Reddit clients** (Apollo, Reddit, Narwhal, more to come)
+* Handoff support to your favourite Reddit clients (Apollo, Reddit, Narwhal, more to come)
 
-* **Sort Comments**
+* Sort Comments
 
 * **Comment on posts**
 
 * **Reply to comments**
+
+* **See flair of a post**
+
+* **See if a post is SFW or NSFW**
 
 # Planned Features
 
