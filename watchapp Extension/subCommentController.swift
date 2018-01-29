@@ -76,11 +76,17 @@ class subCommentController: WKInterfaceController {
 					{
 						print("couldn't find gild")
 					}
-                    if (comment["distinguished"].null) != nil{
-                        
-                    } else{
-                        row.userLabel.setTextColor(UIColor.green)
-                    }
+					if let distin = comment["distinguished"].string{
+						if distin == "moderator"{
+							row.userLabel.setTextColor(UIColor(red:0.18, green:0.80, blue:0.44, alpha:1.0))
+							
+						} else if distin == "admin"{
+							row.userLabel.setTextColor(UIColor(red:0.91, green:0.30, blue:0.24, alpha:1.0))
+							
+						}
+						
+						
+					}
                     row.nameLabe.setText(body)
                     row.scoreLabel.setText("↑ " + String(describing: score) + " | ")
                     row.userLabel.setText(user)
