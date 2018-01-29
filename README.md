@@ -30,7 +30,7 @@ Bold features signify "Recently Added" features.
 
 * See Gilded Posts
 
-* Author highlighting (Moderator, OP)
+* Author highlighting (Moderator, OP, **Admin**)
 
 * Gif Support (not inline) (Very slow gif support; no gifv, webm, etc support at this time)
 
@@ -54,7 +54,6 @@ Bold features signify "Recently Added" features.
 
 * Click on subreddit links in comments
 
-* Highlight admin posts and comments
 
 
 # Maybe One Day Features
