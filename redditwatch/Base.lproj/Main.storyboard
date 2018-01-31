@@ -56,13 +56,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8K-81-SHr">
-                                <rect key="frame" x="300" y="280" width="35" height="30"/>
-                                <state key="normal" title="Push"/>
-                                <connections>
-                                    <action selector="clickedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kpf-dN-urp"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m8K-bQ-oFb">
                                 <rect key="frame" x="300" y="136" width="51" height="31"/>
                                 <connections>
@@ -70,19 +63,19 @@
                                 </connections>
                             </switch>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aLF-4y-j2g">
-                                <rect key="frame" x="16" y="366" width="240" height="128"/>
+                                <rect key="frame" x="16" y="366" width="319" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="client" textLabel="1XO-EE-I2i" style="IBUITableViewCellStyleDefault" id="Hze-xQ-Awn">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="319" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hze-xQ-Awn" id="QPu-mC-3DL">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Reddit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1XO-EE-I2i">
-                                                    <rect key="frame" x="15" y="0.0" width="210" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="289" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -121,14 +114,21 @@
                                     <action selector="switchDefault:" destination="BYZ-38-t0r" eventType="valueChanged" id="Nxh-Sf-j7z"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8K-81-SHr">
+                                <rect key="frame" x="307" y="280" width="35" height="30"/>
+                                <state key="normal" title="Push"/>
+                                <connections>
+                                    <action selector="clickedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kpf-dN-urp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="H8K-81-SHr" secondAttribute="trailing" constant="40" id="2c2-Sd-m2a"/>
+                            <constraint firstAttribute="trailing" secondItem="H8K-81-SHr" secondAttribute="trailing" constant="33" id="2c2-Sd-m2a"/>
                             <constraint firstItem="zw2-3A-p4w" firstAttribute="top" secondItem="m8K-bQ-oFb" secondAttribute="bottom" constant="35" id="4yn-oQ-UwC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kvg-eY-u5t" secondAttribute="trailing" constant="16" id="50y-9b-4kO"/>
                             <constraint firstItem="m7x-ut-vyr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="121" id="6Fi-Jm-5f5"/>
-                            <constraint firstItem="H8K-81-SHr" firstAttribute="leading" secondItem="m8K-bQ-oFb" secondAttribute="leading" id="74y-Ll-34t"/>
+                            <constraint firstItem="H8K-81-SHr" firstAttribute="leading" secondItem="m8K-bQ-oFb" secondAttribute="leading" constant="7" id="74y-Ll-34t"/>
                             <constraint firstItem="m7x-ut-vyr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="121" id="7mO-3B-TAi"/>
                             <constraint firstItem="m8K-bQ-oFb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="116" id="8vb-cy-f9X"/>
                             <constraint firstItem="zw2-3A-p4w" firstAttribute="leading" secondItem="m8K-bQ-oFb" secondAttribute="leading" id="FRc-5b-dg5"/>
@@ -137,8 +137,11 @@
                             <constraint firstItem="Kvg-eY-u5t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Rme-YY-rH9"/>
                             <constraint firstItem="m7x-ut-vyr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="T8p-fW-brc"/>
                             <constraint firstItem="4at-WT-NmH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VmU-Lp-NBM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zw2-3A-p4w" secondAttribute="trailing" constant="26" id="btk-eJ-A3h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m8K-bQ-oFb" secondAttribute="trailing" constant="26" id="eau-7f-IQk"/>
                             <constraint firstItem="H8K-81-SHr" firstAttribute="baseline" secondItem="4at-WT-NmH" secondAttribute="baseline" id="kDy-OF-x3f"/>
                             <constraint firstItem="m8K-bQ-oFb" firstAttribute="leading" secondItem="m7x-ut-vyr" secondAttribute="trailing" constant="7" id="n1O-X0-AMy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H8K-81-SHr" secondAttribute="trailing" constant="33" id="pBD-GJ-kBI"/>
                             <constraint firstItem="H8K-81-SHr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4at-WT-NmH" secondAttribute="trailing" constant="8" symbolic="YES" id="rtO-5Y-1y8"/>
                             <constraint firstItem="rbc-AF-6qj" firstAttribute="top" secondItem="m7x-ut-vyr" secondAttribute="bottom" constant="99" id="w80-Oc-HAz"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rbc-AF-6qj" secondAttribute="trailing" constant="20" symbolic="YES" id="wn4-ia-Irb"/>
