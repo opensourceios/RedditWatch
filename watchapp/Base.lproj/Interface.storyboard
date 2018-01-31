@@ -186,13 +186,13 @@
                                             </group>
                                             <group width="1" alignment="left" id="DOc-o6-0C7">
                                                 <items>
-                                                    <button width="60" alignment="left" title="↑" id="mR3-ye-98b">
+                                                    <button width="60" height="20" alignment="left" title="↑" id="mR3-ye-98b">
                                                         <variation key="device=watch42mm" width="68"/>
                                                         <connections>
                                                             <action selector="upvotePost" destination="AmW-RG-yUR" id="k1j-0o-RZ8"/>
                                                         </connections>
                                                     </button>
-                                                    <button width="60" alignment="left" title="↓" id="5K6-uX-zmH">
+                                                    <button width="60" height="20" alignment="left" title="↓" id="5K6-uX-zmH">
                                                         <variation key="device=watch42mm" width="68"/>
                                                         <connections>
                                                             <action selector="downvotePost" destination="AmW-RG-yUR" id="rIq-eE-pqS"/>
@@ -387,7 +387,7 @@
                     </items>
                     <connections>
                         <outlet property="commentsTable" destination="hlc-ag-5jF" id="em4-Dh-3qE"/>
-                        <outlet property="downvoteBUtto" destination="Gej-z4-U1l" id="d2I-vQ-dc2"/>
+                        <outlet property="downvoteButton" destination="Gej-z4-U1l" id="Et2-QJ-b0O"/>
                         <outlet property="postAuthor" destination="OKp-rM-XiC" id="pLu-p3-EjP"/>
                         <outlet property="postComments" destination="aO3-dD-Sk3" id="GqO-N8-5DB"/>
                         <outlet property="postContent" destination="XYC-nm-30e" id="1Va-Kt-tvP"/>
@@ -397,7 +397,7 @@
                         <outlet property="postTitle" destination="AER-pV-NA4" id="cKd-cC-imR"/>
                         <outlet property="progressLabel" destination="db8-mH-ghL" id="kq2-kv-Fpr"/>
                         <outlet property="savePostButton" destination="NUk-Ho-aqd" id="kJ1-Ea-Heu"/>
-                        <outlet property="upvoteButto" destination="5OH-vp-qZU" id="byQ-mJ-mWE"/>
+                        <outlet property="upvoteButton" destination="5OH-vp-qZU" id="mNJ-UW-GOa"/>
                     </connections>
                 </controller>
             </objects>
