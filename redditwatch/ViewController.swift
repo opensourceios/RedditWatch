@@ -32,10 +32,13 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 	override func viewWillAppear(_ animated: Bool) {
 		userSubreddits.text = phases.joined(separator: ",")
 		defaultSubredditField.delegate = self
-		print(switchState)
+		if let sub = UserDefaults.standard.object(forKey: "defaultSubreddit") as? String{
+			defaultSubredditField.text = sub
+		}
 		if switchState{
 			defaultSubredditSwitch.setOn(true, animated: false)
 			defaultSubredditField.isEnabled = true
+			
 		} else{
 			defaultSubredditSwitch.setOn(false, animated: false)
 			defaultSubredditField.isEnabled = false
@@ -228,7 +231,7 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 	}
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
 	{
-		print("return")
+		UserDefaults.standard.set(textField.text, forKey: "defaultSubreddit")
 		if textField.tag == 2{
 			UserDefaults.standard.set(userSubreddits.text?.components(separatedBy: ","), forKey: "phrases")
 			phases = (userSubreddits.text?.components(separatedBy: ","))!
