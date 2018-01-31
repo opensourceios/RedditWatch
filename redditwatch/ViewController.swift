@@ -12,22 +12,37 @@ import SafariServices
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 	@IBOutlet weak var userSubreddits: UITextField!
 	var authSession: SFAuthenticationSession?
 	
+	@IBOutlet weak var defaultSubredditField: UITextField!
+	@IBOutlet weak var defaultSubredditSwitch: UISwitch!
 	@IBOutlet weak var clientTable: UITableView!
 	@IBOutlet weak var connectButton: UIButton!
 	@IBOutlet weak var highResSwitch: UISwitch!
+	var switchState = UserDefaults.standard.object(forKey: "switchState") as? Bool ?? false
 	let clients = ["Reddit", "Apollo", "Narwhal"]
 	var availableClients = [String]()
 	var selectedClient = UserDefaults.standard.object(forKey: "selectedClient") as? String ?? "reddit"
 	var phases = UserDefaults.standard.object(forKey: "phrases") as? [String] ?? ["pics","all", "popular"]
 	
 	var wcSession: WCSession!
+	
 	override func viewWillAppear(_ animated: Bool) {
 		userSubreddits.text = phases.joined(separator: ",")
+		defaultSubredditField.delegate = self
+		print(switchState)
+		if switchState{
+			defaultSubredditSwitch.setOn(true, animated: false)
+			defaultSubredditField.isEnabled = true
+		} else{
+			defaultSubredditSwitch.setOn(false, animated: false)
+			defaultSubredditField.isEnabled = false
+		}
+		
 	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -106,6 +121,26 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 		UserDefaults.standard.set(selectedClient, forKey: "selectedClient")
 		clientTable.reloadData()
 	}
+	@IBAction func switchDefault(_ sender: Any) {
+		if let switchSub = sender as? UISwitch{
+			if switchSub.isOn{
+				print("Setting to on")
+				UserDefaults.standard.set(true, forKey: "switchState")
+				wcSession.sendMessage(["defaultSubreddit": true], replyHandler: nil, errorHandler: { errror in
+					print(errror)
+				})
+				defaultSubredditField.isEnabled = true
+			} else{
+				wcSession.sendMessage(["defaultSubreddit": false], replyHandler: nil, errorHandler: { errror in
+					print(errror)
+				})
+				print("Print setting to false")
+				UserDefaults.standard.set(false, forKey: "switchState")
+				defaultSubredditField.isEnabled = false
+			}
+			
+		}
+	}
 	@IBAction func connectToReddit(){
 		
 		let callbackUrl  = "redditwatch://redirect"
@@ -172,7 +207,6 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 		wcSession.sendMessage(["phrases": phases], replyHandler: nil, errorHandler: { errror in
 			print(errror)
 		})
-		self.resignFirstResponder()
 		
 	}
 	@IBAction func switchImageRes(_ sender: Any) {
@@ -192,6 +226,30 @@ class ViewController: UIViewController, WCSessionDelegate, SFSafariViewControlle
 		UserDefaults.standard.synchronize()
 		print(["a"][1])
 	}
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
+	{
+		print("return")
+		if textField.tag == 2{
+			UserDefaults.standard.set(userSubreddits.text?.components(separatedBy: ","), forKey: "phrases")
+			phases = (userSubreddits.text?.components(separatedBy: ","))!
+			wcSession.sendMessage(["phrases": phases], replyHandler: nil, errorHandler: { errror in
+				print(errror)
+			})
+		} else if textField.tag == 3{
+			if let sub = textField.text{
+				wcSession.sendMessage(["defaultSubreddit": sub], replyHandler: nil, errorHandler: { errror in
+					print(errror)
+				})
+				
+			}
+		}
+		
+		
+		self.view.endEditing(true)
+		
+		return true
+	}
+	
 	override func restoreUserActivityState(_ activity: NSUserActivity) {
 		print("Processing")
 		if let id = activity.userInfo!["current"]{

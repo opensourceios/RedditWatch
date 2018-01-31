@@ -45,7 +45,27 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 		print("we back bitche")
 		if let bool = UserDefaults.standard.object(forKey: "setup") as? Bool{
 			if bool{
-				changeSubreddit()
+				print("setup")
+				if let should = UserDefaults.standard.object(forKey: "shouldLoadDefaultSubreddit") as? Bool{
+					if should{
+						if let sub = UserDefaults.standard.object(forKey: "defaultSubreddit") as? String{
+							print("Setting")
+							setupTable(sub, sort: "hot")
+						} else{
+							print(UserDefaults.standard.object(forKey: "defaultSubreddit"))
+							print("woulnd't let")
+							changeSubreddit()
+						}
+					} else{
+						print("Shouldn't")
+						changeSubreddit()
+					}
+				} else{
+					print("not setup")
+					
+					changeSubreddit()
+					
+				}
 			}
 		}else{
 			self.presentController(withNamesAndContexts: [("setup", AnyObject.self as AnyObject), ("page2", AnyObject.self as AnyObject)])
@@ -111,9 +131,22 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 	}
 	
 	func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+		print(message)
 		if let responsePhrases = message["phrases"] as? [String]{
 			UserDefaults.standard.set(responsePhrases, forKey: "phrases")
 			phrases = responsePhrases
+		}
+		if let should = message["defaultSubreddit"] as? Bool{
+			if should{
+				UserDefaults.standard.set(true, forKey: "shouldLoadDefaultSubreddit")
+				
+			} else{
+				UserDefaults.standard.set(false, forKey: "shouldLoadDefaultSubreddit")
+			}
+		}
+		if let defaultSub = message["defaultSubreddit"] as? String{
+			
+			UserDefaults.standard.set(defaultSub, forKey: "defaultSubreddit")
 		}
 		if let highres = message["highResImage"] as? Bool{
 			UserDefaults.standard.set(highres, forKey: "highResImage")
