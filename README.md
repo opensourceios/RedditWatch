@@ -3,6 +3,9 @@ A Reddit client for the Apple Watch
 
 I got annoyed by not being able to distract myself whenever I wanted, and thought "Hey, you know what's a good idea? Strap Reddit to your wrist, so you never get anything done", and thus the creatively named "RedditWatch" was born.
 
+[![HitCount](http://hits.dwyl.io/WillBishop/RedditWatch.svg)](http://hits.dwyl.io/WillBishop/RedditWatch)
+
+
 # Screenshots
 
 ![Subreddit View](https://i.imgur.com/1uQFYwh.png)
