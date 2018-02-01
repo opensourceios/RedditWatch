@@ -450,23 +450,23 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 		var dir = 0
 		if action == "upvote" && !upvoted{
 			dir = 1
-			upvote = true
-			downvote = false
+			upvoted = true
+			downvoted = false
 			button.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
 			
 		}else if action == "upvote" && upvoted{
-			upvote = false
-			downvote = false
+			upvoted = false
+			downvoted = false
 			dir = 0
 			button.setTitleWithColor(title: "↑", color: UIColor.white)
 		} else if action == "downvote" && !downvoted{
-			downvote = true
-			upvote = false
+			downvoted = true
+			upvoted = false
 			dir = -1
 			button.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
 		} else if action == "downvote" && downvoted{
-			downvote = false
-			upvote = false
+			downvoted = false
+			upvoted = false
 			button.setTitleWithColor(title: "↓", color: UIColor.white)
 		}
 		
