@@ -9,7 +9,7 @@
 import WatchKit
 
 protocol customDelegate: NSObjectProtocol {
-	func didSelect(_ button: WKInterfaceButton, onCellWith id: String, action: String)
+	func didSelect(upvoteButton: WKInterfaceButton, downvoteButton: WKInterfaceButton, onCellWith id: String, action: String)
 }
 
 class NameRowController: NSObject {
@@ -41,10 +41,10 @@ class NameRowController: NSObject {
 	@IBOutlet var twitterLikes: WKInterfaceLabel!
 	@IBOutlet var twitterUsername: WKInterfaceLabel!
 	@IBAction func upvotePost() {
-		self.delegate?.didSelect(self.upvoteButton, onCellWith: self.id, action: "upvote")
+		self.delegate?.didSelect(upvoteButton: self.upvoteButton, downvoteButton: self.downvoteButton, onCellWith: self.id, action: "upvote")
 	}
 	
 	@IBAction func downvotePost() {
-		self.delegate?.didSelect(self.downvoteButton, onCellWith: self.id, action: "downvote")
+		self.delegate?.didSelect(upvoteButton: self.upvoteButton, downvoteButton: self.downvoteButton, onCellWith: self.id, action: "downvote")
 	}
 }

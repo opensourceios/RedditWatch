@@ -444,30 +444,38 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, customDeleg
 			}
 		}
 	}
-	func didSelect(_ button: WKInterfaceButton, onCellWith id: String, action: String) {
+	func didSelect(upvoteButton: WKInterfaceButton, downvoteButton: WKInterfaceButton, onCellWith id: String, action: String) {
 		print(id)
 		guard let access_token = UserDefaults.standard.object(forKey: "access_token") as? String else {return}
 		var dir = 0
 		if action == "upvote" && !upvoted{
+			print("Upvoting")
 			dir = 1
 			upvoted = true
 			downvoted = false
-			button.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
+			upvoteButton.setTitleWithColor(title: "↑", color: UIColor(red:0.95, green:0.61, blue:0.07, alpha:1.0))
+			downvoteButton.setTitleWithColor(title: "↓", color: UIColor.white)
 			
 		}else if action == "upvote" && upvoted{
+			print("Removing Upvote")
 			upvoted = false
 			downvoted = false
 			dir = 0
-			button.setTitleWithColor(title: "↑", color: UIColor.white)
+			upvoteButton.setTitleWithColor(title: "↑", color: UIColor.white)
+			
 		} else if action == "downvote" && !downvoted{
+			print("Downvoting")
 			downvoted = true
 			upvoted = false
 			dir = -1
-			button.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
+			downvoteButton.setTitleWithColor(title: "↓", color: UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0))
+			upvoteButton.setTitleWithColor(title: "↑", color: UIColor.white)
+			
 		} else if action == "downvote" && downvoted{
+			print("Removing downvote")
 			downvoted = false
 			upvoted = false
-			button.setTitleWithColor(title: "↓", color: UIColor.white)
+			downvoteButton.setTitleWithColor(title: "↓", color: UIColor.white)
 		}
 		
 		RedditAPI().vote(dir, id: "t3_" + id, access_token: access_token)
